@@ -1,0 +1,43 @@
+html, body, :global(#root) {
+  height: 100%;
+  background: url('http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/Textures/pattern4.png');
+}
+body .backImg{
+	background: url('http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/Textures/pattern4.png');
+}
+ul.noBack,div.noBack{
+	background: url('http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/Textures/pattern4.png');
+}
+ul.noBack li{
+	/*background-image: url('http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/Textures/pattern4.png');*/
+	background-color: rgba(0,0,0,0);
+}
+ul.shade{
+	background: linear-gradient(#fff, #eee);
+}
+.bor{
+	border: 1px solid #ccc;
+}
+
+.headBigBox{
+	display: flex;
+	background: linear-gradient(rgb(245,245,245), rgb(235,235,235));
+	border-bottom: 1px solid #ddd;
+	margin: 100px 0 15px 0;
+}
+.headBox{
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 0;
+	margin: 0 auto;
+	width: 1000px;
+}
+.headUser{
+	display: flex;
+}
+.headTool{
+	display: flex;
+}
+.headTool li{
+	width: 85px;
+}
