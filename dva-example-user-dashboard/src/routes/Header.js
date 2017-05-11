@@ -46,8 +46,15 @@ export default class App extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <div className={Style}>
-                    
+                <div className={Style.headBox}>
+                    <img src="http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/kanrisha_logo.png" alt=""/>
+                    <div className={Style}>
+                        <span className="button-wrap">
+                            <button className="button button-circle">
+                              <i className="fa fa-cloud">a</i>
+                            </button>
+                          </span>
+                    </div>
                 </div>
             </div>
         );
