@@ -20,6 +20,7 @@ export default class App extends React.Component {
                     <div className={Style.headBox}>
                         <div className={Style.headUser}>
                             <i></i>
+                            
                             John Alex
                         </div>
                         <ul className={Style.headTool}>
@@ -51,9 +52,9 @@ export default class App extends React.Component {
                     <div className={Style}>
                         <span className="button-wrap">
                             <button className="button button-circle">
-                              <i className="fa fa-cloud">a</i>
+                              <i className="fa fa-cloud"></i>
                             </button>
-                          </span>
+                        </span>
                     </div>
                 </div>
             </div>

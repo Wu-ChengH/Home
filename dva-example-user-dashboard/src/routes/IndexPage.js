@@ -28,8 +28,6 @@ function IndexPage(props) {
                   mode="inline"
                   defaultSelectedKeys={['1']}
                   defaultOpenKeys={['sub1']}
-                  style={{ height: '100%' }}
-                  className={Style.noBack}
                 >
                   <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
                     <Menu.Item key="/users">
@@ -44,7 +42,7 @@ function IndexPage(props) {
                   </SubMenu>
                 </Menu>
               </Sider>
-              <Content className={Style.bor} style={{ padding: '0 24px', minHeight: 280 }}>
+              <Content className={Style.backcont} style={{ padding: '0 24px', minHeight: 480 }}>
                  {props.children}
               </Content>
             </Layout>

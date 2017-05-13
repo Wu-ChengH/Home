@@ -18,6 +18,10 @@ ul.shade{
 .bor{
 	border: 1px solid #ccc;
 }
+.flexbox{
+	display: flex;
+	justify-content: space-between;
+}
 
 .headBigBox{
 	display: flex;
@@ -40,4 +44,88 @@ ul.shade{
 }
 .headTool li{
 	width: 85px;
+}
+
+.backcont{
+	background-color: #F9F9F9;
+	height: auto;
+}
+.inboxHead{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.inboxHead h3{
+	color: #9D9D9D;
+}
+.inboxHead p{
+	color: #8f8f8f;
+}
+
+.bG{
+	border:1px solid #ccc;
+}
+.sett{
+	position: relative;
+}
+.btthid{
+	border: 1px solid #ccc;
+	margin-top: 10px;
+	margin-left: -20px;
+	width: 100px;
+	position: absolute;
+	background-color: #F5F5F5;
+}
+.btthid div{
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+.btthid div:last-child{
+	border-bottom: none;
+}
+.btt{
+	height: 30px;
+	background-color: #F8F8F8;
+	margin: 10px 10px 0 10px;
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+.Ticket{
+	border: 1px solid #ccc;
+	border-bottom: none;
+	margin-top: 50px;
+}
+.ticket{
+	border-bottom: 1px solid #ccc;
+	line-height: 40px;
+	padding: 0 20px;
+}
+.search{
+	padding: 15px 20px;
+}
+.search input{
+	height: 30px;
+}
+.search button{
+	padding: 5px;
+	width: 50px;
+	display: inline-block;
+	text-align: center;
+	background-color: #F8F8F8;
+	margin-left: 20px;
+	border: 1px solid #ccc;
+}
+
+.chartbox{
+	margin-top: 40px;
+}
+.zhu{
+	border: 1px solid #ccc;
+	width: 350px;
+	height: 320px;
+}
+.charttitle{
+	border-bottom: 1px solid #ccc;
+	padding: 10px 20px;
 }
