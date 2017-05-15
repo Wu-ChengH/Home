@@ -1,0 +1,88 @@
+.input-normal{
+	border: 1px solid #ddd;
+	width: 200px;
+	height: 30px;
+	color: #999;
+	font-size: 14px;
+	border-radius: 1px;
+	line-height: 30px;
+	position: relative;
+}
+.input-normal>input{
+	outline: none;
+	width: calc(100% - 12px);
+	height: calc(100% - 2px);
+	color: #999;
+	border: 0px;
+	margin-left:10px;
+}
+
+.input-normal:before{
+	content: attr(errormsg);
+	position: absolute;
+	top: 100%;
+	left: 5px;
+	width: 100%;
+	color: red;
+	font-size: 10px;
+	line-height: 100%;
+	margin-top: 6px;
+	z-index: 10;
+	letter-spacing : 1px;
+}
+
+.input-active{
+	border: 1px solid #009cff;
+	color: black;
+	box-shadow: 0px 0px 1px 1px #aadeff;
+}
+.input-active>input{color: black;}
+.input-complate{}
+.input-complate>input{
+	color: black;
+}
+.input-success{
+	border: 1px solid #66bb6a;
+	box-shadow: 0px 0px 1px 1px #cce8cd;
+}
+.input-success>input{
+	width: calc(100% - 40px);
+}
+.input-success:after{
+	content: ' ';
+	background: url('input.png');
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: calc( 50% - 12px);
+	right: 7px;
+}
+.input-error{
+	border: 1px solid #f57c00;
+	box-shadow: 0px 0px 1px 1px #fcd3aa;
+	position: relative;
+}
+.input-error>input{
+	width: calc(100% - 40px);
+}
+.input-error:after{
+	content: ' ';
+	background: url('input.png');
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: calc( 50% - 12px);
+	right: 7px;
+	background-position-x: 24px;
+}
+
+.input-disable,.input-disable>input{
+	background-color:#f2f2f2; 
+}
+.input-label{
+	border: 0px;
+	color : black;
+}
+.input-label>input{
+	color:black;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="Input.css">
+<script type="text/javascript" src="Input.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var input_valid = new Input({
+			ele : document.getElementById('test_valid')
+			,msg : '请输入有效身份证号码'
+			,valid : ['required','idcard',{
+				minlength : 10 // 不要在意细节 这只是给你测试用的
+				,maxlength : 20
+			},{
+				test : {
+					rule : /513822099/
+					,msg :'身份证必须包含513822099'
+				}
+			},{
+				test1 : {
+					rule : function(){
+						return this.value.length === 18;
+					}
+					,msg : '身份证必须为18位'
+				}
+			}]
+		});
+		var input_label = new Input({
+			ele : document.getElementById('test_label')
+			,type : 'label'
+			,value : '我只是一个单纯的label'
+		})
+		var input_disable = new Input({
+			ele : document.getElementById('test_disabel')
+			,disable : true
+			,value : '我被禁用了'
+		})
+		document.getElementById('submit').onclick = function(){
+			alert(input_valid.valid());
+		}
+		document.getElementById('disabel').onclick = function(){
+			var _disable = input_disable.get('disable');
+			if(_disable){
+				input_disable.val('我被启用了');
+			}else{
+				input_disable.val('我又被禁用了~');
+			}
+			input_disable.disable(!_disable);
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="test_valid">
+	</div>
+	<div id='submit' style="width:50px;height:30px; border:1px solid #aadeff;margin-top:30px;cursor:pointer;">
+		submit
+	</div>
+	<div id="test_label" style="margin-top:30px;">
+		
+	</div>
+	<div id="test_disabel"></div>
+	
+	<div id='disabel' style="width:50px;height:30px; border:1px solid #aadeff;margin-top:30px;cursor:pointer;">
+		disabel
+	</div>
+	<!--
+		<div>
+			{Input : A }
+		</div>
+		
+	-->
+</body>

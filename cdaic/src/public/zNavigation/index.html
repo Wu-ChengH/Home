@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>导航插件演示</title>
+		<link rel="stylesheet" href="zNavigation.css">
+		<link rel="stylesheet" href="../fontAwesome/css/font-awesome.min.css">
+		<script src="../../../lib/jquery-1.11.1.min.js"></script>
+		<script src="zNavigation.js"></script>
+		<style>
+			html,body{width:100%;height:100%;margin:0;padding:0}
+			body{background:#333;}
+		</style>
+	</head>
+	<body>
+		<div id="menu"></div>
+		<script>
+			var demoData = [
+                            {
+                                "id": 1,
+                                "name": "我的会议",
+                                "url": "meetinglist.html",
+								ico:"home",
+                                "parentId": 24
+                            },
+                            {
+                                "id": 8,
+                                "name": "会务活动",
+                                "parentId": 24,
+                                "children":[
+                                    {
+                                        "id": 81,
+                                        "name": "活动列表",
+                                        "url": "activityManage/activitiesList.html?affairsType=1",
+                                        "parentId": 8,
+										"children":[
+											{
+												"id": 6,
+												"name": "会议资料",
+												"url": "data/meetingData.html",
+												"parentId": 24
+											},
+											{
+												"id": 7,
+												"name": "会务联系",
+												"url": "commentManage/meetingContact.html",
+												"parentId": 24
+											}
+										]
+
+                                    },
+                                    {
+                                        "id": 82,
+                                        "name": "活动报名审核",
+                                        "url": "activityManage/activitiesAuditi.html",
+                                        "parentId": 8
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 9,
+                                "name": "非会务活动",
+                                "parentId": 25,
+                                "children":
+                                    [
+                                        {
+                                            "id": 91,
+                                            "name": "活动列表",
+                                            "url": "activityManage/activitiesList.html?affairsType=2",
+                                            "parentId": 9
+
+                                        },
+                                        {
+                                            "id": 95,
+                                            "name": "活动报名审核",
+                                            "url": "activityManage/activitiesAuditi.html",
+                                            "parentId": 9
+                                        }
+                                    ]
+                            },
+                            {
+                                "id": 10,
+                                "name": "签到管理",
+                                "parentId": 1,
+                                "children":[
+                                    {
+                                        "id": 101,
+                                        "name": "会场签到",
+                                        "url": "signIn/meetingPlaceList.html",
+                                        "parentId": 10
+
+                                    },
+                                    {
+                                        "id": 102,
+                                        "name": "活动签到",
+                                        "url": "signIn/activitiesList.html",
+                                         "parentId": 10
+                                    },
+                                    {
+                                        "id": 103,
+                                        "name": "餐饮签到",
+                                        "url": "signIn/repastList.html",
+                                         "parentId": 10
+                                    },
+                                    {
+                                        "id": 104,
+                                        "name": "住宿签到",
+                                        "url": "signIn/hotelList.html",
+                                         "parentId": 10
+                                    },
+                                    {
+                                        "id": 105,
+                                        "name": "车辆签到",
+                                        "url": "signIn/carList.html",
+                                         "parentId": 10
+                                    },
+                                    {
+                                        "id": 106,
+                                        "name": "纪念品签到",
+                                        "url": "signIn/giftList.html",
+                                        "parentId": 10
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 13,
+                                "name": "广告位管理",
+                                "parentId": 1,
+                                "children":[
+                                    {
+                                        "id": 141,
+                                        "name": "广告位列表",
+                                        "url": "adPosition/adpositionlist.html",
+                                        "parentId": 28
+
+                                    },
+                                    {
+                                        "id": 142,
+                                        "name": "广告位发布",
+                                        "url": "adPosition/advertisingRelease.html",
+                                        "parentId": 28
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 15,
+                                "name": "消息推送",
+                                "parentId": 24,
+                                "children":[
+                                    {
+                                        "id": 141,
+                                        "name": "系统",
+                                        "url": "messages/messagelist.html?sendWay=1",
+                                        "parentId": 28
+
+                                    },
+                                    {
+                                        "id": 142,
+                                        "name": "短信",
+                                        "url": "messages/messagelist.html?sendWay=2",
+                                        "parentId": 28
+                                    },
+                                    {
+                                        "id": 142,
+                                        "name": "邮件",
+                                        "url": "messages/messagelist.html?sendWay=4",
+                                        "parentId": 28
+                                    },
+                                    {
+                                        "id": 142,
+                                        "name": "微信",
+                                        "url": "messages/messagelist.html?sendWay=3",
+                                        "parentId": 28
+                                    },
+                                    {
+                                        "id": 142,
+                                        "name": "模板管理",
+                                        "url": "messages/messagetpl.html",
+                                        "parentId": 28
+                                    }
+                                    
+                                ]
+                            },
+                            {
+                                "id": 18,
+                                "name": "旅游资讯",
+                                "url": "news/tourInfo.html",
+                                "parentId": 33
+                            },
+
+                            {
+                                "id": 19,
+                                "name": "会议指南",
+                                "url": "news/commentPosition.html",
+                                "parentId": 33
+                            },
+                            {
+                                "id": 20,
+                                "name": "图文直播",
+                                "url": "news/meetingLive.html",
+                                "parentId": 33
+                            },
+                            {
+                                "id": 21,
+                                "name": "互动",
+                                "parentId": 24,
+                                "children":[
+                                    {
+                                        "id": 1,
+                                        "name": "在线评论",
+                                        "url": "mutual/onlineCommentList.html",
+                                        "parentId": 26
+                                    },
+                                   {
+                                        "id": 1,
+                                        "name": "名片交换",
+                                        "url": "mutual/cardCollectList.html",
+                                        "parentId": 26
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 23,
+                                "name": "应用管理",
+                                "url": "appManage/app.html",
+                                "parentId": 24
+                            }
+                        ]
+			var menu = new zNavigation({
+				ele : $("#menu"),
+				data:demoData,
+				theme:"red",
+				width:170,
+				speed:100,
+				icon:true,
+				search:true,
+				onInit:function(n){
+				},
+				onClick:function(data){
+					console.log(data);
+				}
+			});
+		</script>
+	</body>
+</html>

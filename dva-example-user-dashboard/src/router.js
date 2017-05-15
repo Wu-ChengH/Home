@@ -9,7 +9,7 @@ function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Route path="/" component={IndexPage}>
-        <IndexRoute component={Users} />
+        <IndexRoute component={Inbox} />
         <Route path="/Inbox" component={Inbox} />
         <Route path="/users" component={Users} />
         <Route path="/Chart" component={Chart} />

@@ -1,0 +1,436 @@
+<div class="page_container" id="compBusinessMap">
+	<div class="page-pack">
+		<div id="chart"></div>
+		<div class="boxes">
+			<div class="box">
+				<div class="title">
+					<span>投资人出资情况</span>
+					<a class="closed" id="closeBox"></a>
+				</div>
+
+				<div class="main" id="moneyDetail"></div>
+			</div>
+			<div class="box">
+				<div class="title">
+					<span>企业投资情况</span>
+				</div>
+
+				<div class="main" id="companyDetail"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script rel="script">
+	define(function(require){
+		require("src/webapps/compBusinessMap/compBusinessMap.css");
+		var base = require("Base");
+		return base.extend({
+			onInit : function(option){
+				var _this = this;
+
+				_this.initChart();
+
+				_this.bindEvent();
+			},
+
+			bindEvent : function(){
+				var _this = this;
+
+				_this.$('#closeBox').on('click', (e) => {
+					this.$('.boxes').fadeOut();
+				});
+
+				_this.$('.page-pack').mCustomScrollbar({
+					theme : 'dark'
+				});
+			},
+
+			drawMoneyDetailPie : function(){
+				var _this = this;
+
+				if(_this.mChart){
+					_this.mChart.dispose();
+				} 
+				_this.mChart = echarts.init(_this.$('#moneyDetail')[0]);
+				
+				var option = {
+				    tooltip : {
+				        trigger: 'item',
+				        formatter: "{a} <br/>{b} : {c} ({d}%)"
+				    },
+				    series : [
+				    	{
+							name: '投资人出资情况',
+				            type: 'pie',
+				            radius : '65%',
+				            center: ['50%', '50%'],
+				            label : {
+				            	normal : {
+				            		formatter : function(arg){
+				            			return arg.percent + '%\n' + arg.name  + '(' + arg.value + ')';
+				            		}
+				            	}
+				            },
+				            data:[
+				                {value: Math.ceil(Math.random() * 100), name:'张丹'},
+				                {value: Math.ceil(Math.random() * 100), name:'雷天'},
+				                {value: Math.ceil(Math.random() * 100), name:'马云天'},
+				                {value: Math.ceil(Math.random() * 100), name:'李彦非'},
+				                {value: Math.ceil(Math.random() * 100), name:'雷名'},
+				                {value: Math.ceil(Math.random() * 100), name:'邓艳华'},
+				                {value: Math.ceil(Math.random() * 100), name:'张猛'},
+				                {value: Math.ceil(Math.random() * 100), name:'李飞'},
+				                {value: Math.ceil(Math.random() * 100), name:'刘金'},
+				                {value: Math.ceil(Math.random() * 100), name:'绮丽'},
+				                {value: Math.ceil(Math.random() * 100), name:'张思凡'},
+				                {value: Math.ceil(Math.random() * 100), name:'杨敏'},
+				                {value: Math.ceil(Math.random() * 100), name:'王大彤'}
+				            ]
+						}
+				    ]
+				};
+
+				_this.mChart.setOption(option);
+			},
+
+			drawCompanyDetaiPie : function(){
+				var _this = this;
+
+				if(_this.cChart){
+					_this.cChart.dispose();
+				} 
+				_this.cChart = echarts.init(_this.$('#companyDetail')[0]);
+
+				var data  = this.mainChart.getOption(),
+					sery  = data.series[0],
+					nodes = sery.data;
+
+				var arrs = _this.getIndex();
+				var data = [];
+				for(var i=0; i<arrs.length; i++){
+					data.push({
+						name  : nodes[arrs[i]].name,
+						value : Math.ceil(Math.random() * 100) + 50
+					});
+				}
+
+				var option = {
+				    tooltip : {
+				        trigger: 'item',
+				        formatter: "{a} <br/>{b} : {c} ({d}%)"
+				    },
+				    series : [
+				    	{
+				            name:'企业投资情况',
+				            type:'pie',
+				            radius : [30, 110],
+				            center : ['50%', '50%'],
+				            roseType : 'area',
+				            label : {
+				            	normal : {
+				            		formatter : function(arg){
+				            			return arg.percent + '%\n' + _this.splitName(arg.name);
+				            		}
+				            	}
+				            },
+				            data: data
+				        }
+				    ]
+				};
+
+				_this.cChart.setOption(option);
+			},
+
+			getIndex : function(obj){
+				var _this = this;
+				if(!obj){
+					obj = {};
+				}
+				var index = Math.floor(Math.random() * 30);
+				if(!obj[index + '']){
+					obj[index + ''] = index;
+				}
+
+				var arr = [];
+				$.each(obj, function(i, v){
+					arr.push(v);
+				});
+
+				if(arr.length >= 5){
+					return arr;
+				} else {
+					return _this.getIndex(obj);
+				}
+			},
+
+			splitName : function(name){
+				var result = [];
+				for(var i = 0; i<name.length; i++){
+					if(i > 0 && (i+1) % 6 == 0){
+						result.push(name.substr(((i+1)/6 - 1) * 6, 6));
+					} else if(i == name.length -1){
+						var index = Math.floor(i / 6);
+						result.push(name.substr(index * 6, i+1));
+					}
+				}
+				return result.join('\n');
+			},
+
+
+			initChart : function(){
+				var _this = this;
+				this.mainChart = echarts.init(_this.$('#chart')[0]);
+				var nodes = _this.createNodes();
+				var option = {
+					tooltip: {
+						formatter : function(point){
+							if(point.dataType == 'node'){
+								return '公司：<br/>' + point.name;
+							} else if(point.dataType == 'edge'){
+								var data  = _this.mainChart.getOption(),
+									sery  = data.series[0],
+									nodes = sery.data;
+
+								return '公司：<br/>' + nodes[point.data.source].name + '<br/>' + nodes[point.data.target].name;
+							}
+						}
+					},
+			        series: [{
+			            type: 'graph',
+			            layout: 'force',
+			            animation: false,
+			            label: {
+			                normal: {
+			                    position: 'right',
+			                    formatter: '{b}'
+			                }
+			            },
+			            lineStyle : {
+			            	normal : {
+			            		width : 3,
+			            		color : 'rgb(25, 154, 255)',
+			            		curveness : 0.01
+			            	}
+			            },
+			            draggable: true,
+			            data: nodes.data,
+			            categories: nodes.categories,
+			            force: {
+			                edgeLength: 1,
+			                repulsion: 250
+			            },
+			            links: nodes.links
+			        }]
+				};
+			    this.mainChart.setOption(option);
+
+			    this.mainChart.on('click', function(point){
+			    	if(point.dataType == 'node'){
+			    		_this.$('.boxes').show();
+			    		setTimeout(function(){
+			    			_this.drawMoneyDetailPie();
+			    			_this.drawCompanyDetaiPie();
+			    		}, 1)
+			    	}
+			    });
+			},
+
+			createNodes : function(){
+				var result = {
+					data : [],
+					categories : [
+						{name : '集合1'},
+						{name : '集合2'},
+						{name : '集合3'}
+					],
+					links : [] 
+				};
+
+				var companys = [
+					"四川省电力公司",
+					"五粮液集团有限公司",
+					"长虹电子集团公司",
+					"攀枝花钢铁公司",
+					"川庆钻探工程有限公司",
+					"西南油气田分公司",
+					"四川省川威集团有限公司",
+					"东方锅炉(集团)股份有限公司",
+					"攀钢集团成都钢铁有限责任公司",
+					"四川烟草工业有限责任公司",
+					"攀枝花新钢钒股份有限公司",
+					"成都飞机工业(集团)有限责任公司",
+					"四川省达州钢铁集团有限责任公司",
+					"东方电气集团东方汽轮机有限公司",
+					"二滩水电开发有限责任公司",
+					"成都四方伟业软件股份有限公司",
+					"四川一汽丰田汽车有限公司",
+					"成都神钢工程机械（集团）有限公司",
+					"东方电气集团东方电机有限公司",
+					"四川盛马化工股份有限公司",
+					"泸天化(集团)有限责任公司",
+					"四川石油管理局",
+					"攀枝花钢城集团有限公司",
+					"宜宾天原集团股份有限公司",
+					"四川省资阳市四海发展实业有限公司",
+					"四川宏华石油设备有限公司",
+					"四川西南不锈钢有限责任公司",
+					"四川省天泽贵金属有限责任公司",
+					"资阳市南骏汽车有限责任公司",
+					"攀钢集团四川长城特殊钢有限责任公司"
+				];
+
+				for(var i=0; i<30; i++){
+					var category = 0;
+					if(i >= 11 && i < 15){
+						category = 1;
+					} else if(i >= 15){
+						category = 2;
+					}
+
+					var value = 0;
+					if(i == 0 || i == 11 || i == 15){
+						value = 50;
+					} else if((i > 5 && i < 11) || i > 22){
+						value = 15;
+					} else {
+						value = 25;
+					}
+
+					result.data.push({
+						name     : companys[i],
+						value    : value,
+						category : category,
+						label 	 : {
+							normal : {
+								show : (i == 0 || i == 11 || i == 15),
+								textStyle : {
+									fontWeight: 'bold',
+									fontSize : 16,
+									color: '#000'
+								}
+							}
+						},
+						symbolSize : value,
+						id:i
+					});
+				}
+
+				
+
+		        for(var i=1; i<6; i++){
+		        	result.links.push({
+		        		source : 0,
+		        		target : i
+		        	});
+		        }
+
+		        result.links.push({
+		        	source : 3,
+		        	target : 8
+		        });
+
+		        result.links.push({
+		        	source : 3,
+		        	target : 7
+		        });
+
+		        result.links.push({
+		        	source : 3,
+		        	target : 6
+		        });
+
+		        result.links.push({
+		        	source : 5,
+		        	target : 9
+		        });
+
+		        result.links.push({
+		        	source : 5,
+		        	target : 10
+		        });
+
+		        for(var i=12; i<15; i++){
+		        	result.links.push({
+		        		source : 11,
+		        		target : i
+		        	});
+		        }
+
+		        for(var i=15; i<=22; i++){
+		        	result.links.push({
+		        		source : 15,
+		        		target : i
+		        	});
+		        }
+
+		        result.links.push({
+		        	source : 15,
+		        	target : 11
+		        });
+
+		        result.links.push({
+		        	source : 0,
+		        	target : 15
+		        });
+
+		        result.links.push({
+		        	source : 19,
+		        	target : 11
+		        });
+
+		        result.links.push({
+		        	source : 22,
+		        	target : 23
+		        });
+
+		        result.links.push({
+		        	source : 23,
+		        	target : 24
+		        });
+
+		        result.links.push({
+		        	source : 21,
+		        	target : 25
+		        });
+
+		        result.links.push({
+		        	source : 26,
+		        	target : 20
+		        });
+
+		        result.links.push({
+		        	source : 26,
+		        	target : 19
+		        });
+
+		        result.links.push({
+		        	source : 26,
+		        	target : 18
+		        });
+
+		        result.links.push({
+		        	source : 20,
+		        	target : 27
+		        });
+
+		        result.links.push({
+		        	source : 20,
+		        	target : 27
+		        });
+
+		        result.links.push({
+		        	source : 27,
+		        	target : 28
+		        });
+
+		        result.links.push({
+		        	source : 16,
+		        	target : 29
+		        });
+
+
+				return result;
+			}
+		});
+	});
+</script>

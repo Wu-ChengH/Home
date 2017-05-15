@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="renderer" content="webkit"> <!--针对360极速浏览器-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" ><!--针对360普通浏览器，强制使用当前电脑中最高IE版本进行渲染-->
+	<meta name="author" content="sefonsoft.com" />
+	<link rel="stylesheet" href="lib/bootstrap-3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="src/style/reset.css">
+	<link rel="stylesheet" href="src/style/global.css" charset="utf-8"/>
+	<title>成都工商大数据监管应用平台</title>
+	<!--<script type="text/javascript">
+		(function(){
+			var contextPath="<%=request.getSession().getServletContext().getContextPath()%>";
+			window.$$ = function(uri) {
+				return (contextPath +"/"+ uri).replace(/\/{2}/, '/');
+			};
+		})();
+	</script>-->
+</head>
+<body>
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="lib/sea-debug.js"></script>
+    <script type="text/javascript">
+	    window.onload = function(){
+	        seajs.use("/main.js",function(){
+				
+			});
+	    }	
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+#groupPortrait{
+	position:absolute;
+	top:20px;
+	left:50px;
+	bottom:30px;
+	right:50px;
+}
+
+
+#groupPortrait #groupPortraitTable{
+	padding:4px;
+}
+#groupPortrait #groupPortraitTable table{
+	width:100%;
+	border-right:1px solid #e2e2e2;
+	border-top:1px solid #cfd6db;
+}
+#groupPortrait #groupPortraitTable table td{
+	border-left:1px solid #e2e2e2;
+	border-bottom:1px solid #e2e2e2;
+	color:#888;
+}
+#groupPortrait #groupPortraitTable table tbody tr:nth-child(even){
+	background:#f9f9f9;
+}
+#groupPortrait #groupPortraitTable table th{
+	border-left:1px solid #cfd6db;
+	border-bottom:1px solid #cfd6db;
+	background:#e6ebef;
+	color:#657079;
+	font-weight:normal;
+}
+#groupPortrait #groupPortraitTable table th,#groupPortrait #groupPortraitTable table td{
+	height:30px;
+	line-height:30px;
+	padding:0 10px;
+}

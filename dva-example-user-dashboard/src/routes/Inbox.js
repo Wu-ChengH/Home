@@ -1,7 +1,9 @@
 import { Table } from 'antd';
 import Style from '../index.css';
+const Icon = require('uxcore-icon');
+import 'uxcore/assets/iconfont.css';
+import 'uxcore/assets/orange.css';
 
-console.log(2)
 const columns = [{
   title: 'ID',
   dataIndex: 'id',
@@ -115,20 +117,42 @@ class Inbox extends React.Component{
     return (
       <div className={Style.Inbox}>
         <div className={Style.inboxHead}>
-          <div>
-            <h3><i></i>Inbox</h3>
+          <div className={Style.tit}>
+            <h3><Icon name="youxiang-full" />Inbox</h3>
             <p>Your Tickets, Chats, Email</p>
           </div>
           <div className={Style.flexbox}>
             <div className={Style.sett}>
-              <button onClick={this.hid.bind(this)} className={Style.btt}>Settings</button>
+              <div className={Style.btt}>
+                <Icon name="shezhi" />
+                Settings
+                <div className={Style.hidclick} onClick={this.hid.bind(this)}>
+                  <b></b>
+                </div>
+              </div>
               <div style={{display:this.state.hid ? 'none' : 'block'}} className={Style.btthid}>
-                <div>one</div>
-                <div>two</div>
+                <div className={Style.hoveWhite}>
+                  <Icon name="zengjia1" />
+                  New File
+                </div>
+                <div className={Style.hoveWhite}>
+                  <Icon name="lianjie" />
+                  Files Left
+                </div>
+                <div className={Style.hoveWhite}>
+                  <Icon name="xinwen1" />
+                  Browse Files
+                </div>
               </div>
             </div>
-            <button className={Style.btt}>Help</button>
+            <div className={Style.btt}>
+              <Icon name="xiaolian-line" />
+              Help
+            </div>
           </div>
+        </div>
+        <div className={Style.parting}>
+          <span></span>
         </div>
         <div className={Style.Ticket}>
           <div className={Style.ticket}>Ticket Table</div>

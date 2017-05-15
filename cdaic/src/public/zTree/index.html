@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>zTree 演示</title>
+	<link rel="stylesheet" href="zTree.css">
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="jquery.zTree.js"></script>
+	<style>
+		html,body{width:100%;height:100%;}
+		body{margin:0;padding:0;font-family:"微软雅黑";font-size:12px;color:#333;}
+		.panel{float:left;margin:10px;}
+		.panelTitle{width:100%;text-align:left;font-size:14px;font-weight:bold;height:50px;line-height:50px;}
+		.treePanel{width:300px;padding:10px;}
+		.methodsPanel{}
+		.methodsPanel button{text-decoration:none;border:1px solid #ccc;height:30px;line-height:25px;text-align:center;display:inline-block;color:#333;padding:0 10px;border-radius:5px;background:#fff;cursor:pointer;}
+		#console{padding:10px;border:1px solid #ccc;border-radius:5px;height:240px;resize:none;width:300px;font-size:12px;}
+	</style>
+</head>
+<body>
+	<div class="treePanel panel">
+		<div class="panelTitle">结构树</div>
+		<ul id="demoTree"></ul>
+	</div>
+	<div class="methodsPanel panel">
+		<div class="panelTitle">方法</div>
+		<button onclick="collapseAll()">全部折叠</button>
+		<button onclick="expandAll()">全部展开</button>
+		<button onclick="expandTo()">展开到</button>
+		<button onclick="getSelected()">获取点击</button>
+		<button onclick="getChecked()">获取选中</button>
+	</div>
+	<div class="console panel">
+		<div class="panelTitle">控制台</div>
+		<textarea id="console"></textarea>
+	</div>
+	
+	<script type="text/javascript">
+		$("#demoTree").tree({
+			url:"demoData.json",
+			method:"get",
+			animate:true,
+			checkbox:true,
+			icons:true,
+			lines:true
+		})
+		
+		
+		function collapseAll(){
+			$('#demoTree').tree('collapseAll');
+			$("#console").val("树被全部收起");
+		}
+		function expandAll(){
+			$('#demoTree').tree('expandAll');
+			$("#console").val("树被全部展开");
+		}
+		function expandTo(){
+			var node = $('#demoTree').tree('find',113);
+			$('#demoTree').tree('expandTo', node.target).tree('select', node.target);
+			$("#console").val("树展开到Company");
+		}
+		function getSelected(){
+			var node = $('#demoTree').tree('getSelected');
+			if (node){
+				var selected = node.text;
+				if (node.attributes){
+					selected += ","+node.attributes.p1+","+node.attributes.p2;
+				}
+				$("#console").val("点击了："+selected);
+			}
+		}
+		function getChecked(){
+			var node = $('#demoTree').tree('getChecked');
+			var checked = "";
+			if (node&&node.length>0){
+				$(node).each(function(i,v){
+					var att = "";
+					if(i!=0){
+						att = "、";
+					}
+					checked += att+v.text
+				})
+			}else{
+				checked = "没有选中的节点"
+			}
+			$("#console").val("选中了："+checked);
+		}
+	</script>
+</body>
+</html>

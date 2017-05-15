@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>zUploader演示--Power By zengchao</title>
+<link rel="stylesheet" type="text/css" href="Zuploader.css"/>
+</head>
+
+<body>
+<div id="upload"></div>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.0.2/jquery.min.js"></script>
+<script type="text/javascript" src="zUploader.js"></script>
+<script type="text/javascript">
+	
+	/*$('#upload').zUploader({
+		auto:true,
+		fileTypeExts:'*.jpg;*.png;*.doc;*.docx;*.txt;*.zip',
+		multi:true,
+		buttonText:"上传附件",
+		totalFileSize:1024*20,
+		fileSizeLimit:1024,
+		showUploadedPercent:true,
+		fileMaxLimit:3,
+		showUploadedSize:true,
+		removeTimeout:999999,
+		uploader:'upload.php',
+		onSelect:function(file,fileFilter){
+			//console.log("选择了文件");
+			//console.log(file)
+		},
+		onUploadError:function(file,response){
+			//console.log("上传失败");
+		},
+		onUploadSuccess:function(file,response){
+			//console.log("上传成功");
+		},
+		onUploadComplete:function(file,response){
+			//console.log("上传完成");
+		},
+		onCancel:function(file,fileFilter){
+		}
+	});*/
+	
+	new zUploader({
+		ele:$("#upload"),
+		initData:[
+			{
+				name:"dsfdfdf.jpg",
+				size:343432434
+			},{
+				name:"十大股东.jpg",
+				size:4543545
+			}
+		]
+	});
+</script>
+</body>
+</html>

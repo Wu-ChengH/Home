@@ -1,0 +1,200 @@
+<div class="page_container" id="compRelationship">
+	<div id="compRelationshipCharts" class="fl"></div>
+	
+	<div class="layoutBox fr compRelationshipInfoBox">
+		<div class="layoutBox-header">买家企业分布情况</div>
+		<div class="layoutBox-content" id="buyersBarCharts"></div>
+		<div class="layoutBox-header">卖家企业分布情况</div>
+		<div class="layoutBox-content" id="sellerBarCharts"></div>
+		<div class="layoutBox-header">同行企业分布情况</div>
+		<div class="layoutBox-content" id="peersBarCharts"></div>
+	</div>
+</div>
+
+<script rel="script">
+define(function(require){
+	require("compRelationship/compRelationship.css");
+	require("lib/echarts3/map/js/china.js");
+    require("lib/echarts3/map/chengdu/chengdu.js");
+	var testGeoCoordMap = require("src/demoData/lng-lat.js");
+	var base = require("Base");
+	return base.extend({
+		onInit : function(option){
+			var _this = this;
+			this.$("#compRelationshipCharts").height($(window).height()-120).width($(window).width()-430);
+			this.compRelationshipCharts = echarts.init(document.getElementById('compRelationshipCharts'));
+			this.buyersBarCharts = echarts.init(document.getElementById('buyersBarCharts'));
+			this.sellerBarCharts = echarts.init(document.getElementById('sellerBarCharts'));
+			this.peersBarCharts = echarts.init(document.getElementById('peersBarCharts'));
+			this.buildAllCharts();
+		},
+		buildAllCharts : function(){
+			this.buyersBarCharts.setOption(this.buildBarChartsOption(["#b3db80"]));
+			this.sellerBarCharts.setOption(this.buildBarChartsOption(["#efbd5d"]));
+			this.peersBarCharts.setOption(this.buildBarChartsOption(["#98c7f5"]));
+			this.buildHotspotCharts();
+		},
+		buildHotspotCharts : function(){
+  			var self = this;
+			var data = testGeoCoordMap.valueList;
+			var geoCoordMap = testGeoCoordMap.lngLatList;
+
+			var convertData = function (data) {
+				var res = [];
+				for (var i = 0; i < data.length; i++) {
+					var geoCoord = geoCoordMap[data[i].name];
+					if (geoCoord) {
+						res.push({
+							name: data[i].name,
+							value: geoCoord.concat(data[i].value)
+						});
+					}
+				}
+				return res;
+			};
+
+			var option = {
+				tooltip : {
+					trigger: 'item'
+				},
+				legend: {
+					orient: 'vertical',
+					y: 'top',
+					x:'right',
+					data:['pm2.5'],
+					textStyle: {
+						color: '#fff'
+					}
+				},
+				geo: {
+					map: 'chengdu',
+					label: {
+						normal : {
+							show : true	
+						},
+						emphasis: {
+							show: true
+						}
+					},
+					roam: true/*,
+					itemStyle: {
+						normal: {
+							areaColor: '#323c48',
+							borderColor: '#111'
+						},
+						emphasis: {
+							areaColor: '#2a333d'
+						}
+					}*/
+				},
+				series : [
+					{
+						name: 'pm2.5',
+						type: 'scatter',
+						coordinateSystem: 'geo',
+						data: convertData(data),
+						symbolSize: function (val) {
+							return val[2] / 10;
+						},
+						label: {
+							normal: {
+								formatter: '{b}',
+								position: 'right',
+								show: false
+							},
+							emphasis: {
+								show: true
+							}
+						},
+						itemStyle: {
+							normal: {
+								color: '#ddb926'
+							}
+						}
+					},
+					{
+						name: 'Top 5',
+						type: 'effectScatter',
+						coordinateSystem: 'geo',
+						data: convertData(data.sort(function (a, b) {
+							return b.value - a.value;
+						}).slice(0, 6)),
+						symbolSize: function (val) {
+							return val[2] / 20;
+						},
+						showEffectOn: 'render',
+						rippleEffect: {
+							brushType: 'stroke'
+						},
+						hoverAnimation: true,
+						label: {
+							normal: {
+								formatter: '{b}',
+								position: 'right',
+								show: true
+							}
+						},
+						itemStyle: {
+							normal: {
+								color: '#f4e925',
+								shadowBlur: 10,
+								shadowColor: '#333'
+							}
+						},
+						zlevel: 1
+					}
+				]
+			};
+			self.compRelationshipCharts.setOption(option);
+		},
+		buildBarChartsOption : function(style,chartData){
+			var option = {
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'shadow'
+					},
+					formatter: '{b}: {c}'
+				},
+				color : style,
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '3%',
+					top:"3%",
+					containLabel: true
+				},
+				xAxis: {
+					type: 'value',
+					boundaryGap: [0, 0.01],
+					axisLabel:{
+						textStyle:{
+							fontSize : 11,
+							color:"#9fa4aa"
+						}
+					},
+				},
+				yAxis: {
+					type: 'category',
+					axisLabel:{
+						textStyle:{
+							fontSize : 11,
+							color:"#9fa4aa"
+						}
+					},
+					data: ['高新区','双流区','彭州市','龙泉驿区','郫县','金牛区','新都区','武侯区','青羊区','青白江区']
+				},
+				series: [
+					{
+						name: '分布情况',
+						type: 'bar',
+						barWidth : 8,
+						data: [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000]
+					}
+				]
+			};
+			return option;
+		}
+	});
+});
+</script>

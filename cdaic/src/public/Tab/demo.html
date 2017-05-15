@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="Tab.css" />
+<script type="text/javascript" src="Tab.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var t  = new Tab({
+			id : 'div_tab1'
+			,data : ['test','test1','test2','test3']
+		});
+		var t1  = new Tab({
+			id : 'div_tab2'
+			,data : [
+				{
+					name :'test'
+					,ele : document.getElementById('item1')
+				},{ 
+					name : 'test1'
+					,ele : document.getElementById('item2')
+				},'test2','test3']
+		});
+	}
+</script>
+</head>
+<body>
+	<div id='div_tab1' style="width: 500px;height: 500px;">
+	</div>
+	<div id='div_tab2' style="width: 1000px;height: 500px; margin-top:30px;">
+		<div id="item1" style="height:100%; display:none;">
+			<a href="" class="d1" style="display: none; z-index: 2; background: url(src/webapps/demo/image/20150422101124181.jpg) 50% 50% no-repeat;"></a>
+			<a href="" class="d1" style="display: none; z-index: 2; background: url(src/webapps/demo/image/20150427173552121.jpg) 50% 50% no-repeat;"></a>
+			<a href="" class="d1" style="display: block; z-index: 1; background: url(src/webapps/demo/image/20150408174810139.jpg) 50% 50% no-repeat;"></a>
+			<a href="" class="d1" style="display: none; z-index: 2; background: url(src/webapps/demo/image/20150226130013186.png) 50% 50% no-repeat;"></a>
+		    <div class="d2" id="banner_id">
+		      <div class="swich clearfix conWidth">
+		       <ul class="clearfix">
+		            <li class="test1">class="test1"</li>
+		            <li class="test2">class="test2"</li>
+		            <li class="test3">class="test3"</li>
+		            <li class="test4">class="test4"</li>
+		        </ul>
+		     </div>
+		  </div>
+		</div>
+		<div id="item2" style="height:100%; display:none;">
+			<iframe src="http://www.baidu.com" style="width:100%; height:100%; border:0px;"></iframe>			
+		</div>
+	</div>
+</body>

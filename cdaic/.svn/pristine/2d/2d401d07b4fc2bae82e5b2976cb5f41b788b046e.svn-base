@@ -1,0 +1,79 @@
+<div id="container">
+	<div id="header">
+		<ul class="clearfix">
+		<!--	<li class="current">企业多维画像</li>
+			<li>信用信息公示与监管应用</li>-->
+		</ul>
+	</div>
+	<div id="menu" class="clearfix">
+		<div class="menuList fl">
+			<!--<div>
+				<div class="category">
+					企业多维画像
+				</div>
+				<ul class="categoryList">
+					<li class="checked">企业个体画像</li>
+					<li>企业群体画像</li>
+					<li>企业商谱分析</li>
+					<li>企业商圈分析</li>
+				</ul>
+			</div>-->
+		</div>
+		<div class="queryList fl"></div>
+	</div>
+	<div id="content">
+		
+	</div>
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        return base.extend({
+			onInit : function(options){
+				S.navigation();
+				this.buildBtnsEvent();
+				//this.goTargetPage("src/webapps/individualPortrait/page/individualPortrait.html");
+			},
+			buildBtnsEvent : function(){
+				var self = this;
+				//分类导航点击事件
+				self.$("#header .clearfix li").on("click",function(){
+					self.$("#header .clearfix li.current").removeClass("current");
+					$(this).addClass("current");
+					var index = $(this).index();
+					$("#menu>.menuList>div").hide().removeClass("open");
+					$("#menu>.menuList>div[index="+index+"]").show();
+				})
+				
+				//
+				self.$("#menu .category").on("click",function(){
+					$(this).parent().toggleClass("open");
+				})
+				self.$("#menu .categoryList li>a").on("click",function(){
+					var categoryItem = $(this).text();
+					if($(this).parent().hasClass("hasChild")){
+						$(this).next().slideToggle();
+					}else{
+						$(this).parents(".menuList>.open").removeClass("open");
+						$(this).parents(".categoryList").find("a.checked").removeClass("checked");
+						$(this).addClass("checked");
+					}
+					$(this).parents(".categoryList").prev().text(categoryItem);
+					var pageUrl = $(this).attr("url");
+					if(pageUrl) self.goTargetPage(pageUrl);
+				})
+				
+				
+				self.$("#header .clearfix li").eq(0).click();
+				self.$("#menu .menuList>div:eq(0)>.categoryList>li:eq(0) a").click();
+			},
+			goTargetPage : function(pageUrl){
+				this.loadpage({
+					$el : this.$("#content"),
+					url : pageUrl
+				})
+			} 
+			
+		})
+	})
+</script>

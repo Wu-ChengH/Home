@@ -1,0 +1,18 @@
+<div id="corporateAnnualReports" class="pageContent">
+	<div class="dataTitle">全市企业年报情况分析</div>
+	<div class="dataContent"></div>		
+</div>
+<script rel="script">
+    define(function(require){
+    	require("src/webapps/corporateAnnualReports/corporateAnnualReports.css");
+        var base = require("Base");
+        return base.extend({
+			onInit : function(options){
+				this.loadpage({
+					$el : this.$(".dataContent"),
+					url : "src/webapps/corporateAnnualReports/subPage/corporateAnnualReportsRate.html"
+				})
+			}
+		})
+	})
+</script>

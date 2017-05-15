@@ -1,0 +1,16 @@
+.publicAnalysis{
+	width:100%;
+	height: 100%;
+	position: relative;
+}
+.publicAnalysis>div{
+	height:50%;
+	text-align: center;
+}
+.publicAnalysis>div>div{
+	height:calc(100% - 20px);
+	width:calc(50% - 20px);
+	display: inline-block;
+	background-color: red;
+	margin-top:10px;
+}

@@ -1,0 +1,314 @@
+.zNavigation,.zNavigation * {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	outline: 0
+}
+.zNavigation{
+	position:relative;
+	min-width:150px;
+}
+.zNavigation .zNavigation-footer,.zNavigation .zNavigation-header{
+	width: 100%;
+	line-height: 50px;
+	font-weight: 600;
+	color: #f0f0f0;
+	background: #ed5565
+}
+.zNavigation-header .zNavigation-title{
+	height:50px;
+	line-height:50px;
+	text-indent:20px;
+	color:#f0f0f0;
+}
+.zNavigation-header .filterform{
+	text-align:center;
+}
+.zNavigation-header .filterinput{
+	background-color:transparent;
+	border-radius:15px;
+	width:90%;
+	height:30px;
+	border:1px solid #fff;
+	text-indent:0.5em;
+	font-weight:bold;
+	color:#fff;
+	margin:0 auto;
+	text-align:left;
+}
+.zNavigation .zNavigation-list{
+	overflow:hidden;
+}
+
+.zNavigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+.zNavigation ul li {
+	width: 100%;
+	display: block;
+	float: left;
+	position: relative
+}
+
+.zNavigation ul li a {
+	width: 100%;
+	padding:14px 10px;
+	float: left;
+	text-decoration: none;
+	color: #f0f0f0;
+	cursor:pointer;
+	font-size: 13px;
+	background: #ed5565;
+	white-space: nowrap;
+	position: relative;
+	overflow: hidden;
+	-o-transition: color .2s linear,background .2s linear;
+	-moz-transition: color .2s linear,background .2s linear;
+	-webkit-transition: color .2s linear,background .2s linear;
+	transition: color .2s linear,background .2s linear
+}
+
+.zNavigation>ul>li.active>a,.zNavigation>ul>li:hover>a {
+	color: #fff;
+	background: #da4453
+}
+
+.zNavigation>ul>li>a ,.zNavigation-title{
+	border-bottom: solid 1px #da4453
+}
+
+.zNavigation ul li a i {
+	float: left;
+	line-height: 18px;
+	font-size: 20px;
+	text-align: left;
+	margin-right:5px;
+}
+
+.zNavigation .fa-chevron-down{
+	float:right;
+	right: 5px;
+	position: absolute;
+	line-height: 12px;
+	font-size:12px;
+	-o-transition: transform .3s linear;
+	-moz-transition: transform .3s linear;
+	-webkit-transition: transform .3s linear;
+	-ms-transition: transform .3s linear
+}
+
+.zNavigation ul ul.submenu .fa-chevron-down{
+	line-height: 16px
+}
+
+.zNavigation .open>.fa-chevron-down{
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg)
+}
+
+.zNavigation ul ul.submenu,.zNavigation ul ul.submenu li ul.submenu {
+	width: 100%;
+	display: none;
+	position: static
+}
+
+.zNavigation ul ul.submenu li {
+	clear: both;
+	width: 100%
+}
+
+.zNavigation ul ul.submenu li a {
+	width: 100%;
+	float: left;
+	font-size: 12px;
+	background: #383838;
+	border-top: none;
+	position: relative;
+	border-left:2px solid transparent;
+	-o-transition: border .2s linear;
+	-moz-transition: border .2s linear;
+	-webkit-transition: border .2s linear;
+	transition: border .2s linear
+}
+
+.zNavigation ul ul.submenu li:hover>a {
+	border-left-color: #da4453
+}
+
+.zNavigation ul ul.submenu>li>a {
+	padding-left: 15px
+}
+
+.zNavigation ul ul.submenu>li>ul.submenu>li>a {
+	padding-left: 25px
+}
+
+.zNavigation ul ul.submenu>li>ul.submenu>li>ul.submenu>li>a {
+	padding-left: 35px
+}
+
+.zNavigation ul li .zNavigation-label,.zNavigation ul ul.submenu li .zNavigation-label {
+	min-width: 20px;
+	padding: 1px 2px 1px 1px;
+	position: absolute;
+	right: 18px;
+	top: 14px;
+	font-size: 11px;
+	font-weight: 800;
+	color: #555;
+	text-align: center;
+	line-height: 18px;
+	background: #f0f0f0;
+	border-radius: 100%
+}
+
+.zNavigation ul ul.submenu li .zNavigation-label {
+	top: 12px
+}
+
+.zNavigation .closeBtn{
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:14px;
+	right:10px;
+	line-height:18px;
+	color:#fff;
+	cursor:pointer;
+	text-align:center;
+}
+
+/* black Style */
+.black.zNavigation .zNavigation-footer,.black.zNavigation .zNavigation-header,.black.zNavigation ul li a {
+	background: #292929
+}
+
+.black.zNavigation>ul>li.active>a,.black.zNavigation>ul>li:hover>a {
+	background: #222
+}
+
+.black.zNavigation>ul>li>a {
+	border-bottom-color: #222
+}
+
+.black.zNavigation ul ul.submenu li:hover>a {
+	border-left-color: #222
+}
+
+/* blue Style */
+.blue.zNavigation .zNavigation-footer,.blue.zNavigation .zNavigation-header,.blue.zNavigation ul li a {
+	background: #4A89DC
+}
+
+.blue.zNavigation>ul>li.active>a,.blue.zNavigation>ul>li:hover>a {
+	background: #3e82da
+}
+
+.blue.zNavigation>ul>li>a {
+	border-bottom-color: #3e82da
+}
+
+.blue.zNavigation ul ul.submenu li:hover>a {
+	border-left-color: #3e82da
+}
+
+/* green Style */
+.green.zNavigation .zNavigation-footer,.green.zNavigation .zNavigation-header,.green.zNavigation ul li a {
+	background: #03A678
+}
+
+.green.zNavigation>ul>li.active>a,.green.zNavigation>ul>li:hover>a {
+	background: #049372
+}
+
+.green.zNavigation>ul>li>a {
+	border-bottom-color: #049372
+}
+
+.green.zNavigation ul ul.submenu li:hover>a {
+	border-left-color: #049372
+}
+
+/* white Style */
+.white.zNavigation .zNavigation-footer,.white.zNavigation .zNavigation-header,.white.zNavigation ul li a {
+	background: #fff;
+	color: #555
+}
+
+.white.zNavigation>ul>li.active>a,.white.zNavigation>ul>li:hover>a {
+	background: #f0f0f0
+}
+
+.white.zNavigation>ul>li>a {
+	border-bottom-color: #f0f0f0
+}
+
+.white.zNavigation ul ul.submenu li:hover>a {
+	border-left-color: #f0f0f0
+}
+
+.white.zNavigation ul ul.submenu li a {
+	color: #f0f0f0
+}
+
+.white.zNavigation>ul>li>a>.ink {
+	background: rgba(0,0,0,.1)
+}
+
+/* old Style */
+.old.zNavigation .zNavigation-footer,.old.zNavigation .zNavigation-header{
+	background:none;
+}
+.old.zNavigation .zNavigation-title{
+	color:#79818b;
+	height:35px;
+	line-height:35px;
+	border-bottom-color:transparent;
+}
+.old.zNavigation ul li a {
+	background: #3d444e;
+	margin:1px 2px;
+	padding:8px 20px;
+}
+
+.old.zNavigation>ul>li.active>a,.old.zNavigation>ul>li:hover>a {
+	background: #455061
+}
+
+.old.zNavigation>ul>li>a {
+	border-bottom-color:transparent;
+}
+
+.old.zNavigation ul ul.submenu li:hover>a {
+	border-left-color: #049372
+}
+
+.old.zNavigation .closeBtn{
+	color:#98a4b3;
+	background-color:#3e454f;
+	border-radius:4px;
+	top:8px;
+}
+
+/* zNavigation Close */
+.close.zNavigation{
+	width:40px !important;
+	min-width:40px;
+}
+.close.zNavigation .zNavigation-title,.close.zNavigation a{
+	text-indent:-9999px;
+}
+.close.zNavigation .submenu-indicator{
+	display:none;
+}
+.close.zNavigation .closeBtn{
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg)
+}

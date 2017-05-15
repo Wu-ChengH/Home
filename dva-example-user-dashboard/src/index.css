@@ -1,6 +1,7 @@
 html, body, :global(#root) {
   height: 100%;
   background: url('http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/Textures/pattern4.png');
+  font-family: sans-serif;
 }
 body .backImg{
 	background: url('http://demo.cssmoban.com/cssthemes3/cpts_161_bet/Images/Textures/pattern4.png');
@@ -25,30 +26,78 @@ ul.shade{
 
 .headBigBox{
 	display: flex;
-	background: linear-gradient(rgb(245,245,245), rgb(235,235,235));
-	border-bottom: 1px solid #ddd;
-	margin: 100px 0 15px 0;
+	background: linear-gradient(#f6f6f6,#efefef);
+	margin-top: 100px;
 }
 .headBox{
 	display: flex;
 	justify-content: space-between;
-	padding: 5px 0;
 	margin: 0 auto;
 	width: 1000px;
+	font-size: 12px;
+}
+.borBack{
+	background: url(./imgs/separator_line.png);
+	height: 2px;
+	margin-bottom: 20px;
 }
 .headUser{
 	display: flex;
+	line-height: 35px;
+	color: #8f8f8f;
+	position: relative;
+}
+.headUser:hover .userTool{
+	display: block;
+}
+.userTool{
+	background:#f8f8f8 url(./imgs/top_tooltip.png) repeat-x;
+	border: 1px solid #ccc;
+	height: 35px;
+	display: none;
+}
+.userTool span{
+	width: 16px;
+	height: 5px;
+	position: absolute;
+	top: 1px;
+	left: 0px;
+	background: url(./imgs/top_tooltip_arrow.png) no-repeat;
+}
+.headUser icon{
+	margin-right: 5px;
+	margin-top: -2px;
+	font-size: 20px;
+}
+.userTool icon{
+	margin: 0 5px;
 }
 .headTool{
 	display: flex;
+	height: 38px;
+	color: #8f8f8f;
+}
+.headTool icon{
+	margin-right: 10px;
+	font-size: 20px;
 }
 .headTool li{
-	width: 85px;
+	width: 80px;
+	padding: 0 5px;
+	position: relative;
+	line-height: 40px;
+}
+.headBox li span{
+	position: absolute;
+	top: 0px;
+	left: 30px;
 }
 
 .backcont{
-	background-color: #F9F9F9;
+	background-color: #F7F7F7;
 	height: auto;
+	border: 1px solid #ccc;
+	box-shadow: -1px 2px 2px #ccc;
 }
 .inboxHead{
 	display: flex;
@@ -70,31 +119,57 @@ ul.shade{
 }
 .btthid{
 	border: 1px solid #ccc;
-	margin-top: 10px;
-	margin-left: -20px;
-	width: 100px;
+	margin-top: 5px;
+	margin-left: -25px;
+	width: 150px;
 	position: absolute;
-	background-color: #F5F5F5;
+	border-radius: 3px;
+	box-shadow: 0 0 5px #ccc;
 }
 .btthid div{
 	border-bottom: 1px solid #ccc;
-	padding: 5px;
+	padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+	background: url(./imgs/drop_menu.png);
+}
+.btthid div icon{
+	margin-right: 10px;
+}
+.btthid div:first-child{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
 }
 .btthid div:last-child{
 	border-bottom: none;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 .btt{
 	height: 30px;
-	background-color: #F8F8F8;
+	line-height: 30px;
+	background: linear-gradient(#fcfcfc 0%,#f2f2f2 100%);
 	margin: 10px 10px 0 10px;
-	display: inline-block;
-	padding: 5px;
+	display: flex;
+	padding: 0 10px;
 	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px #ccc;
+}
+.btt icon{
+	margin-right: 5px;
+}
+.hidclick{
+	display: flex;
+	width: 18px;
+    margin-left: 5px;
+    border-left: 1px solid #ccc;
+    background: url(./imgs/i_16_bottom_arrow.png) no-repeat 8px center;
 }
 .Ticket{
 	border: 1px solid #ccc;
 	border-bottom: none;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 .ticket{
 	border-bottom: 1px solid #ccc;
@@ -116,6 +191,19 @@ ul.shade{
 	margin-left: 20px;
 	border: 1px solid #ccc;
 }
+.parting{
+	margin-top: 20px;
+	display: block;
+	background: url(./imgs/separator_line.png) repeat-x center center;
+}
+.parting span{
+	background: #f7f7f7 url(./imgs/separator_circle.png) no-repeat center center;
+	width: 60px;
+	height: 20px;
+	display: block;
+	margin: 0 auto;
+	padding: 5px 40px;
+}
 
 .chartbox{
 	margin-top: 40px;
@@ -128,4 +216,121 @@ ul.shade{
 .charttitle{
 	border-bottom: 1px solid #ccc;
 	padding: 10px 20px;
+}
+
+.subMenu{
+	height: 80px !important;
+	padding: 10px 5px !important;
+	box-sizing: border-box;
+}
+.userMenu{
+	background: url(./imgs/i_32_dashboard.png) no-repeat 20px center;
+}
+.userMenu:active{
+	background: url(./imgs/i_32_dashboard.png) no-repeat 20px center !important;
+}
+.inboxMenu{
+	background: url(./imgs/i_32_inbox.png) no-repeat 20px center;
+}
+.inboxMenu:active{
+	background: url(./imgs/i_32_inbox.png) no-repeat 20px center !important;
+}
+.charMenu{
+	background: url(./imgs/i_32_charts.png) no-repeat 20px center;
+}
+.charMenu:active{
+	background: url(./imgs/i_32_charts.png) no-repeat 20px center !important;
+}
+.subMenu a{
+	padding-left: 60px;
+	margin-top: 8px;
+	text-decoration:none
+}
+.subMenu a:hover{
+	text-decoration:none
+}
+.subMenu a h3{
+	color: #9D9D9D;
+	font-size: 18px;
+}
+.subMenu a p{
+	color: #A6A6A6;
+	font-size: 12px;
+	line-height: 15px;
+}
+.menuBack{
+	background-color: #f7f7f7 !important;
+	border: 1px solid #ddd;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-right: none;
+	box-shadow: -1px 2px 1px #ccc;
+	z-index: 999;
+	left: 3px !important;
+}
+.menuBack:after{
+	border-right: none !important;
+}
+.sider{
+	height:100%;
+	background:none !important;
+	margin-right:2px !important;
+	border:none !important;
+}
+
+.circle{
+	background: url(./imgs/separator_long.png) no-repeat center center;
+}
+.maxCircle{
+	display: flex;
+	width: 80px;
+	height: 80px;
+	border:1px solid #ccc;
+	border-radius: 50%;
+	padding: 10px;
+	margin: 0 10px;
+	background: linear-gradient(to bottom, #f2f1f1 0%,#fdfdfd 100%);
+}
+.minCircle{
+	width: 100%;
+	height: 100%;
+	border:1px solid #ccc;
+	border-radius: 50%;
+	background: linear-gradient(#fafafa,#eaeaea);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.24);
+	padding: 13px;
+}
+.minCircle span{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+}
+.dollar{
+	background-image: url(./imgs/i_32_dollar.png);
+}
+.delivery{
+	background-image: url(./imgs/i_32_delivery.png);
+}
+.support{
+	background-image: url(./imgs/i_32_support.png);
+}
+.statistic{
+	background-image: url(./imgs/i_32_statistic.png);
+}
+.minCircle:hover span{
+	background-position: 0 32px;
+}
+
+.tit h3{
+	font-size: 18px;
+}
+.tit h3 icon{
+	margin-right: 10px;
+}
+.tit p{
+	padding-left: 25px;
+}
+
+.hoveWhite:hover{
+	background: #fff;
 }

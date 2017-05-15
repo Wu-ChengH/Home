@@ -1,0 +1,13 @@
+#compRelationship{
+	width: 100%;
+}
+#compRelationship .compRelationshipInfoBox{
+	width:350px;
+	margin-right:50px;
+	margin-top:20px;
+}
+#compRelationship #buyersBarCharts,#compRelationship #sellerBarCharts,#compRelationship #peersBarCharts{
+	width:100%;
+	height:230px;
+	border-bottom:1px solid #ccc;
+}

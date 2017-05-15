@@ -1,0 +1,71 @@
+<div class="page_container" id="compTrade">
+  	<div class="page-pack">
+  		<div class="chart"></div>
+  		<div class="companys">
+  			<div class="title">相关企业名单</div>
+  			<div class="list">
+  				<div class="origin">企业名单</div>
+  				<ul id="compList"></ul>
+  			</div>
+  		</div>
+  	</div>
+</div>
+
+<script rel="script">
+	define(function(require){
+		require("src/webapps/compTrade/compTrade.css");
+		var base = require("Base");
+		return base.extend({
+			onInit : function(option){
+				var _this = this;
+
+				_this.drawComList();
+			},
+
+			drawComList : function(){
+				var _this = this;
+				var companys = [
+					"四川省电力公司",
+					"五粮液集团有限公司",
+					"长虹电子集团公司",
+					"攀枝花钢铁公司",
+					"川庆钻探工程有限公司",
+					"西南油气田分公司",
+					"四川省川威集团有限公司",
+					"东方锅炉(集团)股份有限公司",
+					"攀钢集团成都钢铁有限责任公司",
+					"四川烟草工业有限责任公司",
+					"攀枝花新钢钒股份有限公司",
+					"成都飞机工业(集团)有限责任公司",
+					"四川省达州钢铁集团有限责任公司",
+					"东方电气集团东方汽轮机有限公司",
+					"二滩水电开发有限责任公司",
+					"成都四方伟业软件股份有限公司",
+					"四川一汽丰田汽车有限公司",
+					"成都神钢工程机械（集团）有限公司",
+					"东方电气集团东方电机有限公司",
+					"四川盛马化工股份有限公司",
+					"泸天化(集团)有限责任公司",
+					"四川石油管理局",
+					"攀枝花钢城集团有限公司",
+					"宜宾天原集团股份有限公司",
+					"四川省资阳市四海发展实业有限公司",
+					"四川宏华石油设备有限公司",
+					"四川西南不锈钢有限责任公司",
+					"四川省天泽贵金属有限责任公司",
+					"资阳市南骏汽车有限责任公司",
+					"攀钢集团四川长城特殊钢有限责任公司"
+				];
+
+				var str = '';
+				$.each(companys, function(i, item){
+					str += '<li class="comp-item">' + item + '</li>';
+				});
+
+				_this.$('#compList').append(str);
+
+				_this.$('.list').loadScroll();
+			}
+		});
+	});
+</script>
