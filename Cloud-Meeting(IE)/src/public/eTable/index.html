@@ -1,0 +1,149 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>eTable demo</title>
+    <link rel="stylesheet" href="eTable.css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <style type="text/css">*{font-size:12px;margin:0;padding:0;}</style>
+</head>
+<body>
+	<div id="J-table-container" style="margin:20px;">
+    	<div class="eTable-container">
+        	<div class="eTable-header">
+            	<table style="" cellpadding="">
+            		<tr><td class="column0"><div>标题</div></td><td class="column1"><div>单位</div></td><td class="column2"><div>地址</div></td><td class="column3 lastColumn"><div>操作</div></td></tr>
+            	</table>
+            </div>
+            <div class="eTable-dataList">
+            	<table>
+            		<tr class="firstRow"><td class="column0"><div>色调分离框架士大夫离开士大夫</div></td><td class="column1"><div>成都四方科技有限公司</div></td><td class="column2"><div>成都一环路西三段</div></td><td class="column3 lastColumn"><div><a>删除</a><a>修改</a></div></td></tr>
+                    <tr><td class="column0"><div>色调分离框架士大夫离开士大夫</div></td><td class="column1"><div>成都四方科技有限公司</div></td><td class="column2"><div>成都一环路西三段</div></td><td class="column3 lastColumn"><div><a>删除</a><a>修改</a></div></td></tr>
+                    <tr><td class="column0"><div>色调分离框架士大夫离开士大夫</div></td><td class="column1"><div>成都四方科技有限公司</div></td><td class="column2"><div>成都一环路西三段</div></td><td class="column3 lastColumn"><div><a>删除</a><a>修改</a></div></td></tr>
+                    <tr><td class="column0"><div>色调分离框架士大夫离开士大夫</div></td><td class="column1"><div>成都四方科技有限公司</div></td><td class="column2"><div>成都一环路西三段</div></td><td class="column3 lastColumn"><div><a>删除</a><a>修改</a></div></td></tr>
+            	</table>
+            </div>
+            <div class="eTable-footer"></div>
+        </div>
+    </div>
+    <input type="file" id="ffff"/>
+    <button id="test1">第一页</button> <button id="test2">第二页</button> <button id="test3">第三页</button><button id="test4">第四页</button>
+	<script type="text/javascript" src="eTable.js"></script>
+    <script type="text/javascript">
+	$(function(){
+		$("#ffff").change(function(){alert(4545);});
+		var myTable=new eTable({
+				targetID:"J-table-container",
+				columns:[
+					{name:"",value:["受理","测试1","测试二","测试三","测试三","测试三","测试三"],align:"center",width:"5%"},
+					{name:"编号",value:"id",align:"center",width:"5%"},
+					{name:"标题",value:"title",width:"20%"},
+					{name:"单位名称",value:"unitName",width:"20%"},
+					{name:"联系电话",value:"contact",width:"20%"},
+					{name:"联系人",value:"contact",width:"15%"},
+					{name:"地区",value:"contact",width:"15%"}
+				],
+				loadingShow:false,
+				totalData:156,
+				totalPage:16,
+				currentPage:14,
+				pagerCallBack:function(page){
+					$("#test"+page).click();
+				},
+				data:[
+					{id:1001,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"试dfg标题sdf215102859s试dfg标题sdf2df855"},
+					{id:1002,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+					{id:1003,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+					{id:1004,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"},
+					{id:1005,title:"测试标dfgdsfgadfg题12344545",unitName:"成都dfg四方",contact:"15102859855"},
+					{id:1006,title:"测试dfgdfg标题12344545",unitName:"成都wertsdf四方",contact:"15102859855"},
+					{id:1007,title:"测试dfgdfgg标题1234dfgdfgdfgdfgdfg4545",unitName:"成都sdfsdfwerwe四方",contact:"15102859855"},
+					{id:1008,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+					{id:1008,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+					{id:1009,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+					{id:1010,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"}
+					
+				]
+		});
+
+		//test
+		$("#test1").click(function(){
+		myTable.update({
+				totalData:36,
+				totalPage:4,
+				currentPage:1,
+				data:[
+						{id:1001,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"试dfg标题sdf215102859s试dfg标题sdf2df855"},
+						{id:1002,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1003,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1004,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"},
+						{id:1005,title:"测试标dfgdsfgadfg题12344545",unitName:"成都dfg四方",contact:"15102859855"},
+						{id:1006,title:"测试dfgdfg标题12344545",unitName:"成都wertsdf四方",contact:"15102859855"},
+						{id:1007,title:"测试dfgdfgg标题1234dfgdfgdfgdfgdfg4545",unitName:"成都sdfsdfwerwe四方",contact:"15102859855"},
+						{id:1008,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+						{id:1008,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1009,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1010,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"}
+				]
+			});
+		});
+		$("#test2").click(function(){
+			myTable.update({
+				totalData:36,
+				totalPage:4,
+				currentPage:2,
+				data:[
+						{id:1011,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+						{id:1012,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1013,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1014,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"},
+						{id:1015,title:"测试标dfgdsfgadfg题12344545",unitName:"成都dfg四方",contact:"15102859855"},
+						{id:1016,title:"测试dfgdfg标题12344545",unitName:"成都wertsdf四方",contact:"15102859855"},
+						{id:1017,title:"测试dfgdfgg标题1234dfgdfgdfgdfgdfg4545",unitName:"成都sdfsdfwerwe四方",contact:"15102859855"},
+						{id:1018,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+						{id:1018,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1019,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1020,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"}
+				]
+			});
+		});
+		$("#test3").click(function(){
+			myTable.update({
+				totalData:36,
+				totalPage:4,
+				currentPage:3,
+				data:[
+						{id:1021,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+						{id:1022,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1023,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1024,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"},
+						{id:1035,title:"测试标dfgdsfgadfg题12344545",unitName:"成都dfg四方",contact:"15102859855"},
+						{id:1026,title:"测试dfgdfg标题12344545",unitName:"成都wertsdf四方",contact:"15102859855"},
+						{id:1027,title:"测试dfgdfgg标题1234dfgdfgdfgdfgdfg4545",unitName:"成都sdfsdfwerwe四方",contact:"15102859855"},
+						{id:1028,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+						{id:1028,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1029,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1030,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"}
+				]
+			});
+		});
+		$("#test4").click(function(){
+			myTable.update({
+				totalData:36,
+				totalPage:4,
+				currentPage:4,
+				data:[
+						{id:1031,title:"测试dfg标题12344545",unitName:"成都四gergerg方",contact:"15102859sdf855"},
+						{id:1032,title:"测试dfg标题sdf23dsf12344545",unitName:"成都dfg四方",contact:"1510285sdf9855"},
+						{id:1033,title:"测试dfg标题12sdf45ygfh344545",unitName:"成都dfgdfg四方",contact:"1510285sdfsdf9855"},
+						{id:1034,title:"测试标题dfgcvbdfg12fgh344545",unitName:"成dfg都四方",contact:"15102859855"},
+						{id:1035,title:"测试标dfgdsfgadfg题12344545",unitName:"成都dfg四方",contact:"15102859855"},
+						{id:1036,title:"测试dfgdfg标题12344545",unitName:"成都wertsdf四方",contact:"15102859855"}
+				]
+			});
+		});
+	});
+	
+    </script>
+</body>
+</html>

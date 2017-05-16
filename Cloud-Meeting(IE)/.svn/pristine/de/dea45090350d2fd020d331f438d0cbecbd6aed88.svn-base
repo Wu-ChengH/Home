@@ -1,0 +1,1762 @@
+<div class="page_container" id="home">
+	<div class="home_header">
+		<div class="home_header_container">
+			<div class="home_header_left">
+				<p class="home_header_p">
+					<span class="home_header_title">采集信息（条）</span>
+					<span class="home_header_num header_total_num">409932956</span>
+				</p>
+				<p class="home_header_p">
+					<span class="home_header_title">采集单位（家）</span>
+					<span class="home_header_num header_totalComp_num">459</span>
+				</p>
+			</div>
+			<div class="home_header_center"></div>
+			<div class="home_header_right">
+				<p class="home_header_p">
+					<span class="home_header_title">今日采集（条）</span>
+					<span class="home_header_num header_today_num">3897</span>
+				</p>
+				<p class="home_header_p">
+					<span class="home_header_title">昨日采集（条）</span>
+					<span class="home_header_num header_yestoday_num">13</span>
+				</p>
+			</div>
+		</div>
+		<div class="home_header_backLogo" title="返回查看详情">返回</div>
+	</div>
+	<div class="home_container">
+		<div class="home_left">
+			<div class="home_left_title">数据使用情况</div>
+			<div class="home_left_dataUse">
+				<ul class="dataUse_legend">
+					<li class="dataUse_legend_li market">
+						<i style="background:#ed6234"></i>
+						市场主体
+					</li>
+					<li class="dataUse_legend_li li_market">
+						<i style="background:#de09ff"></i>
+						小微企业
+					</li>
+					<li class="dataUse_legend_li li_market">
+						<i style="background:#24ab3f"></i>
+						信用信息公示监管
+					</li>
+					<li class="dataUse_legend_li li_market">
+						<i style="background:#d35551"></i>
+						消费维权
+					</li>
+					<li class="dataUse_legend_li li_market">
+						<i style="background:#16eaf1"></i>
+						品牌黄页
+					</li>
+					<li class="dataUse_legend_li li_market">
+						<i style="background:#ff9900"></i>
+						企业画像
+					</li>
+					<li class="dataUse_legend_li li_market">
+						<i style="background:#428bd2"></i>
+						领导驾驶舱
+					</li>
+				</ul>
+				<div class="dataUse_canvas" id="canvas">
+					
+				</div>
+			</div>
+			<div class="home_left_title">数据监测清洗情况</div>
+			<div class="home_left_dataClean">
+				<table class="dataClean_table" border="0">
+					
+				</table>
+				<div class="home_left_dataClean_gauge">
+					<div class="chart_total">
+						<div class="gauge_total"></div>
+						<span class="gauge_total_num">789</span>
+					</div>
+					<div class="chart_today">
+						<div class="gauge_today"></div>
+						<span class="gauge_today_num">9</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="home_right">
+			<div class="home_right_up">
+				<div class="home_right_legend">
+					<div class="home_right_legend_title">数据共享交换情况</div>
+					<div class="home_right_legend_line">
+						<div class="legend_line_container legend_line_notActive">
+							<span class="legend_line notActive"></span>
+							<span class="legend_line_text notActive">未活动</span>
+						</div>
+						<div class="legend_line_container legend_line_active">
+							<span class="legend_line active"></span>
+							<span class="legend_line_text active">活动</span>
+						</div>
+						<div class="legend_line_container legend_line_waring">
+							<span class="legend_line waring"></span>
+							<span class="legend_line_text waring">异常</span>
+						</div>
+					</div>
+					<div class="home_right_legend_node">
+						<div class="legend_node_container legend_node_inside">
+							<span class="legend_node inside"></span>
+							<span class="legend_node_text inside">工商系统内部</span>
+						</div>
+						<div class="legend_node_container legend_node_city">
+							<span class="legend_node city"></span>
+							<span class="legend_node_text city">本市政务部门及企事业单位</span>
+						</div>
+						<div class="legend_node_container legend_node_network">
+							<span class="legend_node network"></span>
+							<span class="legend_node_text network">互联网</span>
+						</div>
+					</div>
+				</div>
+				<div class="home_right_canvas" id="mainCanvas">
+					
+				</div>
+				<div class="home_right_rightTitle">市场综合服务监督服务基础数据库情况</div>
+				<div class="home_right_border"></div>
+			</div>
+			<div class="home_right_down">
+				<div class="home_right_lineChart"></div>
+				<div class="home_right_totalContainer">
+					<div class="home_right_dataImg"></div>
+					<span class="homt_right_dataImgDot dashedDot1"></span>
+					<span class="homt_right_dataImgDot dashedDot2"></span>
+					<span class="homt_right_dataImgDot dashedDot3"></span>
+					<span class="homt_right_dataImgDot dashedDot4"></span>
+					<div class="home_right_dataInfo">
+						<div class="home_right_data_totalNum">
+							<p class="totalNum_title">累计数据（条）</p>
+							<p class="totalNum_Num total_num">409932956</p>
+						</div>
+						<div class="home_right_data_totalSize">
+							<p class="totalSize_title">累计数据（TB）</p>
+							<p class="totalSize_Num total_num">4.8</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script rel="script">
+define(function(require){
+	require("src/webapps/home/home.css");
+
+	var base = require("Base");
+	return base.extend({
+		onInit : function(option){
+			var self = this;
+
+			self.intervalIndex = 0;
+			self.initPageData();
+
+			//返回主页内容
+			$(".home_header_backLogo").click(function(){
+
+				$(".queryList").show();
+				$("#menuList").show();
+				$("#content").show();
+				clearInterval(self.homePageTimer);
+				$("#home").remove();
+				$("#pageHome").hide();
+			});	
+
+			
+
+			self.initLineChart();
+
+			
+			//右下角 数据流向
+			self.initCountData();
+			// //主面板
+			//self.initMainData();
+
+		},
+
+		//定义页面数据内容
+		initPageData:function(){
+			var self = this;
+
+			//绘制主面板前，清空
+			$(".home_right_canvas").html("");
+			if(!S.homePageData){
+				S.homePageData = {
+					gau_totalVal:486,
+					gau_totalPercent:48.6,
+					gau_todayVal:9,
+					gau_todayPercent:9,
+					header_total_num:409932956,
+					header_totalComp_num:459,
+					header_today_num:3897,
+					header_yestoday_num:2016,
+					cleanTable_lostNum:20113,
+					cleanTable_sameNum:51630,
+					cleanTable_logicNum:19021,
+					cleanTable_notsameNum:920,
+					Law_Approval:1035156,
+					Law_Punish:43181,
+					Law_Trial:41911,
+					Law_Brand:98911,
+					Law_People:54813,
+					Law_Arrears:311654,
+					Law_Mortgage:394812,
+					Law_Other:191871,
+					bottom_totalNum:409932956,
+					bottom_totalSize:4.8,
+					marketPercent:23,
+					tinyPercent:11,
+					creditPercent:16,
+					maintainPercent:9,
+					brandPercent:20,
+					compPercent:19,
+					dashbordPercent:7,
+					compData:[{
+						"compName":"四川工商局网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"成都市公共信用信息共享平台",
+						"targetdepart" :　"2",
+						"status":"2"
+					},{
+						"compName":"成都工商局网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"金信工程",
+						"targetdepart" :　"1",
+						"status":"2"
+					},{
+						"compName":"市发改委网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"北京工商局网站",
+						"targetdepart" :　"3",
+						"status":"0"
+					},{
+						"compName":"广告监测系统",
+						"targetdepart" :　"1",
+						"status":"2"
+					},{
+						"compName":"市规划局网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"市金融办网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"上海工商局网站",
+						"targetdepart" :　"3",
+						"status":"1"
+					},{
+						"compName":"法律法规查询系统",
+						"targetdepart" :　"1",
+						"status":"2"
+					},{
+						"compName":"成都公积金中心网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"市国税局网站",
+						"targetdepart" :　"3",
+						"status":"2"
+					},{
+						"compName":"商标查询系统",
+						"targetdepart" :　"1",
+						"status":"2"
+					},{
+						"compName":"市统计局网站",
+						"targetdepart" :　"3",
+						"status":"1"
+					}]
+				}
+			}
+
+
+			if(!self.homePageTimer){
+				self.homePageTimer = setInterval(function(){
+					// S.loadingShow();
+					// setTimeout(function(){
+						self.intervalIndex++;
+						console.log(self.intervalIndex);
+
+						//绘制主面板前，清空
+						$(".home_right_canvas").html("");
+						$("div[id^='law_blueDot']").remove();
+
+						S.homePageData.gau_totalVal = S.homePageData.gau_totalVal + 8;
+						S.homePageData.gau_totalPercent = S.homePageData.gau_totalPercent + 0.8;
+						S.homePageData.gau_todayVal = S.homePageData.gau_todayVal + 1;
+						S.homePageData.gau_todayPercent = S.homePageData.gau_todayPercent + 1;
+						S.homePageData.header_total_num = S.homePageData.header_total_num + 11;
+						S.homePageData.header_totalComp_num = S.homePageData.header_totalComp_num + 7;
+						S.homePageData.header_today_num = S.homePageData.header_today_num + 13;
+						S.homePageData.header_yestoday_num = S.homePageData.header_yestoday_num;
+						S.homePageData.bottom_totalNum = S.homePageData.bottom_totalNum + 11;
+						S.homePageData.bottom_totalSize = (S.homePageData.bottom_totalSize*10 + 0.1*10)/10;
+						S.homePageData.cleanTable_lostNum = S.homePageData.cleanTable_lostNum + 11;
+						S.homePageData.cleanTable_sameNum = S.homePageData.cleanTable_sameNum + 11;
+						S.homePageData.cleanTable_logicNum = S.homePageData.cleanTable_logicNum - 16;
+						S.homePageData.cleanTable_notsameNum = S.homePageData.cleanTable_notsameNum + 7;
+						S.homePageData.Law_Approval = S.homePageData.Law_Approval + 23;
+						S.homePageData.Law_Punish = S.homePageData.Law_Punish + 23;
+						S.homePageData.Law_Trial = S.homePageData.Law_Trial + 23;
+						S.homePageData.Law_Brand = S.homePageData.Law_Brand + 23;
+						S.homePageData.Law_People = S.homePageData.Law_People + 23;
+						S.homePageData.Law_Arrears = S.homePageData.Law_Arrears + 23;
+						S.homePageData.Law_Mortgage = S.homePageData.Law_Mortgage + 23;
+						S.homePageData.Law_Other = S.homePageData.Law_Other + 23;
+						S.homePageData.compData = S.homePageData.compData.sort(function(){ return 0.5 - Math.random() });
+
+						S.homePageData.marketPercent = (S.homePageData.marketPercent*10 - 0.1*10)/10;
+						S.homePageData.tinyPercent = S.homePageData.tinyPercent;
+						S.homePageData.creditPercent = (S.homePageData.creditPercent*10 + 0.1*10)/10;
+						S.homePageData.maintainPercent = S.homePageData.maintainPercent;
+						S.homePageData.brandPercent = (S.homePageData.brandPercent*10 - 0.1*10)/10;
+						S.homePageData.compPercent = (S.homePageData.compPercent*10 + 0.1*10)/10;
+						S.homePageData.dashbordPercent = S.homePageData.dashbordPercent;
+
+
+						//左侧 八爪图
+						self.initDataUse();
+
+						//处理  仪表盘数据
+						self.initGua("累计异常数据",S.homePageData.gau_totalVal,S.homePageData.gau_totalPercent,$(".gauge_total"));
+						self.initGua("单日累计异常数据",S.homePageData.gau_todayVal,S.homePageData.gau_todayPercent,$(".gauge_today"));
+
+						//处理  底部统计数据
+						$(".totalNum_Num").html("").html(S.homePageData.bottom_totalNum);
+						$(".totalSize_Num").html("").html(S.homePageData.bottom_totalSize);
+
+						//处理  顶部Header数据
+						$(".header_total_num").html("").html(S.homePageData.header_total_num);
+						$(".header_totalComp_num").html("").html(S.homePageData.header_totalComp_num);
+						$(".header_today_num").html("").html(S.homePageData.header_today_num);
+						$(".header_yestoday_num").html("").html(S.homePageData.header_yestoday_num);
+
+						//处理  下方清洗数据表格
+						self.creatCleanTable();
+
+						//处理  企业数据
+						self.creatComp();
+
+						self.creatDepart();
+						self.creatDataUnin();
+
+
+						//处理  右侧处罚信息内容
+						self.creatLawInfo();
+
+						//注册公司 到 部门 的连线 和 流节点
+						self.canvasCompToDepartDot();
+						//注册部门 到 数据集合 的连线 和 流节点
+						self.canvasDepartToDataUnitDot();
+						
+						// S.loadingHide();
+					// },500);
+				},10000);
+			}
+
+
+			var currentDate = new Date();
+			currentDate.setDate(currentDate.getDate() - 6);
+			var dateArray = []; 
+			var dateTemp; 
+			var flag = 1; 
+			for (var i = 0; i < 7; i++) {
+			    dateTemp = (currentDate.getMonth()+1)+"-"+currentDate.getDate();
+			    dateArray.push(dateTemp);
+			    currentDate.setDate(currentDate.getDate() + flag);
+			}
+
+			self.chartData = {
+			    "total":[
+			        107,
+			        187,
+			        182,
+			        168,
+			        103,
+			        112,
+			        151
+			    ],
+			    "report":[
+			        268,
+			        261,
+			        242,
+			        229,
+			        256,
+			        235,
+			        258
+			    ],
+			    "rate":[
+			    	356,
+			        491,
+			        443,
+			        487,
+			        422,
+			        501,
+			        510
+			    ],
+			    "title":dateArray
+			}
+
+			//左侧 八爪图
+			self.initDataUse();
+
+			//处理  仪表盘数据
+			self.initGua("累计异常数据",S.homePageData.gau_totalVal,S.homePageData.gau_totalPercent,$(".gauge_total"));
+			self.initGua("单日累计异常数据",S.homePageData.gau_todayVal,S.homePageData.gau_todayPercent,$(".gauge_today"));
+
+			//处理  底部统计数据
+			$(".totalNum_Num").html("").html(S.homePageData.bottom_totalNum);
+			$(".totalSize_Num").html("").html(S.homePageData.bottom_totalSize);
+
+			//处理  顶部Header数据
+			$(".header_total_num").html("").html(S.homePageData.header_total_num);
+			$(".header_totalComp_num").html("").html(S.homePageData.header_totalComp_num);
+			$(".header_today_num").html("").html(S.homePageData.header_today_num);
+			$(".header_yestoday_num").html("").html(S.homePageData.header_yestoday_num);
+
+			//处理  下方清洗数据表格
+			self.creatCleanTable();
+
+			//处理  企业数据
+			self.creatComp();
+
+
+			self.creatDepart();
+			self.creatDataUnin();
+			//处理  右侧处罚信息内容
+			self.creatLawInfo();
+
+			//注册公司 到 部门 的连线 和 流节点
+			self.canvasCompToDepartDot();
+			//注册部门 到 数据集合 的连线 和 流节点
+			self.canvasDepartToDataUnitDot();
+			// //注册数据集合 到 处罚信息 的连线 和 流节点
+			// self.canvasDataUnitToLawDot();
+
+		},
+
+		//创建 清洗表格数据
+		creatCleanTable:function(){
+			var self = this;
+			var tableHtml = new Array();
+			tableHtml.push('<tr><td><div class="dataClean_table_title col1">清洗方法</div></td><td><div class="dataClean_table_title col2">数据源</div></td><td><div class="dataClean_table_title col3">清洗数量</div></td></tr>');
+			tableHtml.push('<tr><td><div class="dataClean_table_des">缺失数据处理</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des">工商系统内部</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des nowrap" title="'+S.homePageData.cleanTable_lostNum+'">'+S.homePageData.cleanTable_lostNum+'</div></td></tr>');
+			tableHtml.push('<tr><td><div class="dataClean_table_des">相似重复对象监测</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des">本市政务部门及企事业单位</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des nowrap" title="'+S.homePageData.cleanTable_sameNum+'">'+S.homePageData.cleanTable_sameNum+'</div></td></tr>');
+			tableHtml.push('<tr><td><div class="dataClean_table_des">逻辑错误监测</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des">本市政务部门及企事业单位</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des nowrap" title="'+S.homePageData.cleanTable_logicNum+'">'+S.homePageData.cleanTable_logicNum+'</div></td></tr>');
+			tableHtml.push('<tr><td><div class="dataClean_table_des">不一致数据</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des">互联网</div></td>');
+			tableHtml.push('<td><div class="dataClean_table_des nowrap" title="'+S.homePageData.cleanTable_notsameNum+'">'+S.homePageData.cleanTable_notsameNum+'</div></td></tr>');
+			
+			$(".dataClean_table").html("").html(tableHtml.join(""));			
+		},
+
+		//绘制右下侧 统计数据 元素流
+		initCountData :function(){
+			var self = this;
+			var canvas_node = $(".home_right_totalContainer").children(".homt_right_dataImgDot"),data = new Array(),dotHtml = new Array();
+
+			for(var i=0;i<canvas_node.length;i++){
+				data.push({
+					"BlockId":$(canvas_node[i]).attr("id"),
+					"BlockContent":$(canvas_node[i]).text(),
+					"BlockX":$(canvas_node[i]).css("left").replace("px",""),
+					"BlockY":$(canvas_node[i]).css("top").replace("px",""),
+					"Radius":0,
+					"Height":$(canvas_node[i]).css("height").replace("px","")
+				});
+				//推送对应流点
+				dotHtml.push('<div class="blueDot" id="total_blueDot'+i+'"></div>');
+			}
+			$(".home_right_totalContainer").append(dotHtml.join(""));
+
+			run();  
+	        function run(){  
+	        	for (var g = 0; g < data.length; g++) {
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:parseInt(data[g].BlockX),
+					      y:parseInt(data[g].BlockY), 
+					      angle: 0
+					    },  
+					    end: { 
+				    	  x: parseInt(data[g].BlockX), 
+					      y: parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+					      angle: 0
+					    } 
+		            }  
+		            //animation时候开始执行  
+		            var dotIdSelector = "#total_blueDot" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run();}) 
+	        	}
+	             
+	        } 
+		},
+
+		//注册主面板 数据集点
+		registMainCanvasDataUnitDot:function(){
+			var self = this;
+			var canvas_node = $(".home_right_canvas").find("div[class^='data_dashdot']"),data = new Array(),dotHtml = new Array();
+
+			for(var i=0;i<canvas_node.length;i++){
+				data.push({
+					"BlockId":$(canvas_node[i]).attr("class"),
+					"BlockContent":"",
+					"BlockX":$(canvas_node[i]).css("left").replace("px",""),
+					"BlockY":$(canvas_node[i]).css("top").replace("px",""),
+					"Radius":0,
+					"Height":$(canvas_node[i]).css("height").replace("px","")
+				});
+				//推送对应流点
+				dotHtml.push('<div class="blueDot" id="dataUnitDot'+i+'"></div>');
+			}
+			$(".data_border").append(dotHtml.join(""));
+
+			run();  
+	        function run(){  
+	        	for (var g = 0; g < data.length; g++) {
+	        		//定义贝塞尔曲线参数
+	        		if(g<3){
+	        			var bezier_params = {  
+			                start: { 
+						      x:parseInt(data[g].BlockX),
+						      y:parseInt(data[g].BlockY), 
+						      angle: 0
+						    },  
+						    end: { 
+					    	  x: parseInt(data[g].BlockX), 
+						      y: parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+						      angle: 0
+						    } 
+			            }  
+	        		}else{
+	        			var bezier_params = {  
+			                start: { 
+						      x:parseInt(data[g].BlockX),
+						      y:parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+						      angle: 0
+						    },  
+						    end: { 
+					    	  x: parseInt(data[g].BlockX), 
+						      y: parseInt(data[g].BlockY), 
+						      angle: 0
+						    } 
+			            }  
+	        		}
+		            
+		            //animation时候开始执行  
+		            var dotIdSelector = "#dataUnitDot" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},1500,function(){run();}) 
+	        	}
+	             
+	        } 
+		},
+
+		//右侧处罚区域 动态点绘制
+		registMainCanvasLawDot:function(){
+			var self = this;
+			var data = new Array(),dotHtml = new Array();
+
+			for(var i=0;i<10;i++){
+				//推送对应流点
+				dotHtml.push('<div class="blueDot" id="lawDot'+i+'"></div>');
+			}
+
+			for(var j=0;j<6;j++){
+				dotHtml.push('<div class="blueDot" id="lawDot2'+j+'"></div>');
+			}
+
+			$(".home_right_border").html("").append(dotHtml.join(""));
+
+			run();  
+	        function run(){  
+	        	for (var g = 0; g < 10; g++) {
+	        		//定义贝塞尔曲线参数
+	        		if(g<5){
+	        			var bezier_params = {  
+			                start: { 
+						      x:0,
+						      y:0, 
+						      angle: 0
+						    },  
+						    end: { 
+					    	  x: 0, 
+						      y: 369, 
+						      angle: 0
+						    } 
+			            }  
+	        		}else{
+	        			var bezier_params = {  
+			                start: { 
+						      x:210,
+						      y:0, 
+						      angle: 0
+						    },  
+						    end: { 
+					    	  x: 210, 
+						      y: 369, 
+						      angle: 0
+						    } 
+			            }  
+	        		}
+		            
+		            //animation时候开始执行  
+		            var dotIdSelector = "#lawDot" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run();}) 
+	        	}
+	             
+	        } 
+
+	        run2();  
+	        function run2(){  
+	        	for (var g = 0; g < 6; g++) {
+	        		//定义贝塞尔曲线参数
+	        		if(g<3){
+	        			var bezier_params = {  
+			                start: { 
+						      x:0,
+						      y:369, 
+						      angle: 0
+						    },  
+						    end: { 
+					    	  x: 105, 
+						      y: 369, 
+						      angle: 0
+						    } 
+			            }  
+	        		}else{
+	        			var bezier_params = {  
+			                start: { 
+						      x:210,
+						      y:369, 
+						      angle: 0
+						    },  
+						    end: { 
+					    	  x: 105, 
+						      y: 369, 
+						      angle: 0
+						    } 
+			            }  
+	        		}
+		            
+		            //animation时候开始执行  
+		            var dotIdSelector = "#lawDot2" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run2();}) 
+	        	}
+	             
+	        } 
+		},
+
+		//初始化 中间主面板信息
+		initMainData : function(){
+			var self  =this;
+
+			// self.creatDepart();
+			// self.creatDataUnin();
+			
+
+			// //注册公司 到 部门 的连线 和 流节点
+			// self.canvasCompToDepartDot();
+			// //注册部门 到 数据集合 的连线 和 流节点
+			// self.canvasDepartToDataUnitDot();
+			// //注册数据集合 到 处罚信息 的连线 和 流节点
+			// self.canvasDataUnitToLawDot();
+
+		},
+
+		//创建左侧企业数据
+		creatComp : function(){
+			var self  = this,compHtml = new Array(),basicY = 10,basicTextY = 5 ,basixX = 240,basicWidth=230;
+			for(var i=0;i<S.homePageData.compData.length;i++){
+				if(i<8){
+					compHtml.push('<div class="mainNod" id="compNod'+i+'" targetdepart="'+S.homePageData.compData[i].targetdepart+'" lineData="'+S.homePageData.compData[i].status+'" style="top:'+ (basicY + 23*i) +'px;left:'+(basixX - 15*i) +'px;"></div>');
+					compHtml.push('<div class="mainText" style="top:'+ (basicTextY + 23*i) +'px;width:'+(basicWidth - 15*i) +'px;" title="'+S.homePageData.compData[i].compName+'">'+S.homePageData.compData[i].compName+'</div>');
+				}else{
+					compHtml.push('<div class="mainNod" id="compNod'+i+'" targetdepart="'+S.homePageData.compData[i].targetdepart+'" lineData="'+S.homePageData.compData[i].status+'" style="top:'+ (basicY + 23*i) +'px;left:'+ (0 + 15*i) +'px;"></div>');
+					compHtml.push('<div class="mainText" style="top:'+ (basicTextY + 23*i) +'px;width:'+ (-10 + 15*i) +'px;" title="'+S.homePageData.compData[i].compName+'">'+S.homePageData.compData[i].compName+'</div>');
+				}
+			}
+
+			$(".home_right_canvas").append(compHtml.join(''));
+		},
+
+		//创建中间 部门内容
+		creatDepart:function(){
+			var self = this,departHtml = new Array();
+
+			departHtml.push('<div class="depart_inside" id="depart_inside" angle="20"></div>');
+			departHtml.push('<div class="depart_govDep" id="depart_govDep" angle="2"></div>');
+			departHtml.push('<div class="depart_network" id="depart_network" angle="-20"></div>');
+			
+			$(".home_right_canvas").append(departHtml.join(''));
+					
+		},
+
+		//创建中间 数据集合内容
+		creatDataUnin:function(){
+			var self = this,dataUninHtml = new Array();
+
+			dataUninHtml.push('<div class="data_border" id="data_border">');
+			dataUninHtml.push('<div class="dataContent data_clean"></div>');
+			dataUninHtml.push('<div class="dataContent data_unin"></div>');
+			dataUninHtml.push('<div class="dataContent data_change"></div>');
+			dataUninHtml.push('<div class="dataContent data_like"></div>');
+			dataUninHtml.push('<div class="data_dashdot1"></div>');
+			dataUninHtml.push('<div class="data_dashdot2"></div>');
+			dataUninHtml.push('<div class="data_dashdot3"></div>');
+			dataUninHtml.push('<div class="data_dashdot4"></div>');
+			dataUninHtml.push('<div class="data_dashdot5"></div>');
+			dataUninHtml.push('<div class="data_dashdot6"></div>');
+			dataUninHtml.push('</div>');
+			
+			$(".home_right_canvas").append(dataUninHtml.join(''));
+
+			//主面板 动态点绘制
+			self.registMainCanvasDataUnitDot();
+					
+		},
+
+		//创建中间 右侧处罚数据内容
+		creatLawInfo:function(){
+			var self = this,LawHtml = new Array();
+
+			LawHtml.push('<div class="LawNum_Approval LawContainer" angle="-5" id="LawNum_Approval"><p class="LawNum_title">行政许可数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Approval">'+S.homePageData.Law_Approval+'</p></div>');
+			LawHtml.push('<div class="LawNum_Punish LawContainer" angle="-5" id="LawNum_Punish"><p class="LawNum_title">行政处罚数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Punish">'+S.homePageData.Law_Punish+'</p></div>');
+			LawHtml.push('<div class="LawNum_Trial LawContainer" angle="-5" id="LawNum_Trial"><p class="LawNum_title">审判执行数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Trial">'+S.homePageData.Law_Trial+'</p></div>');
+			LawHtml.push('<div class="LawNum_Brand LawContainer" angle="-5" id="LawNum_Brand"><p class="LawNum_title">荣誉品牌数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Brand">'+S.homePageData.Law_Brand+'</p></div>');
+			LawHtml.push('<div class="LawNum_People LawContainer" angle="-5" id="LawNum_People"><p class="LawNum_title">法院失信被执行人数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_People">'+S.homePageData.Law_People+'</p></div>');
+			LawHtml.push('<div class="LawNum_Arrears LawContainer" angle="-5" id="LawNum_Arrears"><p class="LawNum_title">欠费欠薪数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Arrears">'+S.homePageData.Law_Arrears+'</p></div>');
+			LawHtml.push('<div class="LawNum_Mortgage LawContainer" angle="-5" id="LawNum_Mortgage"><p class="LawNum_title">土地抵押数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Mortgage">'+S.homePageData.Law_Mortgage+'</p></div>');
+			LawHtml.push('<div class="LawNum_Other LawContainer" angle="-5" id="LawNum_Other"><p class="LawNum_title">其他数据（条）</p>');
+			LawHtml.push('<p class="LawNum_num Law_Other">'+S.homePageData.Law_Other+'</p></div>');
+
+			$(".home_right_canvas").append(LawHtml.join(''));
+
+			//右侧处罚区域 动态点绘制
+			self.registMainCanvasLawDot();
+			//注册数据集合 到 处罚信息 的连线 和 流节点
+			self.canvasDataUnitToLawDot();
+		},
+		
+
+		//初始化 左侧 数据使用情况表
+		initDataUse:function(){
+			var self = this,canvasHtml = new Array();
+
+			canvasHtml.push('<div class="center dataUseNod" id="center" style="top:120px;left:145px"></div>');
+			canvasHtml.push('<div class="market_Num dataUseNod" id="market_Num" angle="-10" style="top:10px;left:250px;width:'+S.homePageData.marketPercent*2.2+'px;height:'+S.homePageData.marketPercent*2.2+'px;line-height:'+S.homePageData.marketPercent*2.2+'px;">'+S.homePageData.marketPercent+'%</div>');
+			canvasHtml.push('<div class="tiny_Num dataUseNod" id="tiny_Num" angle="-14" style="top:140px;left:215px;width:'+S.homePageData.tinyPercent*2.2+'px;height:'+S.homePageData.tinyPercent*2.2+'px;line-height:'+S.homePageData.tinyPercent*2.2+'px;">'+S.homePageData.tinyPercent+'%</div>');
+			canvasHtml.push('<div class="credit_Num dataUseNod" id="credit_Num" angle="-11" style="top:190px;left:165px;width:'+S.homePageData.creditPercent*2.2+'px;height:'+S.homePageData.creditPercent*2.2+'px;line-height:'+S.homePageData.creditPercent*2.2+'px;">'+S.homePageData.creditPercent+'%</div>');
+			canvasHtml.push('<div class="Maintain_Num dataUseNod" id="Maintain_Num" angle="-1" style="top:170px;left:105px;width:'+S.homePageData.maintainPercent*2.2+'px;height:'+S.homePageData.maintainPercent*2.2+'px;line-height:'+S.homePageData.maintainPercent*2.2+'px;">'+S.homePageData.maintainPercent+'%</div>');
+			canvasHtml.push('<div class="brand_Num dataUseNod" id="brand_Num" angle="13" style="top:175px;left:45px;width:'+S.homePageData.brandPercent*2.2+'px;height:'+S.homePageData.brandPercent*2.2+'px;line-height:'+S.homePageData.brandPercent*2.2+'px;">'+S.homePageData.brandPercent+'%</div>');
+			canvasHtml.push('<div class="comp_Num dataUseNod" id="comp_Num" angle="15" style="top:95px;left:48px;width:'+S.homePageData.compPercent*2.2+'px;height:'+S.homePageData.compPercent*2.2+'px;line-height:'+S.homePageData.compPercent*2.2+'px;">'+S.homePageData.compPercent+'%</div>');
+			canvasHtml.push('<div class="dashbord_Num dataUseNod" id="dashbord_Num" angle="0" style="top:50px;left:160px;width:'+S.homePageData.dashbordPercent*2.2+'px;height:'+S.homePageData.dashbordPercent*2.2+'px;line-height:'+S.homePageData.dashbordPercent*2.2+'px;">'+S.homePageData.dashbordPercent+'%</div>');
+
+			$("#canvas").html("").html(canvasHtml.join(""));
+
+
+			//取所有元素，构造对象集合
+			var canvas_node = $("#canvas").children(".dataUseNod"),data = new Array(),lineData = new Array(),dotHtml = new Array();
+			for(var i=0;i<canvas_node.length;i++){
+				data.push({
+					"BlockId":$(canvas_node[i]).attr("id"),
+					"BlockContent":$(canvas_node[i]).text(),
+					"BlockX":$(canvas_node[i]).css("left").replace("px",""),
+					"BlockY":$(canvas_node[i]).css("top").replace("px",""),
+					"Radius":$(canvas_node[i]).css("width").replace("px","")/2,
+					"Angle":$(canvas_node[i]).attr("angle")
+				});
+				if($(canvas_node[i]).attr("id") != "center"){
+					lineData.push({
+						"ConnectionId":"left_con_" + i,
+						"PageSourceId":$(canvas_node[i]).attr("id"),
+						"PageTargetId":"center",
+						"SourceText":$(canvas_node[i]).text(),
+						"TargetText":"",
+						"SourceAnchor":"Center",
+						"TargetAnchor":"Center"
+					});
+				}
+				//推送对应流点
+				dotHtml.push('<div class="blueDot" id="blueDot'+i+'"></div>');
+			}
+			$("#canvas").append(dotHtml.join(""));
+
+
+			// var data = [{"BlockId":"center","BlockContent":"","BlockX":145,"BlockY":120,"Radius":"2.5"},{"BlockId":"market_Num","BlockContent":"23%","BlockX":250,"BlockY":10,"Radius":"25"}];
+			// var lineData = [{"ConnectionId":"con_44","PageSourceId":"market_Num","PageTargetId":"center","SourceText":"23%","TargetText":"","SourceAnchor":"Center","TargetAnchor":"Center"}];
+
+			// var canvasHtml = new Array();
+			//  for(var i=0;i<data.length;i++){
+			// 	canvasHtml.push('<div class="window jtk-node" id="'+data[i].BlockId+'" style="top:'+data[i].BlockY+'px;left:'+data[i].BlockX+'px;"><strong>'+data[i].BlockContent+'</strong><br/><br/></div>');
+			// }
+			// $("#canvas").html("").html(canvasHtml.join(""));
+
+			jsPlumb.ready(function () {
+
+			    var connectorPaintStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#61B7CF",
+			            joinstyle: "round",
+			            outlineColor: "white",
+			            outlineWidth: 1
+			        },
+			    // .. and this is the hover style.
+			        connectorHoverStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#216477",
+			            outlineWidth: 1,
+			            outlineColor: "white"
+			        },
+			        endpointHoverStyle = {
+			            lineWidth: 1,
+			            fillStyle: "#216477",
+			            strokeStyle: "#216477",
+			            outlineWidth: 1
+			        },
+			    // the definition of source endpoints (the small blue ones)
+			        sourceEndpoint = {
+			            endpoint: ["Dot", { radius: 0.1 }],  //端点的形状
+			            PaintStyle: {
+			              strokeStyle: "#1e8151",
+			              fillStyle: "transparent",
+			              radius: 1,
+			              lineWidth: 1
+			            },    //端点的颜色样式
+			            isSource: true,
+			            isTarget: true, //是否可以放置（连线终点）
+			            maxConnections: 1, // 设置连接点最多可以连接几条线
+			            connector: ["Bezier", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }],  //连接线的样式种类有[Bezier],[Flowchart],[StateMachine ],[Straight ]
+			            connectorStyle: connectorPaintStyle,
+			            hoverPaintStyle: endpointHoverStyle,
+			            connectorHoverStyle: connectorHoverStyle,
+			            dragOptions: {},
+			            connectorOverlays: [["Arrow", { width: 1, length: 1, location: 1 }]]
+			        },
+			        init = function (connection,LineText) {
+			            connection.getOverlay("label").setLabel(LineText);
+			        };
+
+			    var instance = window.jsp = jsPlumb.getInstance({
+			        Endpoint: ["Dot", {radius: 2}],
+			        Connector:"StateMachine",
+			        // PaintStyle: { strokeStyle: "#ff0000", lineWidth: 1 },
+			        HoverPaintStyle: {stroke: "#1e8151", strokeWidth: 1 },
+			        ConnectionOverlays: [],
+			        Container: "canvas"
+			    });
+
+			    var basicType = {
+			        connector: "Flowchart",
+			        hoverPaintStyle: { strokeStyle: "blue" },
+			        overlays: [
+			            "Arrow"
+			        ]
+			    };
+			    instance.registerConnectionType("basic", basicType);
+
+			    // this is the paint style for the connecting lines..
+			    
+
+			    var _addEndpoints = function (toId, sourceAnchors) {
+			        for (var j = 0; j < sourceAnchors.length; j++) {
+			            var sourceUUID = toId + sourceAnchors[j];
+			            instance.addEndpoint(toId, sourceEndpoint, {
+			                anchor: sourceAnchors[j]
+			            });
+			        }
+			    };
+
+			    // suspend drawing and initialise.
+			    instance.batch(function () {
+
+			        //对 对象块  添加  锚点 的动作
+			        for(var j = 0;j<data.length;j++){
+			          _addEndpoints(data[j].BlockId, ["Center"]);
+			        }
+
+			        // connect a few up
+			        for(var k =0;k<lineData.length;k++){
+			          instance.connect({ source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        }
+			    });
+
+			    jsPlumb.fire("jsPlumbDemoLoaded", instance);
+
+			});
+
+
+
+			run();  
+	        function run(){  
+	        	for (var g = 1; g < data.length; g++) {
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:parseInt(data[0].BlockX) + parseInt(data[0].Radius),
+					      y:parseInt(data[0].BlockY) + parseInt(data[0].Radius), 
+					      angle: data[g].Angle,
+					      length:0.90
+					    },  
+					    end: { 
+				    	  x: parseInt(data[g].BlockX) + parseInt(data[g].Radius), 
+					      y: parseInt(data[g].BlockY) + parseInt(data[g].Radius), 
+					      angle: 0
+					    } 
+		            }  
+		            //animation时候开始执行  
+		            var dotIdSelector = "#blueDot" + g;
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},2000,function(){run();}) 
+	        	}
+	             
+	        } 
+		},
+
+		//注册公司 到 部门 的连线 和 流节点
+		canvasCompToDepartDot:function(){
+			var self = this;
+			//取所有元素，构造对象集合
+			var canvas_node = $("#mainCanvas").find(".mainNod"),data = new Array(),lineData = new Array(),dotHtml = new Array();
+			for(var i=0;i<canvas_node.length;i++){
+				var targetDepId="";
+				data.push({
+					"BlockId":$(canvas_node[i]).attr("id"),
+					"BlockContent":"",
+					"BlockX":$(canvas_node[i]).css("left").replace("px",""),
+					"BlockY":$(canvas_node[i]).css("top").replace("px",""),
+					"Radius":5,
+					"Angle":$(canvas_node[i]).attr("angle") || 0,
+					"targetdepart":$(canvas_node[i]).attr("targetdepart"),
+					"Status":$(canvas_node[i]).attr("lineData")
+				});
+				if($(canvas_node[i]).attr("targetdepart") == "1"){
+					targetDepId = "depart_inside";
+				}else if($(canvas_node[i]).attr("targetdepart") == "2"){
+					targetDepId = "depart_govDep";
+				}else{
+					targetDepId = "depart_network";
+				}
+				lineData.push({
+					"ConnectionId":"mainCanvas_comp_con_" + i,
+					"PageSourceId":$(canvas_node[i]).attr("id"),
+					"PageTargetId":targetDepId,
+					"SourceText":$(canvas_node[i]).text(),
+					"TargetText":"",
+					"SourceAnchor":"Center",
+					"TargetAnchor":"LeftMiddle",
+					"Status":$(canvas_node[i]).attr("lineData")
+				});
+				//推送对应流点
+				if($(canvas_node[i]).attr("lineData") == "2"){
+					dotHtml.push('<div class="blueDot" id="comp_blueDot'+i+'_'+self.intervalIndex+'"></div>');
+				}
+			}
+			$("#mainCanvas").append(dotHtml.join(""));
+			// console.log("公司 到 部门的连线：");
+			// console.log(JSON.stringify(data));
+
+
+			// var data = [{"BlockId":"center","BlockContent":"","BlockX":145,"BlockY":120,"Radius":"2.5"},{"BlockId":"market_Num","BlockContent":"23%","BlockX":250,"BlockY":10,"Radius":"25"}];
+			// var lineData = [{"ConnectionId":"con_44","PageSourceId":"market_Num","PageTargetId":"center","SourceText":"23%","TargetText":"","SourceAnchor":"Center","TargetAnchor":"Center"}];
+
+			// var canvasHtml = new Array();
+			//  for(var i=0;i<data.length;i++){
+			// 	canvasHtml.push('<div class="window jtk-node" id="'+data[i].BlockId+'" style="top:'+data[i].BlockY+'px;left:'+data[i].BlockX+'px;"><strong>'+data[i].BlockContent+'</strong><br/><br/></div>');
+			// }
+			// $("#canvas").html("").html(canvasHtml.join(""));
+
+			jsPlumb.ready(function () {
+
+			    var connectorPaintStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#61B7CF",
+			            joinstyle: "round",
+			            outlineColor: "white",
+			            outlineWidth: 1
+			        },
+			    // .. and this is the hover style.
+			        connectorHoverStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#216477",
+			            outlineWidth: 1,
+			            outlineColor: "white"
+			        },
+			        endpointHoverStyle = {
+			            lineWidth: 1,
+			            fillStyle: "#216477",
+			            strokeStyle: "#216477",
+			            outlineWidth: 1
+			        },
+			    // the definition of source endpoints (the small blue ones)
+			        sourceEndpoint = {
+			            endpoint: ["Dot", { radius: 0.1 }],  //端点的形状
+			            PaintStyle: {
+			              strokeStyle: "#1e8151",
+			              fillStyle: "transparent",
+			              radius: 1,
+			              lineWidth: 1
+			            },    //端点的颜色样式
+			            isSource: true,
+			            isTarget: true, //是否可以放置（连线终点）
+			            maxConnections: 1, // 设置连接点最多可以连接几条线
+			            connector: ["Bezier", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }],  //连接线的样式种类有[Bezier],[Flowchart],[StateMachine ],[Straight ]
+			            connectorStyle: connectorPaintStyle,
+			            hoverPaintStyle: endpointHoverStyle,
+			            connectorHoverStyle: connectorHoverStyle,
+			            dragOptions: {},
+			            connectorOverlays: [["Arrow", { width: 1, length: 1, location: 1 }]]
+			        },
+			        init = function (connection,LineText) {
+			            connection.getOverlay("label").setLabel(LineText);
+			        };
+
+			    var instance = window.jsp = jsPlumb.getInstance({
+			        Endpoint: ["Dot", {radius: 2}],
+			        Connector:"StateMachine",
+			        // PaintStyle: { strokeStyle: "#ff0000", lineWidth: 1 },
+			        HoverPaintStyle: {stroke: "#1e8151", strokeWidth: 1 },
+			        ConnectionOverlays: [],
+			        Container: "mainCanvas"
+			    });
+
+			    var basicType = {
+			        connector: "Flowchart",
+			        hoverPaintStyle: { strokeStyle: "blue" },
+			        overlays: [
+			            "Arrow"
+			        ]
+			    };
+			    instance.registerConnectionType("basic", basicType);
+
+			    // this is the paint style for the connecting lines..
+			    
+
+			    var _addEndpoints = function (toId, sourceAnchors) {
+			        for (var j = 0; j < sourceAnchors.length; j++) {
+			            var sourceUUID = toId + sourceAnchors[j];
+			            instance.addEndpoint(toId, sourceEndpoint, {
+			                anchor: sourceAnchors[j]
+			            });
+			        }
+			    };
+
+			    // suspend drawing and initialise.
+			    instance.batch(function () {
+
+			        //对 对象块  添加  锚点 的动作
+			        for(var j = 0;j<data.length;j++){
+			          _addEndpoints(data[j].BlockId, ["Center"]);
+			        }
+
+			        // connect a few up
+			        for(var k =0;k<lineData.length;k++){
+			        	if(lineData[k].Status == "0"){
+			        		instance.connect({ paintStyle:{strokeWidth:1,strokeStyle:'#ff0000'},source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}else if(lineData[k].Status == "1"){
+			        		instance.connect({ paintStyle:{strokeWidth:1,strokeStyle:'#717780'},source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}else{
+			        		instance.connect({ source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}
+			          
+			        }
+			    });
+
+			    jsPlumb.fire("jsPlumbDemoLoaded", instance);
+
+			});
+
+			for(var g=0;g<data.length;g++){
+				run(g);
+			}
+
+		    function run(index){  
+	        	// for (var g = 0; g < data.length; g++) {
+	        		var EndX = 0,EndY = 0;
+	        		if(data[index].targetdepart == "1"){
+	        			EndX = 398;
+	        			EndY = 81.5;
+	        		}else if(data[index].targetdepart == "2"){
+	        			EndX = 398;
+	        			EndY = 172.5;
+	        		}else{
+	        			EndX = 398;
+	        			EndY = 266.5;
+	        		}
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:parseInt(data[index].BlockX) + parseInt(data[index].Radius),
+					      y:parseInt(data[index].BlockY) + parseInt(data[index].Radius), 
+					      angle: -5,
+					      length:0.90
+					    },  
+					    end: { 
+				    	  x: 398, 
+					      y: EndY, 
+					      angle: 0
+					    } 
+		            }
+		            if(g==0){
+		            	// 监控代码，查阅当前事件注册的内容
+		            	// console.log(EndY); 
+		            }
+		             
+		            //animation时候开始执行  
+		            var dotIdSelector = "#comp_blueDot"+ index +"_"+self.intervalIndex;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            // console.log(dotIdSelector);
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run(index);}) 
+	        	// }
+	             
+	        }
+
+			// run();  
+	  //       function run(){  
+	  //       	for (var g = 0; g < data.length; g++) {
+	  //       		var EndX = 0,EndY = 0;
+	  //       		if(data[g].targetdepart == "1"){
+	  //       			EndX = 398;
+	  //       			EndY = 81.5;       
+	  //       		}else if(data[g].targetdepart == "2"){
+	  //       			EndX = 398;
+	  //       			EndY = 172.5;
+	  //       		}else{
+	  //       			EndX = 398;
+	  //       			EndY = 266.5;
+	  //       		}
+	  //       		//定义贝塞尔曲线参数
+		 //            var bezier_params = {  
+		 //                start: { 
+			// 		      x:parseInt(data[g].BlockX) + parseInt(data[g].Radius),
+			// 		      y:parseInt(data[g].BlockY) + parseInt(data[g].Radius), 
+			// 		      angle: -5,
+			// 		      length:0.90
+			// 		    },  
+			// 		    end: { 
+			// 	    	  x: 398, 
+			// 		      y: EndY, 
+			// 		      angle: 0
+			// 		    } 
+		 //            }
+		 //            if(g==0){
+		 //            	// 监控代码，查阅当前事件注册的内容
+		 //            	// console.log(EndY); 
+		 //            }
+		             
+		 //            //animation时候开始执行  
+		 //            var dotIdSelector = "#comp_blueDot"+ g +"_"+self.intervalIndex;
+		 //            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		 //            console.log(dotIdSelector);
+		 //            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run();}) 
+	  //       	}
+	             
+	  //       }
+		},
+
+		//注册部门 到 数据集合 的连线 和 流节点
+		canvasDepartToDataUnitDot:function(){
+			var self = this;
+			//取所有元素，构造对象集合
+			var canvas_node = $("#mainCanvas").find("div[id^='depart_']"),data = new Array(),lineData = new Array(),dotHtml = new Array();
+			for(var i=0;i<canvas_node.length;i++){
+				var targetDepId="";
+				data.push({
+					"BlockId":$(canvas_node[i]).attr("id"),
+					"BlockContent":"",
+					"BlockX":$(canvas_node[i]).css("left").replace("px",""),
+					"BlockY":$(canvas_node[i]).css("top").replace("px",""),
+					"Radius":$(canvas_node[i]).css("width").replace("px",""),
+					"Height":$(canvas_node[i]).css("height").replace("px","")/2,
+					"Angle":$(canvas_node[i]).attr("angle") || 0
+				});
+				var Ypercent = [0.15,0.55,0.9];
+				lineData.push({
+					"ConnectionId":"mainCanvas_comp_con_" + i,
+					"PageSourceId":$(canvas_node[i]).attr("id"),
+					"PageTargetId":"data_border",
+					"SourceText":$(canvas_node[i]).text(),
+					"TargetText":"",
+					"SourceAnchor":"RightMiddle",
+					"TargetAnchor":[0, 0.5, 0, 0],
+					"Status":2
+				});
+				//推送对应流点
+				dotHtml.push('<div class="blueDot" id="depart_blueDot'+i+'"></div>');
+				dotHtml.push('<div class="blueDot" id="depart_blueDot2'+i+'"></div>');
+			}
+			$("#mainCanvas").append(dotHtml.join(""));
+			// console.log("部门到 数据集的连线：");
+			// console.log(lineData);
+
+
+			// var data = [{"BlockId":"center","BlockContent":"","BlockX":145,"BlockY":120,"Radius":"2.5"},{"BlockId":"market_Num","BlockContent":"23%","BlockX":250,"BlockY":10,"Radius":"25"}];
+			// var lineData = [{"ConnectionId":"con_44","PageSourceId":"market_Num","PageTargetId":"center","SourceText":"23%","TargetText":"","SourceAnchor":"Center","TargetAnchor":"Center"}];
+
+			// var canvasHtml = new Array();
+			//  for(var i=0;i<data.length;i++){
+			// 	canvasHtml.push('<div class="window jtk-node" id="'+data[i].BlockId+'" style="top:'+data[i].BlockY+'px;left:'+data[i].BlockX+'px;"><strong>'+data[i].BlockContent+'</strong><br/><br/></div>');
+			// }
+			// $("#canvas").html("").html(canvasHtml.join(""));
+
+			jsPlumb.ready(function () {
+
+			    var connectorPaintStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#61B7CF",
+			            joinstyle: "round",
+			            outlineColor: "white",
+			            outlineWidth: 1
+			        },
+			    // .. and this is the hover style.
+			        connectorHoverStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#216477",
+			            outlineWidth: 1,
+			            outlineColor: "white"
+			        },
+			        endpointHoverStyle = {
+			            lineWidth: 1,
+			            fillStyle: "#216477",
+			            strokeStyle: "#216477",
+			            outlineWidth: 1
+			        },
+			    // the definition of source endpoints (the small blue ones)
+			        sourceEndpoint = {
+			            endpoint: ["Dot", { radius: 0.1 }],  //端点的形状
+			            PaintStyle: {
+			              strokeStyle: "#1e8151",
+			              fillStyle: "transparent",
+			              radius: 1,
+			              lineWidth: 1
+			            },    //端点的颜色样式
+			            isSource: true,
+			            isTarget: true, //是否可以放置（连线终点）
+			            maxConnections: 1, // 设置连接点最多可以连接几条线
+			            connector: ["Bezier", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }],  //连接线的样式种类有[Bezier],[Flowchart],[StateMachine ],[Straight ]
+			            connectorStyle: connectorPaintStyle,
+			            hoverPaintStyle: endpointHoverStyle,
+			            connectorHoverStyle: connectorHoverStyle,
+			            dragOptions: {},
+			            connectorOverlays: [["Arrow", { width: 1, length: 1, location: 1 }]]
+			        },
+			        init = function (connection,LineText) {
+			            connection.getOverlay("label").setLabel(LineText);
+			        };
+
+			    var instance = window.jsp = jsPlumb.getInstance({
+			        Endpoint: ["Dot", {radius: 2}],
+			        Connector:"StateMachine",
+			        // PaintStyle: { strokeStyle: "#ff0000", lineWidth: 1 },
+			        HoverPaintStyle: {stroke: "#1e8151", strokeWidth: 1 },
+			        ConnectionOverlays: [],
+			        Container: "mainCanvas"
+			    });
+
+			    var basicType = {
+			        connector: "Flowchart",
+			        hoverPaintStyle: { strokeStyle: "blue" },
+			        overlays: [
+			            "Arrow"
+			        ]
+			    };
+			    instance.registerConnectionType("basic", basicType);
+
+			    // this is the paint style for the connecting lines..
+			    
+
+			    var _addEndpoints = function (toId, sourceAnchors) {
+			        for (var j = 0; j < sourceAnchors.length; j++) {
+			            var sourceUUID = toId + sourceAnchors[j];
+			            instance.addEndpoint(toId, sourceEndpoint, {
+			                anchor: sourceAnchors[j]
+			            });
+			        }
+			    };
+
+			    // suspend drawing and initialise.
+			    instance.batch(function () {
+
+			        //对 对象块  添加  锚点 的动作
+			        for(var j = 0;j<data.length;j++){
+			          _addEndpoints(data[j].BlockId, ["RightMiddle"]);
+			        }
+
+			        // connect a few up
+			        for(var k =0;k<lineData.length;k++){
+			        	if(lineData[k].Status == "0"){
+			        		instance.connect({ paintStyle:{strokeWidth:1,stroke:'#ff0000'},source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        		
+			        	}else if(lineData[k].Status == "1"){
+			        		instance.connect({ paintStyle:{strokeWidth:1,stroke:'#717780'},source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}else{
+			        		instance.connect({ source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}
+			          
+			        }
+			    });
+
+			    jsPlumb.fire("jsPlumbDemoLoaded", instance);
+
+			});
+
+
+
+			run();  
+	        function run(){  
+	        	for (var g = 0; g < data.length; g++) {
+	        		var EndX = 0,EndY = 0;
+	        		if(g == 0){
+	        			EndX = 748;
+	        			EndY = 91;
+	        		}else if(g == 1){
+	        			EndX = 748;
+	        			EndY = 179;
+	        		}else{
+	        			EndX = 748;
+	        			EndY = 256;
+	        		}
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:parseInt(data[g].BlockX) + parseInt(data[g].Radius),
+					      y:parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+					      angle: -5,
+					      length:0.90
+					    },  
+					    end: { 
+				    	  x: 748, 
+					      y: 168, 
+					      angle: 0
+					    } 
+		            }  
+		            //animation时候开始执行  
+		            var dotIdSelector = "#depart_blueDot" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run();}) 
+	        	}
+	             
+	        }
+
+	        run2();  
+	        function run2(){  
+	        	for (var g = 0; g < data.length; g++) {
+	        		var EndX = 0,EndY = 0;
+	        		if(g == 0){
+	        			EndX = 748;
+	        			EndY = 91;
+	        		}else if(g == 1){
+	        			EndX = 748;
+	        			EndY = 179;
+	        		}else{
+	        			EndX = 748;
+	        			EndY = 256;
+	        		}
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:parseInt(data[g].BlockX) + parseInt(data[g].Radius),
+					      y:parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+					      angle: -5,
+					      length:0.90
+					    },  
+					    end: { 
+				    	  x: 748, 
+					      y: 168,
+					      angle: 0
+					    } 
+		            }  
+		            //animation时候开始执行  
+		            var dotIdSelector = "#depart_blueDot2" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run2();}) 
+	        	}
+	             
+	        }
+		},
+
+		//注册数据集合 到 处罚信息 的连线 和 流节点
+		canvasDataUnitToLawDot:function(){
+			var self = this;
+			//取所有元素，构造对象集合
+			var canvas_node = $(".home_right_canvas").find(".LawContainer"),data = new Array(),lineData = new Array(),dotHtml = new Array();
+			for(var i=0;i<canvas_node.length;i++){
+				data.push({
+					"BlockId":$(canvas_node[i]).attr("id"),
+					"BlockContent":"",
+					"BlockX":$(canvas_node[i]).css("left").replace("px",""),
+					"BlockY":$(canvas_node[i]).css("top").replace("px",""),
+					"Radius":$(canvas_node[i]).css("width").replace("px",""),
+					"Height":$(canvas_node[i]).css("height").replace("px","")/2,
+					"Angle":$(canvas_node[i]).attr("angle") || 0
+				});
+				lineData.push({
+					"ConnectionId":"mainCanvas_comp_con_" + i,
+					"PageSourceId":"data_border",
+					"PageTargetId":$(canvas_node[i]).attr("id"),
+					"SourceText":$(canvas_node[i]).text(),
+					"TargetText":"",
+					"SourceAnchor":"RightMiddle",
+					"TargetAnchor":"LeftMiddle",
+					"Status":2
+				});
+				//推送对应流点
+				dotHtml.push('<div class="blueDot" id="law_blueDot'+i+'"></div>');
+				dotHtml.push('<div class="blueDot" id="law_blueDot2'+i+'"></div>');
+			}
+			$("#mainCanvas").append(dotHtml.join(""));
+			// console.log(" 数据集到 处罚的连线：");
+			// console.log(lineData);
+			// console.log(data);
+
+
+			// var data = [{"BlockId":"center","BlockContent":"","BlockX":145,"BlockY":120,"Radius":"2.5"},{"BlockId":"market_Num","BlockContent":"23%","BlockX":250,"BlockY":10,"Radius":"25"}];
+			// var lineData = [{"ConnectionId":"con_44","PageSourceId":"market_Num","PageTargetId":"center","SourceText":"23%","TargetText":"","SourceAnchor":"Center","TargetAnchor":"Center"}];
+
+			// var canvasHtml = new Array();
+			//  for(var i=0;i<data.length;i++){
+			// 	canvasHtml.push('<div class="window jtk-node" id="'+data[i].BlockId+'" style="top:'+data[i].BlockY+'px;left:'+data[i].BlockX+'px;"><strong>'+data[i].BlockContent+'</strong><br/><br/></div>');
+			// }
+			// $("#canvas").html("").html(canvasHtml.join(""));
+
+			jsPlumb.ready(function () {
+
+			    var connectorPaintStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#61B7CF",
+			            joinstyle: "round",
+			            outlineColor: "white",
+			            outlineWidth: 1
+			        },
+			    // .. and this is the hover style.
+			        connectorHoverStyle = {
+			            lineWidth: 1,
+			            strokeStyle: "#216477",
+			            outlineWidth: 1,
+			            outlineColor: "white"
+			        },
+			        endpointHoverStyle = {
+			            lineWidth: 1,
+			            fillStyle: "#216477",
+			            strokeStyle: "#216477",
+			            outlineWidth: 1
+			        },
+			    // the definition of source endpoints (the small blue ones)
+			        sourceEndpoint = {
+			            endpoint: ["Dot", { radius: 0.1 }],  //端点的形状
+			            PaintStyle: {
+			              strokeStyle: "#1e8151",
+			              fillStyle: "transparent",
+			              radius: 1,
+			              lineWidth: 1
+			            },    //端点的颜色样式
+			            isSource: true,
+			            isTarget: true, //是否可以放置（连线终点）
+			            maxConnections: 1, // 设置连接点最多可以连接几条线
+			            connector: ["Bezier", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }],  //连接线的样式种类有[Bezier],[Flowchart],[StateMachine ],[Straight ]
+			            connectorStyle: connectorPaintStyle,
+			            hoverPaintStyle: endpointHoverStyle,
+			            connectorHoverStyle: connectorHoverStyle,
+			            dragOptions: {},
+			            connectorOverlays: [["Arrow", { width: 1, length: 1, location: 1 }]]
+			        },
+			        init = function (connection,LineText) {
+			            connection.getOverlay("label").setLabel(LineText);
+			        };
+
+			    var instance = window.jsp = jsPlumb.getInstance({
+			        Endpoint: ["Dot", {radius: 2}],
+			        Connector:"StateMachine",
+			        // PaintStyle: { strokeStyle: "#ff0000", lineWidth: 1 },
+			        HoverPaintStyle: {stroke: "#1e8151", strokeWidth: 1 },
+			        ConnectionOverlays: [],
+			        Container: "mainCanvas"
+			    });
+
+			    var basicType = {
+			        connector: "Flowchart",
+			        hoverPaintStyle: { strokeStyle: "blue" },
+			        overlays: [
+			            "Arrow"
+			        ]
+			    };
+			    instance.registerConnectionType("basic", basicType);
+
+			    // this is the paint style for the connecting lines..
+			    
+
+			    var _addEndpoints = function (toId, sourceAnchors) {
+			        for (var j = 0; j < sourceAnchors.length; j++) {
+			            var sourceUUID = toId + sourceAnchors[j];
+			            instance.addEndpoint(toId, sourceEndpoint, {
+			                anchor: sourceAnchors[j]
+			            });
+			        }
+			    };
+
+			    // suspend drawing and initialise.
+			    instance.batch(function () {
+
+			        //对 对象块  添加  锚点 的动作
+			        for(var j = 0;j<data.length;j++){
+			          _addEndpoints(data[j].BlockId, ["LeftMiddle"]);
+			        }
+
+			        // connect a few up
+			        for(var k =0;k<lineData.length;k++){
+			        	if(lineData[k].Status == "0"){
+			        		instance.connect({ paintStyle:{strokeWidth:1,stroke:'#ff0000'},source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        		
+			        	}else if(lineData[k].Status == "1"){
+			        		instance.connect({ paintStyle:{strokeWidth:1,stroke:'#717780'},source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}else{
+			        		instance.connect({ source: lineData[k].PageSourceId, target: lineData[k].PageTargetId,anchors:[lineData[k].SourceAnchor,lineData[k].TargetAnchor]});
+			        	}
+			          
+			        }
+			    });
+
+			    jsPlumb.fire("jsPlumbDemoLoaded", instance);
+
+			});
+
+
+
+			run();  
+	        function run(){  
+	        	for (var g = 0; g < data.length; g++) {
+	        		
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:832,
+					      y:168, 
+					      angle: parseInt(data[g].Angle),
+					      length:0.90
+					    },  
+					    end: { 
+				    	  x: 1053, 
+					      y: parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+					      angle: 0
+					    } 
+		            }  
+		            //animation时候开始执行  
+		            var dotIdSelector = "#law_blueDot" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run();}) 
+	        	}
+	             
+	        }
+
+	        run2();  
+	        function run2(){  
+	        	for (var g = 0; g < data.length; g++) {
+	        		
+	        		//定义贝塞尔曲线参数
+		            var bezier_params = {  
+		                start: { 
+					      x:832,
+					      y:168, 
+					      angle: parseInt(data[g].Angle),
+					      length:0.90
+					    },  
+					    end: { 
+				    	  x: 1053, 
+					      y: parseInt(data[g].BlockY) + parseInt(data[g].Height), 
+					      angle: 0
+					    } 
+		            }  
+		            //animation时候开始执行  
+		            var dotIdSelector = "#law_blueDot2" + g;
+		            //随机生成 2500毫秒 到 1000 毫秒之间的数值
+		            $(dotIdSelector).animate({path : new $.path.bezier(bezier_params)},parseInt(Math.random()*1500+1000,10),function(){run2();}) 
+	        	}
+	             
+	        }
+		},
+
+		//初始化仪表盘
+		initGua:function(title,showText,percent,selector){
+			var self = this;
+			if(!selector[0]){
+				return;
+			}
+			var option = {
+			    series: [
+			        {
+			            name: title,
+			            min: 0,
+			            max: 100,
+			            type: 'gauge',
+			            axisLine: {
+			            lineStyle: {
+			                    color: [
+			                        [0.333, '#77d78b'],
+			                        [0.665, '#fda711'],
+			                        [1, "#f38b95"]
+			                    ],
+			                    width: 10
+			                }
+			            },
+			            tooltip:{
+			                show:false
+			            },
+			            axisTick: {
+			                show: false
+			            },
+			            axisLabel: {
+			                show: false
+			            },
+			            detail: {
+			                show: false
+			            },
+			            splitLine: {
+				            show: true,
+				            length: 10,
+				            lineStyle: {
+				                color: '#fff',
+				                width: 2
+				            }
+				        },
+			            title: {
+			                show: true,
+			                offsetCenter: [0, "120%"],
+			                textStyle: {
+			                    color: "#5ca0e0",
+			                    fontSize:15
+			                }
+			            },
+			            splitNumber: 6,
+			            data: [{value: percent, name: title}]
+			        }
+			    ]
+			};
+
+			var myChart = echarts.init(selector[0]);
+	        myChart.clear();
+	        myChart.setOption(option);
+
+	        selector.next('span').html("").html(showText);
+		},
+
+		//初始化 折线面积图
+		initLineChart : function(){
+			var self = this;
+
+			var itemStyle = {
+                normal: {
+                    lineStyle: {
+                        width: 2
+                    },
+                    areaStyle: {
+                    },
+                    opacity:1
+                }
+            };
+			var option = {
+				color: ['#ecbfff','#fdc390','#4cb050'],
+			    tooltip: {
+			        show: true,
+			        trigger: 'axis'
+			    },
+			    grid: {
+		            left: '3%',
+		            right: '4%',
+		            bottom:5,
+		            top:35,
+		            containLabel: true
+		        },
+			    legend: {
+			        show: false
+			    },
+			    xAxis: [
+			        {
+			            type: 'category',
+			            boundaryGap : false,
+			            data: self.chartData.title,
+			            axisLabel: {
+								show: true,
+								interval: 0
+							},
+						axisTick: {
+							show: true,
+							inside: true
+						}
+			        }
+			    ],
+			    yAxis : 
+	            {
+		            axisLine: {
+		                show : true
+		            },
+		            axisTick : {
+		                show : false  
+		            },
+		            name:"万条",
+		            splitLine :{
+		                show : false
+		            },
+		            type : 'value'
+	            },
+			    series: [
+			        {
+			            name:'互联网',
+			            type:'line',
+			            itemStyle: itemStyle,
+			            zlevel : 3,
+			            // barWidth: 15,
+			            data:self.chartData.total
+			        },
+			        {
+			            name:'本市政务部门及企事业单位',
+			            type:'line',
+			            itemStyle: itemStyle,
+			            zlevel : 2,
+			            // barWidth: 15,
+			            data:self.chartData.report
+			        },
+			        {
+			            name:'工商系统内部',
+			            type:'line',
+			            itemStyle: itemStyle,
+			            zlevel : 1,
+			            data:self.chartData.rate
+			        }
+			    ]
+			};
+
+			var myChart = echarts.init($(".home_right_lineChart")[0]);
+	        myChart.clear();
+	        myChart.setOption(option);
+		}
+
+		
+	});
+});
+</script>
