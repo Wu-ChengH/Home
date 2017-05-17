@@ -1,0 +1,74 @@
+<div class="headBox">
+	<div class="headOuter ">
+		<div class="log">
+			<a href="#">
+				<img src="src/images/logo.png">
+			</a>
+		</div>
+		<ul class="userinfo">
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-svg31"></i>
+					提醒
+					<span >5</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-xiaoxi"></i>
+					消息
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-calendar"></i>
+					进度
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-quanping"></i>
+					开启全屏
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					登录/ 注册
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-msnui-logout"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<script>
+	define(function(require){
+		require("src/webapps/head/header.css");
+		require("src/webapps/head/font/demo.css");
+		require("src/webapps/head/font/iconfont.css");
+		var base = require("Base");
+		return base.extend({
+			onInit : function(option){
+				this.otherFunc();
+			},
+			otherFunc : function(){
+				var _this = this;
+				this.$(".button").click(function(){
+					_this.loadDialog({
+			            url : "src/webapps/chart/chart.html",
+			            id : "chartDialog",
+			            title : "圖表頁",
+			            theme : "blue",
+			            width : 460,
+			            height : 215,
+			            btn : []
+			        });
+				})
+			}
+		});
+	});
+</script>

@@ -1,0 +1,63 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.headBox{
+	width: 100%;
+	background-color: #FFF;
+	position: fixed;
+	top: 0;
+	font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+}
+.headOuter{
+	display: flex;
+	justify-content: space-between;
+	width: 1220px;
+	margin: 0 auto;
+}
+.log{
+	display: flex;
+	height: 75px;
+	line-height: 75px;
+}
+.log a:first-child{
+	width: 160px;
+	display: block;
+	margin-top: 10px;
+}
+.log a:first-child img{
+	width: 100%;
+}
+.userinfo{
+	display: flex;
+	border-bottom: 1px solid #ccc;
+}
+.userinfo li{
+	height: 75px;
+	line-height: 75px;
+	position: relative;
+	width: 100px;
+	line-height: 75px;
+	text-align: center;
+}
+.userinfo li:nth-child(5){
+	width: 125px;
+}
+.userinfo li:last-child{
+	width: 40px;
+}
+.userinfo li a{
+	color: #999;
+	font-size: 14px;
+	display: block;
+}
+.userinfo li a:hover{
+	background-color: #f9fafc;
+	text-decoration: none;
+}

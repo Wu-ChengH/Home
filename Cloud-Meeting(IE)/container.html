@@ -1,16 +1,6 @@
 <div id="container">
-	<div id="header" class="clearfix">
-		<div id="logo"></div>
-		<div class="userInfo">
-			欢迎您，<span class="userName">系统管理员</span>
-		</div>
-		<div class="homeLogo" title="首页"></div>
+	<div id="header">
 	</div>
-	<div id="menuList">
-	</div>
-	<div id="content">
-	</div>
-	<div id="pageHome"></div>
 </div>
 <div class="pageloader">
 	<div class="pageloaderOverlay"></div>
@@ -31,8 +21,8 @@
 			onInit : function(options){
 				var data = "123";
 				this.loadpage({
-					$el:$("#content"),
-					url:"src/webapps/home/home.html",
+					$el:$("#header"),
+					url:"src/webapps/head/header.html",
 					option:{data:data}
 				});
 			}
