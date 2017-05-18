@@ -11,7 +11,6 @@ a{
 .headBox{
 	width: 100%;
 	background-color: #FFF;
-	position: fixed;
 	top: 0;
 	font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
 }
@@ -23,27 +22,33 @@ a{
 }
 .log{
 	display: flex;
-	height: 75px;
-	line-height: 75px;
+	height: 65px;
+	line-height: 65px;
 }
 .log a:first-child{
 	width: 160px;
 	display: block;
-	margin-top: 10px;
 }
 .log a:first-child img{
 	width: 100%;
 }
+.log a:last-child{
+	color: #C0CDDC;
+    margin-left: 20px;
+    margin-top: 4px;
+}
+.log a:last-child i{
+	font-size: 18px;
+}
 .userinfo{
 	display: flex;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #E9ECF3;
 }
-.userinfo li{
-	height: 75px;
-	line-height: 75px;
+.userinfoLi{
+	height: 65px;
+	line-height: 65px;
 	position: relative;
 	width: 100px;
-	line-height: 75px;
 	text-align: center;
 }
 .userinfo li:nth-child(5){
@@ -52,7 +57,7 @@ a{
 .userinfo li:last-child{
 	width: 40px;
 }
-.userinfo li a{
+.userinfoA{
 	color: #999;
 	font-size: 14px;
 	display: block;
@@ -60,4 +65,45 @@ a{
 .userinfo li a:hover{
 	background-color: #f9fafc;
 	text-decoration: none;
+}
+.userinfoBag{
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #fff;
+	line-height: 1;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-align: center;
+	border-radius: 500px;
+}
+.remindBag{
+	background-color: #36c6d3;
+}
+.newsBag{
+	background-color:#ed6b75;
+}
+.scheduleBag{
+	background-color:#8E44AD;
+}
+
+.particulars{
+	position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    /*display: none;*/
+    float: left;
+    min-width: 160px;
+    padding: 15px;
+    margin: 9px 0 0;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.particulars li{
+	color: #999;
+    border-bottom: 1px solid #F1F4F7;
 }

@@ -4,41 +4,55 @@
 			<a href="#">
 				<img src="src/images/logo.png">
 			</a>
+			<a href="#">
+				<i class="icon iconfont icon-caidan"></i>
+			</a>
 		</div>
 		<ul class="userinfo">
-			<li>
-				<a href="#">
-					<i class="icon iconfont icon-svg31"></i>
+			<li class="userinfoLi">
+				<a href="#" class="userinfoA">
+					<i class="icon iconfont icon-36"></i>
 					提醒
-					<span >5</span>
+					<span class="userinfoBag remindBag">5</span>
 				</a>
+				<ul class="particulars">
+					<li>
+						<h3>你有<span>5</span>条提醒</h3>
+						<a href="#">全部</a>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
 			</li>
-			<li>
-				<a href="#">
+			<li class="userinfoLi">
+				<a href="#" class="userinfoA">
 					<i class="icon iconfont icon-xiaoxi"></i>
 					消息
+					<span class="userinfoBag newsBag">9</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<i class="icon iconfont icon-calendar"></i>
+			<li class="userinfoLi">
+				<a href="#" class="userinfoA">
+					<i class="icon iconfont icon-xiangmujindu"></i>
 					进度
+					<span class="userinfoBag scheduleBag">4</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
+			<li class="userinfoLi">
+				<a href="#" class="userinfoA">
 					<i class="icon iconfont icon-quanping"></i>
 					开启全屏
 				</a>
 			</li>
-			<li>
-				<a href="#">
+			<li class="userinfoLi">
+				<a href="#" class="userinfoA">
 					登录/ 注册
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					<i class="icon iconfont icon-msnui-logout"></i>
+			<li class="userinfoLi">
+				<a href="#" class="userinfoA">
+					<i class="icon iconfont icon-tuichu"></i>
 				</a>
 			</li>
 		</ul>
@@ -57,17 +71,6 @@
 			},
 			otherFunc : function(){
 				var _this = this;
-				this.$(".button").click(function(){
-					_this.loadDialog({
-			            url : "src/webapps/chart/chart.html",
-			            id : "chartDialog",
-			            title : "圖表頁",
-			            theme : "blue",
-			            width : 460,
-			            height : 215,
-			            btn : []
-			        });
-				})
 			}
 		});
 	});

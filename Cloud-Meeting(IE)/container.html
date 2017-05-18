@@ -1,6 +1,8 @@
 <div id="container">
 	<div id="header">
 	</div>
+	<div id="details">
+	</div>
 </div>
 <div class="pageloader">
 	<div class="pageloaderOverlay"></div>
@@ -23,6 +25,11 @@
 				this.loadpage({
 					$el:$("#header"),
 					url:"src/webapps/head/header.html",
+					option:{data:data}
+				});
+				this.loadpage({
+					$el:$("#details"),
+					url:"src/webapps/details/details.html",
 					option:{data:data}
 				});
 			}

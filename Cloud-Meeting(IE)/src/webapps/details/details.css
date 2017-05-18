@@ -1,0 +1,76 @@
+a:hover{
+	text-decoration: none !important;
+}
+
+.detailsOuter{
+	width: 1220px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.detailsNav{
+	width: 235px;
+	background-color: #fff;
+	border-radius: 10px;
+	padding-bottom: 20px;
+	margin-right: 20px;
+}
+.detailsNav h3{
+	height: 50px;
+	padding: 25px 15px 10px;
+	color: #5C9ACF;
+	font-size: 13px;
+	font-weight: 600;
+}
+.detailsUl li a{
+	display: block;
+    position: relative;
+    margin: 1px 0 0;
+    border: 0;
+    padding: 12px 15px;
+    padding-top: 6px;
+    text-decoration: none;
+    color: #485a6a;
+    font-size: 14px;
+}
+.detailsUl li{
+	position: relative;
+}
+.detailsUl li a i{
+	margin-right: 5px;
+}
+.detailsUl .pitchOn{
+	border-left: 3px solid #5C9ACF!important;
+    background: #f2f6f9;
+    margin-left: -3px;
+    padding-left: 15px;
+    color: #5b9bd1;
+}
+.detailsUl .pitchOn i{
+	color: #5b9bd1;
+}
+.detailsContent{
+	padding-top: 10px;
+	width: 100%;
+}
+.detailsContent h2{
+	color: #697882;
+	font-size: 22px;
+	font-weight: 400;
+}
+.detailsContent ul{
+	margin-top: 10px;
+	margin-bottom: 24px;
+	list-style: none;
+	display: flex;
+	font-size: 85%;
+}
+.detailsContent ul li{
+	height: 24px;
+	line-height: 24px;
+}
+.detailsContent ul li i{
+	content: "\00bb\00a0";
+    padding: 0 8px;
+    color: #ccc;
+}

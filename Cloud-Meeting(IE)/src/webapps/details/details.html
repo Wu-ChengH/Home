@@ -1,0 +1,72 @@
+<div class="detailsOuter">
+	<div class="detailsNav">
+		<h3>Amaze UI 列表</h3>
+		<ul class="detailsUl">
+			<li>
+				<a href="#" class="pitchOn">
+					<i class="icon iconfont icon-shouye-shouye"></i>
+					首页
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-shujubaobiao"></i>
+					数据表
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-biaoge"></i>
+					表格
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-biaodan"></i>
+					表单
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="icon iconfont icon-key"></i>
+					登录
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="detailsContent">
+		<h2>Amaze UI 首页组件</h2>
+		<ul>
+			<li>
+				<i class="icon iconfont icon-shouye-shouye" style="font-size: 12px"></i>
+				<a href="#">首页</a>
+			</li>
+			<li>
+				<i class="icon iconfont icon-bbgxiayiji"></i>
+				<a href="#">分类</a>
+			</li>
+			<li>
+				<i class="icon iconfont icon-bbgxiayiji"></i>
+				内容
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<script rel="script">
+define(function(require){
+	require("src/webapps/details/details.css");
+	require("src/webapps/details/font/demo.css");
+	require("src/webapps/details/font/iconfont.css");
+	var base = require("Base");
+	return base.extend({
+		onInit : function(option){
+			this.otherFunc();
+		},
+		otherFunc : function(){
+			
+		}
+	});
+});
+</script>
