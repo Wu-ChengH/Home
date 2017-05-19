@@ -106,20 +106,6 @@
 	margin-left:10px;
 	float:left;
 }
-#header .userInfo{
-	/*position:absolute;
-	right:10px;
-	top:0;*/
-	float:right;
-	height:40px;
-	line-height:40px;
-	color:#ccdee6;
-	font-size:12px;
-	padding:0 10px;
-}
-#header .userInfo > span{
-	margin:0 15px 0 5px;
-}
 #header .sessionState{
 	width:8px;
 	height:8px;

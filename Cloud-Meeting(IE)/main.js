@@ -6,7 +6,7 @@ seajs.config({
 	'paths': { //映射模块路径
 		"js" : "src/js",
 		"css" : "i18n/css",
-		"img" : "i18n/img",
+		"imgs" : "src/images",
 		"string" : "i18n/string",
 		"public" : "src/public",
 	},
