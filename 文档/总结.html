@@ -1,0 +1,204 @@
+1、行内元素有哪些？块级元素有哪些？
+	行内元素：a b span img input select strong label textarea
+	块级元素：div ul ol li dl dt dd p h1-h6 from address
+
+2、浏览器的内核分别是什么?
+	IE:Trident  Mozilla:Gecko  Chrome:Blink  Opera:Blink  Safari:WebKit
+
+3、HTML5新特性、处理HTML5新标签兼容问题?
+	1.canvas --- 用于绘画
+	2.video/audio --- 播放视频/音频
+	3.本地储存
+		. sessionStorage 浏览器关闭后自动删除
+		. localStorage 浏览器长期储存数据，关闭浏览器不会丢失数据
+	4.新增标签
+		. article
+		. footer
+		. header
+		. nav
+		. section
+	5.新增表单控件
+		.calendar
+		.date
+		.time
+		.email
+		.url
+		.search
+
+4、请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+
+	1.cookie在浏览器和服务器来回传递，sessionStorage和localStorage不会
+	2.sessionStorage和localStorage的存储空间更大
+	3.sessionStorage和localStorage有更多丰富易用的接口
+	3.sessionStorage和localStorage有各自独立的存储空间
+	4.sessionStorage不在不同的浏览器窗口共享，localStorage和cookie在同源窗口中是共享的
+
+5、为什么要初始化CSS样式？
+	因为浏览器的兼容问题，不同浏览器对一些标签的默认值是不同的，如果不初始化样式，往往会浏览器之间页面显示差异。
+
+6、对BFC规范的理解？
+	浮动、绝对定位元素，非块级盒子的块级容器，以及overflow值不为visiable的块级盒子，都会为他们的内容创建新的块级格式化上下文
+
+7、CSS3有哪些新特性？
+	. border-radius --圆角
+	. box-shadow -- 阴影
+	. text-shadow -- 文字阴影
+	. grandient -- 渐变
+	. transform	-- 动画
+	. 更多选择器
+	. 多背景
+
+8、介绍一下CSS的盒子模型？
+	标准盒模型：包含 border padding margin content
+	IE(怪异)盒模型：包含 border padding content
+
+9、对WEB标准以及W3C的理解与认识？
+	标签闭合、标签小写、不乱嵌套、结构表现，行为，分离、兼容更多设备...
+
+10、严格模式
+	目的
+		- 消除JavaScript语法的不合理、不严谨之处，减少一些怪异行为
+		- 消除代码运行的一些不安全之处，保证代码运行的安全
+		- 提高编译器效率，增加运行速度
+		- 为未来新版本JavaScript做好铺垫
+	. 变量不能隐式声明，否则会报错
+
+11、你如何对网站的文件和资源进行优化?
+	- 文件合并
+	- 文件压缩
+	- 使用CDN托管
+	- 使用缓存
+
+12、清除浮动的几种方式，各自的优缺点
+	1. clear:both  理论上能清除任何标签，增加无意义的标签
+	2. overflow:auto 空标签元素会增加无意代码，使用zoom:1，兼容IE
+	3. 给元素强制加上高度
+
+13、css hack
+	使css代码兼容不同浏览器，反过来也可以针对不同浏览器写不同的css样式
+	_marging  IE6
+	+margin   IE7
+	Marging:0 auto  9以后所有IE
+	Margin  IE8
+
+14、javascript的typeof返回哪些数据类型
+	Object  number  string  boolean  underfind  function
+
+15、例举3种强制类型转换和2种隐式类型转换?
+	强制转换
+		- parseInt	-- 转换为整数
+		- parseFloat  -- 转换为浮点数
+		- Number  -- 转换为数字
+		- Boolean -- 转换为bool值
+	隐式转换
+		- ==
+		- -
+		- ===
+
+16、call和apply的区别
+	共同点：
+		都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为有thisObj指定的新对象
+	不同点：
+		apply: 最多只能有两个参数--新this对象和一个数组argArray。
+		call: 可以接受多个参数，第一个为新的this对象，后面的则是一串参数列表
+	实际上apply和call的功能是一样的，只是传入的参数列表形式不同
+
+17、ajax请求时，如何解释json数据
+	- JSON.stringify()
+	- JSON.parse()
+
+18、事件委托是什么
+	利用事件冒泡的原理，让自己所触发的事件，让他的父元素代替执行
+
+19、如何阻止事件冒泡和默认事件
+	阻止事件冒泡
+		- e.stopPropagetion()
+		- event.cancelBubble() -- IE
+	阻止默认事件
+		- e.preventDefault()
+		- event.returnValue = false
+	return false
+		javaScript 的 return false 只会阻止默认事件
+		jQuery 的 return false 即阻止默认事件又防止对象冒泡
+	- return false
+
+20、闭包是什么，有什么特性，对页面有什么影响,闭包的危害
+	闭包就是函数套函数，内函数能获取外函数的变量，外函数不能获取内函数的变量，作用域的理解
+	闭包的危害
+		- 闭包会使函数中的变量都被保存在内存中，内存消耗很大
+		  - 解决方法是在退出函数之前，将不使用的局部变量全部删除
+
+21、==和===的不同
+	== 会自动转换类型
+	=== 不会
+
+22、javascript的同源策略
+	同源策略的含义
+		脚本只能读取和所属文档来源相同的窗口文档的属性
+		脚本本身的来源并不作为判断是否同源的依据，而是将脚本所属文档的来源作为判断依据
+
+23、如何处理跨域问题？
+	跨域
+		指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对JavaScript施加的安全限制
+	解决方法：
+		JSONP -- 只支持GET请求，不支持POST请求
+		代理
+		PHP端修改header
+			在PHP接口脚本中加入这两句就可以了
+				header('Access-Control-Allow-Origin:*');//允许所有来源访问
+				header('Access-Control-Allow-Method:POST,GET');//允许访问的方式
+
+24、编写一个数组去重的方法
+	function oSort(arr) {
+		var newArr = [];
+		for(var i=0; i<arr.length; i++) {
+			if(newArr.indexOf(arr[i]) == -1){
+				newArr.push(arr[i]);
+			}
+		}
+		return newArr
+	}
+
+25、Javascript如何实现继承
+	. 原型链
+		- 利用原型让一个引用类型继承另一个引用类型的属性和方法
+	. 构造函数
+		- 在子类型构造函数的内部调用超类构造函数。通过使用call()和apply()方法可以在新创建的对象上执行构造函数
+	. 组合继承
+		- 将原型链和借用构造函数的技术组合在一起，从而发挥两者之长的一种继承模式
+
+26、谈谈This对象的理解。
+	this是js的关键字，当作为方法调用的时候，this指向当前调用函数的对象，一般情况下指向全局
+
+27、简述一下src与href的区别
+	src：
+		指向外部资源的位置，在请求src资源时会将其指向的资源下载并应用到文档
+		例如：js脚本，img等元素
+	href:
+		指向网络资源所在位置，建立锚点或链接，用于超链接
+
+28、px和em的区别
+	px的值是固定的
+	em的值会继承父元素的字体大小
+
+29、什么叫优雅降级和渐进增强？
+	优雅降级
+		一开始构建完整功能，再针对低版本浏览器进行兼容
+	渐进增强
+		针对低版本浏览器构建页面，再针对高版本浏览器进行效果，交互等改进和追加功能
+
+29、怎样添加、移除、移动、复制、创建和查找节点？
+	createDocumentFragment() -- 创建一个DOM片段
+	createElement() -- 创建一个具体的元素
+	createTextNode() -- 创建一个文本节点
+	appendChild() -- 添加
+	removeChild() -- 移除
+	replaceChild() -- 替换
+	insertBefore() -- 插入
+	getElementsByTagName() -- 通过标签名称
+	getElementsByName() -- 通过元素的Name属性的值
+	getElementById() -- 通过元素Id，唯一性
+
+30、Javascript中callee和caller的作用？
+	callee是返回正在被执行的function函数，也就是所指定的function对象的正文
+	caller是返回一个对函数的引用，该函数调用了当前函数

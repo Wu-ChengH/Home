@@ -1,63 +1,3 @@
-/*global style*/
-.clearfix {
-	zoom: 1;
-}
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
-}
-.fl {
-	float: left !important;
-}
-
-.fr {
-	float: right !important;
-}
-
-.txt-right {
-	text-align: right;
-}
-
-.text-hide {
-	overflow: hidden;
-	text-indent: -1000px;
-	display: block;
-}
-
-.txt-center {
-	text-align: center;
-}
-
-.center {
-	margin: 0 auto;
-}
-
-.no-mgr {
-	margin-right: 0!important;
-}
-.no-pd {
-	padding: 0!important;
-}
-.no-mgl {
-	margin-left: 0!important;
-}
-.no-mgb{
-	margin-bottom:0 !important;
-}
-.no-mg{
-	margin:0 !important;
-}
-.hide {
-	display: none!important;
-}
-
-.show {
-	display: block!important;
-}
 
 /* loading Style */
 
@@ -708,5 +648,5 @@
 #details{
 	background-color: #E9ECF3;
 	padding-top: 80px;
-	flex: 1;
+	height: calc(100% - 66px);
 }

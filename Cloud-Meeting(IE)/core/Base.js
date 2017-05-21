@@ -1,9 +1,3 @@
-/*
-* @author : halvee.L
-* @date : 2016-6-13
-* @desc : Base Class 
-**/
-
 define(function(require)
 {
 	var Class = require('core/Class'),
