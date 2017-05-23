@@ -104,7 +104,6 @@
 	实际上apply和call的功能是一样的，只是传入的参数列表形式不同
 
 17、ajax请求时，如何解释json数据
-	- JSON.stringify()
 	- JSON.parse()
 
 18、事件委托是什么
@@ -252,3 +251,8 @@
 		父元素相对定位，当前元素绝对定位，设置top为50%，margin-top为当前元素的高度的一半，为负值
 	. 未知宽高
 		父元素相对定位，当前元素绝对定位，设置margin为auto，top、left、bottom、right为0
+
+36、解决浏览器最小字体限制
+	.transform: scale();
+		- 这种方法会造成四周出现 
+	. webkit-text-size-adjust: none;
