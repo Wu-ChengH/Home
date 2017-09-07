@@ -1,0 +1,126 @@
+<div id="container">
+	<div id="header" class="clearfix">
+		<div id="logo"></div>
+		<ul class="menu nav nav-tabs">
+		  	<li role="presentation" page="home" class="home active"><a href="#">数据首页</a></li>
+		  	<li role="presentation" page="target" class="target"><a href="#">目标</a></li>
+		  	<li role="presentation" page="board" class="board"><a href="#">看板</a></li>
+		  	<li role="presentation" page="quota" class="quota"><a href="#">指标</a></li>
+		</ul>
+		<div class="userInfo">
+			 <a class="userInfo-href cancel"><div><i class="fa fa-mail-forward"></i></div><div>注销</div></a>
+             <a class="userInfo-href pwd"><div><i class="fa fa-lock"></i></div><div>密码</div></a>
+             <a class="userInfo-user my"><img src="src/images/us.png" />
+             <span class="userName"></span><span class="temporaryTel"></span><div class="userNameText">系统管理员</div></a>
+		</div>
+		<div class="homeLogo" title="首页"></div>
+	</div>
+    <div id="content">
+    </div>
+</div>
+<div class="pageloader">
+    <div class="pageloaderOverlay"></div>
+    <div class="pageloader-content">
+        <div class="loadpage-picture">
+        	<div class="spinner">
+			    <div class="spinner-container container1">
+			    	<div class="circle1"></div>
+			    	<div class="circle2"></div>
+			    	<div class="circle3"></div>
+			    	<div class="circle4"></div>
+			    </div>
+			    <div class="spinner-container container2">
+			    	<div class="circle1"></div>
+			    	<div class="circle2"></div>
+			    	<div class="circle3"></div>
+			    	<div class="circle4"></div>
+			    </div>
+			    <div class="spinner-container container3">
+			    	<div class="circle1"></div>
+			    	<div class="circle2"></div>
+			    	<div class="circle3"></div>
+			    	<div class="circle4"></div>
+			    </div>
+			</div>
+        </div>
+        <span class="loading-message">加载中...</span>
+    </div>
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        return base.extend({
+			onInit : function(options){
+				var _this = this;
+				this.navigation();
+				this.electronvideo();
+				this.pwd();
+			},
+			//注销
+			electronvideo : function(){
+				var _this = this;
+				
+				//注销
+				this.$(".cancel").on("click",function(){
+					window.location.href = "./index.html";
+					/*S.request({
+	                    url:seft_serverUrl+"/api/logout",
+	                    type:"get",
+	                    success: function(resp) {
+	                        if (resp.errorCode == 1) {
+	                        	window.location.href = "./index.html"                        
+	                        }else{
+	                            $.zAlert(resp.errorMessage);
+	                        }
+	                    },
+	                })*/
+				})
+			},
+			navigation : function(){
+				var _this = this;
+				_this.loadpage({
+					$el:$("#content"),
+					url:"src/webapps/home/home.html",
+				});
+				//菜单跳转
+				this.$(".menu li").click(function(){
+					var page = $(this).attr("page");
+					_this.$(".menu li").removeClass("active");
+					$(this).addClass("active");
+					_this.loadpage({
+						$el:$("#content"),
+						url:"src/webapps/"+page+"/"+page+".html",
+					});
+				})
+
+				//个人详情
+				this.$(".my").on("click",function(){
+					_this.loadDialog({
+                        url : "src/webapps/my/my.html",
+                        id : "myDialog",
+                        title : "用户信息",
+                        theme : "blue",
+                        width : 1000,
+                        height : 520,
+                        btn : []
+                    });
+				})
+			},
+			//修改密码
+			pwd : function(){
+                var _this = this;
+                $(".pwd").click(function(){
+                    _this.loadDialog({
+                        url : "src/webapps/pwd/pwd.html",
+                        id : "password",
+                        title : "修改密码",
+                        theme : "blue",
+                        width : 400,
+                        height : 220,
+                        btn : []
+                    });
+                })
+            }
+		})
+	})
+</script>

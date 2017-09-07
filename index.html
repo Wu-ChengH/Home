@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="renderer" content="webkit"> <!--针对360极速浏览器-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" ><!--针对360普通浏览器，强制使用当前电脑中最高IE版本进行渲染-->
+	<link rel="stylesheet" href="./lib/bootstrap-3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./src/style/reset.css">
+	<link rel="stylesheet" href="./src/style/global.css" charset="utf-8"/>
+	<link rel="stylesheet" href="./lib/buttons/buttons.css">
+	<link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+	<title>图表</title>
+</head>
+<body ondragstart="return false">
+	<script type="text/javascript" src="./lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="./lib/sea-debug.js"></script>
+    <script type="text/javascript">
+	    window.onload = function(){
+	  //   	shell = require("electron").shell;
+	  //   	exec = require('child_process').exec;
+   //        	ipcRenderer = require('electron').ipcRenderer;
+   //        	oaSendMessage = null;
+   //        	var all = ipcRenderer.sendSync('synchronous-message', "ping")[1];
+   //        	remote = require('electron').remote;
+   //        	if(all){
+			// 	var len = all.length - 1;
+	  //         	var location = all.indexOf("//");
+	  //         	var message =all.substring(location+2,len);
+	  //         	oaSendMessage = eval("("+message+")");
+	  //         	console.log(oaSendMessage)      		
+   //        	}
+   // //        	console.log(ipcRenderer);
+   // //        	ipcRenderer.on('asynchronous-reply', function(event, arg) {
+			// //   console.log("123"+arg); // prints "pong"
+			// // });
+  	// 		_path = '\"' + require('path').join(__dirname,'..','/Release/CloudMeetingClient.exe')+'\"';
+	        seajs.use("./main.js",function(){
+			   });
+	    }	
+	</script>
+</body>
+</html>

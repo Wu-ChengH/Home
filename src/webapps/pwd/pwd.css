@@ -1,0 +1,53 @@
+.zDialog-body{
+	background: #fff;
+}
+#pwd{
+	padding-top: 20px;
+	font-size: 14px;
+}
+#pwd .oneRow{
+	position: relative;
+	height: 45px;
+	line-height: 45px;
+}
+#pwd .oneRow label{
+    font-weight: 500;
+    text-align: right;
+    width: 25%;
+    display: inline-block;
+}
+#pwd .oneRow .searchBtn{
+	width: 40%;
+    display: inline-block;
+}
+#pwd .oneRow span{
+	position: absolute;
+	color: red;
+	font-size: 12px;
+	display: inline-block;
+	top: 22px;
+    left: 172px;
+	display: none;
+}
+#pwd .oneRow i{
+	color: #94cf22;
+	display: none;
+	position: absolute;
+    margin-left: 85%;
+    margin-top: -35px;
+}
+#pwd .oneRow .form-control{
+	height: 26px;
+}
+#pwd .divButton{
+	position: relative;
+	margin-top: 10px;
+}
+#pwd .addConeactOk{
+	right: 88px;
+    color: #fff;
+    padding: 0px 30px;
+    border: none;
+    position: absolute;
+    right: 68px;
+}

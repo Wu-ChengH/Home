@@ -1,0 +1,319 @@
+<div id="configChartPage">
+	<div class="tabs">
+		<ul class="tabTop nav nav-tabs">
+		  	<li role="presentation" page="select" class="active"><a href="#">选择图表</a></li>
+		  	<li role="presentation" page="config"><a href="#">配置图表</a></li>
+		</ul>
+	</div>
+	<div class="selectContainer">
+		<div class="chartItem">
+			<img src="src/webapps/configChart/img/pie.png">
+			<div class="chartName">收入支出占比</div>
+			<button class="editBtn button button-large button-borderless"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+			<button class="delBtn button button-large button-borderless"><i class="fa fa-trash-o"></i></button>
+		</div>
+		<div class="selectBtnGroup">
+			<button class="editBtn button button-raised button-primary button-small">确定</button>
+    		<button class="newBtn button button-raised button-small">取消</button>
+		</div>
+	</div>
+	<div class="configContainer">
+		<div class="configleft">
+			<div class="configItem">
+				<div class="configTitle">1、单图名称</div>
+				<div class="configContent">
+					<input type="text" class="form-control" placeholder="请输入单图名称" aria-describedby="basic-addon1">
+				</div>
+			</div>
+			<div class="configItem">
+				<div class="configTitle">2、图表描述</div>
+				<div class="configContent">
+					<input type="text" class="form-control" placeholder="请输入图表描述" aria-describedby="basic-addon1">
+				</div>
+			</div>
+			<div class="configItem">
+				<div class="configTitle">3、图表选择</div>
+				<div class="configContent">
+					<ul class="chartTab nav nav-pills">
+						  <li role="presentation" type="line" class="active"><a href="#">折线图</a></li>
+						  <li role="presentation" type="pie"><a href="#">饼图</a></li>
+						  <li role="presentation" type="Hbar"><a href="#">水平柱状</a></li>
+						  <li role="presentation" type="Vbar"><a href="#">垂直柱状</a></li>
+						  <li role="presentation" type="area"><a href="#">堆叠图</a></li>
+						  <li role="presentation" type="table"><a href="#">表格</a></li>
+						  <li role="presentation" type="dig"><a href="#">数字图</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="configItem">
+				<div class="configTitle">4、指标配置</div>
+				<div class="configContent zb">
+					<label>指标：</label><button class="addZb configAdd button button-raised button-primary button-small">添加指标</button>
+					<div class="dropdown selectItem">
+					  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    	请选择
+					    	<span class="caret"></span>
+					  	</button>
+					  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="#">指标1</a></li>
+						    <li><a href="#">指标2</a></li>
+					  	</ul>
+					</div>
+				</div>
+				<div class="configContent wd">
+					<label>维度：</label><button class="addWd configAdd button button-raised button-primary button-small">添加维度</button>
+					<div class="dropdown selectItem">
+					  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    	请选择
+					    	<span class="caret"></span>
+					  	</button>
+					  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="#">指标1</a></li>
+						    <li><a href="#">指标2</a></li>
+					  	</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="configright">
+			<div class="configItem rightItem">
+				<div class="configTitle">5、过滤条件<button class="filterBtn button button-raised button-action button-small">配置过滤条件</button></div>
+				<div class="configContent">
+					支持添加多个过滤条件
+				</div>
+			</div>
+			<div class="configItem rightItem">
+				<div class="configTitle">6、图表预览</div>
+				<div class="preview">
+					<div class="preChart"></div>
+					<div class="preOther"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        require("src/webapps/configChart/configChart.css");
+        return base.extend({
+			onInit: function(options){
+				var _this = this;
+				this.initTab();
+				this.selectChart();
+				this.selectType();
+				this.preChart = echarts.init(_this.$(".preChart")[0]);
+				this.initChart();
+			},
+			initTab: function(){
+				var _this = this;
+				this.$(".tabTop li").click(function(){
+					_this.$(".tabTop li").removeClass("active");
+					$(this).addClass("active");
+					var page = $(this).attr("page");
+					if (page == "select") {
+						_this.$(".selectContainer").show();
+						_this.$(".configContainer").hide();
+					}else{
+						_this.$(".selectContainer").hide();
+						_this.$(".configContainer").show();
+					};
+				})
+			},
+			selectChart: function(){
+				$(".selectContainer").on("click",".chartItem",function(){
+					$(this).toggleClass("active");
+				})
+			},
+			selectType: function(){
+				var _this = this
+				this.$(".chartTab li").click(function(){
+					_this.$(".chartTab li").removeClass("active");
+					$(this).addClass("active");
+					var type = $(this).attr("type");
+					switch(type) {
+						case 'line':
+							_this.$(".wd").hide();
+							_this.$(".addZb").show();
+							break;
+						case 'pie':
+							_this.$(".wd").show();
+							_this.$(".addZb").hide();
+							_this.$(".addWd").hide();
+							break;
+						case 'Hbar':
+							_this.$(".wd").show();
+							_this.$(".addZb").hide();
+							_this.$(".addWd").hide();
+							break;
+						case 'Vbar':
+							_this.$(".wd").hide();
+							_this.$(".addZb").show();
+							break;
+						case 'area':
+							_this.$(".wd").hide();
+							_this.$(".addZb").show();
+							break;
+						case 'table':
+							_this.$(".wd").show();
+							_this.$(".addZb").show();
+							_this.$(".addWd").show();
+							break;
+						case 'dig':
+							_this.$(".wd").show();
+							_this.$(".addZb").hide();
+							_this.$(".addWd").hide();
+							break;
+
+					}
+					_this.initChart(type)
+				})
+			},
+			initChart: function(type){
+				this.preChart.clear();
+				switch(type) {
+					case 'line':
+						var option = {
+				            tooltip: {},
+				            xAxis: {
+				                data: ["维度1","维度2","维度3","维度4","维度5","维度6"]
+				            },
+				            yAxis: {},
+				            series: [{
+					            type:'line',
+					            data:[120, 132, 101, 134, 90, 230, 210]
+					        }]
+				        };
+				        break;
+				    case 'pie':
+						var option = {
+				            series: [
+						        {
+						            type:'pie',
+						            selectedMode: 'single',
+						            radius: [0, '50%'],
+						            data:[
+						                {value:335, name:'直达', selected:true},
+						                {value:679, name:'营销广告'},
+						                {value:1548, name:'搜索引擎'}
+						            ]
+						        }
+						    ]
+				        };
+				        break;
+				    case 'Hbar':
+						var option = {
+						    xAxis: {
+						        type: 'value',
+						    },
+						    yAxis: {
+						        type: 'category',
+						        data: ['维度1','维度2','维度3','维度4','维度5','维度6']
+						    },
+						    series: [
+						        {
+						            name: '2011年',
+						            type: 'bar',
+						            data: [03, 89, 34, 70, 44, 30]
+						        }
+						    ]
+						};
+				        break;
+				    case 'Vbar':
+						var option = {
+						    color: ['#3398DB'],
+						    xAxis : [
+						        {
+						            type : 'category',
+						            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            type:'bar',
+						            barWidth: '60%',
+						            data:[10, 52, 200, 334, 390, 330, 220]
+						        }
+						    ]
+						};
+				        break;
+				    case 'area':
+						var option = {
+						    xAxis : [
+						        {
+						            type : 'category',
+						            boundaryGap : false,
+						            data : ['周一','周二','周三','周四','周五','周六','周日']
+						        }
+						    ],
+						    yAxis : [
+						        {
+						            type : 'value'
+						        }
+						    ],
+						    series : [
+						        {
+						            type:'line',
+						            stack: '总量',
+						            areaStyle: {normal: {}},
+						            data:[120, 132, 101, 134, 90, 230, 210]
+						        },
+						        {
+						            type:'line',
+						            stack: '总量',
+						            areaStyle: {normal: {}},
+						            data:[220, 182, 191, 234, 290, 330, 310]
+						        },
+						        {
+						            type:'line',
+						            stack: '总量',
+						            areaStyle: {normal: {}},
+						            data:[150, 232, 201, 154, 190, 330, 410]
+						        },
+						        {
+						            type:'line',
+						            stack: '总量',
+						            areaStyle: {normal: {}},
+						            data:[320, 332, 301, 334, 390, 330, 320]
+						        },
+						        {
+						            type:'line',
+						            stack: '总量',
+						            label: {
+						                normal: {
+						                    show: true,
+						                    position: 'top'
+						                }
+						            },
+						            areaStyle: {normal: {}},
+						            data:[820, 932, 901, 934, 1290, 1330, 1320]
+						        }
+						    ]
+						};
+				        break;
+				    default:
+				    	var option = {
+				            tooltip: {},
+				            xAxis: {
+				                data: ["维度1","维度2","维度3","维度4","维度5","维度6"]
+				            },
+				            yAxis: {},
+				            series: [{
+					            type:'line',
+					            data:[120, 132, 101, 134, 90, 230, 210]
+					        }]
+				        };
+				        break;	
+				}
+		        // 使用刚指定的配置项和数据显示图表。
+		        this.preChart.setOption(option);
+			}
+		})
+	})
+	
+</script>

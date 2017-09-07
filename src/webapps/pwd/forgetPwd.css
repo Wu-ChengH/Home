@@ -1,0 +1,56 @@
+#forgetPwd .loginContent{
+	height: 290px;
+	padding: 40px 20px 20px;
+	background: #FFF;				
+}
+#forgetPwd .oneRow{
+	height: 45px;
+	position: relative;
+	margin-bottom: 20px;
+}
+#forgetPwd .oneRow label{
+    font-weight: 500;
+    text-align: right;
+    width: 35%;
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+}
+#forgetPwd .searchBtn{
+	width: 40%;
+	outline:none;
+	vertical-align: middle;
+	float: left;
+}
+#forgetPwd .searchBtn.focus{
+	border: 1px solid #9BBDF4;
+	box-shadow: 0 0 2px 1px #9BBDF4;
+	border-radius: 3px;
+}
+#forgetPwd .searchBtn.outline{
+	border: 1px solid #FA2D00;
+	box-shadow: 0 0 1px  #FA2D00;
+	border-radius: 3px;
+}
+#forgetPwd .usernameText{
+	padding-top: 6px;
+	font-size: 12px;
+	color: red;
+	display: none;
+	float: left;
+    margin-left: 35%;
+}
+#forgetPwd .gain{
+	position: absolute;
+	right: 0px;
+	top: 5px;
+	font-size: 14px;
+	color: #1296DB;
+	border: 1px solid #ccc;
+	padding: 5px 6px;
+	border-radius: 5px;
+	background: #fff;
+}
+#forgetPwd .sbtButton{
+	margin-right: 50px;
+}

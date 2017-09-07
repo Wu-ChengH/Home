@@ -1,0 +1,18 @@
+#home .addBtn {
+	position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+#home .btnGroup {
+    position: fixed;
+    right: 100px;
+    bottom: 43px;
+    display: none;
+}
+#home .box { width: 200px; height: 100px; cursor: move; position: absolute; top: 30px; left: 30px; background-color: #FFF; border: 1px solid #CCCCCC;  -webkit-box-shadow: 10px 10px 25px #ccc;-moz-box-shadow: 10px 10px 25px #ccc;box-shadow: 10px 10px 25px #ccc;}
+
+#home .box1 {
+	top: 330px; left: 330px;
+}
+
+#home .coor { width: 10px; height: 10px; overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C; }

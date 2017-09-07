@@ -1,0 +1,128 @@
+<div id="resetPwd">
+	<div class="oneRow">
+		<label>请输入新密码：</label>
+		<input type="password" class="searchBtn newPwd form-control" maxlength="10" placeholder="不超过10个字符"><i class="new fa fa-check"></i>
+		<span class="newPwdSpan">请输入新密码</span>
+	</div>	
+	<div class="oneRow">
+		<label>请确认新密码：</label>
+		<input type="password" class="searchBtn confirmPwd form-control" maxlength="10" placeholder="不超过10个字符"><i class="newP fa fa-check"></i>
+		<span class="confirmPwdSpan">请确认新密码</span>
+		<span class="pwdAtypism">两次输入密码不一致</span>
+	</div>
+	<div class="oneRow divButton">
+		<input type="button" class="addConeactOk button button-primary button-rounded button-small" value="确定">
+	</div>	
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        require("src/webapps/pwd/resetPwd.css");
+        return base.extend({
+			onInit : function(options){
+				var _this = this;
+				var data = options.pageData;
+				this.submit(data);
+				this.createSpan();
+				$(".zDialog-overlay").css("opacity","1");
+				$(".newPwd").keyup(function(){
+					var confirmPwd = _this.$(".confirmPwd").val();
+					if (this.value) {
+						$(".new").css("display","block");
+					}else{
+						$(".new").css("display","none");
+					}
+					if (this.value!=confirmPwd) {
+						$(".newP").css("display","none");
+						_this.$(".pwdAtypism").css("display","inline-block");
+						$(".newP").css("display","none");
+						$(".new").css("display","none");
+					}else{
+						$(".newP").css("display","block");
+						_this.$(".pwdAtypism").css("display","none");
+					}
+					if(!this.value && !confirmPwd){
+						$(".newP").css("display","none");
+						$(".new").css("display","none");
+					}
+					if(!confirmPwd){
+						_this.$(".pwdAtypism").css("display","none");
+					}
+				});
+				$(".confirmPwd").keyup(function(){
+					var newPwd = _this.$(".newPwd").val();
+					if (this.value!=newPwd) {
+						$(".newP").css("display","none");
+						_this.$(".pwdAtypism").css("display","inline-block");
+						$(".new").css("display","none");
+						$(".newp").css("display","none");
+					}else{
+						$(".newP").css("display","block");
+						$(".new").css("display","block");
+						_this.$(".pwdAtypism").css("display","none");
+					}
+					if(!this.value && !newPwd){
+						$(".newP").css("display","none");
+						$(".new").css("display","none");
+					}
+					if(!this.value){
+						_this.$(".pwdAtypism").css("display","none");
+					}
+				});
+			},
+
+			submit : function(data){
+ 				var _this = this;
+ 				_this.$(".addConeactOk").click(function(){
+ 					var newPwd = _this.$(".newPwd").val();
+ 					var confirmPwd = _this.$(".confirmPwd").val();
+					if(!newPwd){
+ 						_this.$(".newPwdSpan").css("display","inline-block");
+ 						return;
+ 					} 
+ 					if(!confirmPwd){
+ 						_this.$(".confirmPwdSpan").css("display","inline-block");
+ 						return;
+ 					}
+ 					if( newPwd && confirmPwd && newPwd==confirmPwd){
+ 						S.request({
+								url:seft_serverUrl+"/api/resetting/password",
+								type : 'post',
+								data : {
+									newPassword: newPwd,
+									userId : data.id,
+									mobile: data.mobile,
+									validateCode: data.validateCode,
+								},
+								success:function(resp){
+									if(resp.errorCode == 1){
+										$.zAlert("密码重置成功！");
+										$("#resetPassword").remove();
+										_this.loadpage({
+											url:"login.html"
+								        });
+									}else{
+										$.zAlert(resp.errorMessage);
+									}
+								},
+								error:function(msg){
+
+								}								
+							})	
+ 					} 					 
+ 				})
+			},
+			createSpan : function(){
+				var _this = this;
+ 				 _this.$(".newPwd").focus(function(){
+ 				 	_this.$(".newPwdSpan").css("display","none")
+ 				 });
+ 				 _this.$(".confirmPwd").focus(function(){
+ 				 	_this.$(".confirmPwdSpan").css("display","none")
+ 				 });
+			},
+			
+		})
+	})
+	
+</script>

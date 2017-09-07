@@ -1,0 +1,118 @@
+.zDialog-body{
+	background: #fff;
+}
+#configChartPage {
+    height: 100%;
+}
+#configChartPage .tabs {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+#configChartPage .chartItem {
+	width: 150px;
+	height: 150px;
+	border: 1px solid #ccc;
+	float: left;
+	position: relative;
+	border-radius: 3px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+#configChartPage .chartItem.active {
+	box-shadow: 1px 0px 10px #0880d7;
+}
+#configChartPage .chartName {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+#configChartPage .chartItem img {
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    left: -3px;
+    bottom: 30px;
+}
+#configChartPage .chartItem .editBtn {
+    position: absolute;
+    color: #ccc;
+    bottom: 34px;
+    right: 2px;
+}
+#configChartPage .chartItem .delBtn {
+	position: absolute;
+    color: #ccc;
+    bottom: 0px;
+    right: 7px;
+}
+#configChartPage .selectBtnGroup {
+    position: fixed;
+    bottom: 70px;
+    right: 210px;
+}
+#configChartPage .selectContainer {
+    height: calc(100% - 55px);}
+#configChartPage .configContainer {
+	display: none;
+	height: calc(100% - 55px);
+}
+#configChartPage .configleft {
+    width: 60%;
+    text-align: left;
+    padding-left: 20px;
+    height: 100%;
+    overflow: auto;
+    float: left;
+}
+#configChartPage .configItem {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    width: 90%;
+}
+#configChartPage .configTitle {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f2f2f2;
+    color: #000;
+    text-indent: 20px;
+}
+#configChartPage .configContent {
+    padding: 30px 20px;
+}
+#configChartPage .configAdd {
+    margin-left: 20px;
+}
+#configChartPage .selectItem {
+    margin-left: 61px;
+    margin-top: 10px;
+}
+#configChartPage .wd {
+	display: none;
+}
+#configChartPage .configright {
+    width: 40%;
+    float: left;
+    text-align: left;
+}
+#configChartPage .configItem.rightItem {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 90%;
+}
+#configChartPage .filterBtn {
+    float: right;
+}
+#configChartPage .preview {
+    width: 100%;
+    height: 287px;
+}
+.preChart {
+    width: 430px;
+    height: 287px;
+}
+.preOther {
+    width: 100%;
+    height: 100%;
+    display: none;
+}

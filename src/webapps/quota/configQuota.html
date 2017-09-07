@@ -1,0 +1,597 @@
+<div id="configQuotaPage">
+	<div class="tabs">
+		<ul class="tabTop nav nav-tabs">
+		  	<li role="presentation" page="basic" class="active"><a href="#">基础指标</a></li>
+		  	<li role="presentation" page="complex"><a href="#">复合指标</a></li>
+		</ul>
+	</div>
+	<div class="basicContainer">
+		<div class="configItem">
+			<div class="configTitle">基础指标信息</div>
+			<div class="configContent">
+				<form class="form-inline">
+				  	<div class="form-group">
+				    	<label>指标名称：</label>
+				    	<input type="text" class="form-control" placeholder="请输入指标名称">
+				  	</div>
+				  	<div class="form-group">
+				    	<label>展示类型：</label>
+				    	<select class="form-control">
+							<option>展示方式1</option>
+							<option>展示方式2</option>
+						</select>
+				  	</div>
+				  	<div class="form-group">
+				    	<label>取值方式：</label>
+				    	<select class="form-control">
+							<option>取值方式1</option>
+							<option>取值方式2</option>
+						</select>
+				  	</div>
+				</form>
+			</div>
+		</div>
+		<div class="configItem">
+			<div class="configTitle">指标周期</div>
+			<div class="configContent">
+				<form class="form-inline">
+				  	<div class="form-group">
+				    	<select class="form-control">
+							<option>按日统计</option>
+							<option>按月统计</option>
+							<option>按周统计</option>
+							<option>指定时间统计</option>
+						</select>
+				  	</div>
+				  	<div class="form-group">
+				    	<input type="text" class="form-control" placeholder="请输入指标名称">
+				  	</div>
+				</form>
+			</div>
+		</div>
+		<div class="configItem">
+			<div class="configTitle">维度选择<button class="addItem configAdd button button-raised button-primary button-small">添加</button></div>
+			<div class="configContent">
+				<div class="ty-transfer mt20 ml20" id="ued-transfer-1">
+				    <div class="fl ty-transfer-list transfer-list-left">
+				        <div class="ty-transfer-list-head">
+				            地域列表
+				        </div>
+				        <div class="ty-transfer-list-body">
+				            <ul class="ty-tree-select">
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容 ---- 1">
+				                                穿梭框列表内容 ---- 1
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容 ---- 2">
+				                                穿梭框列表内容 ---- 2
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容穿梭框列表内容 ---- 3">
+				                                穿梭框列表内容 ---- 3
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容---- 4">
+				                                穿梭框列表内容 ---- 4
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				            </ul>
+				        </div>
+				        <div class="ty-transfer-list-foot">
+				            <div class="ty-tree-div">
+				                <div class="tyc-check-blue fl">
+				                    <input type="checkbox" class="transfer-all-check" id="tyc-check-blue">
+				                    <span>
+				                    </span>
+				                </div>
+				                <div class="ty-tree-text">
+				                    全选
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="fl ty-transfer-operation">
+				        <span class="ty-transfer-btn-toright to-switch">
+				        </span>
+				        <span class="ty-transfer-btn-toleft to-switch">
+				        </span>
+				    </div>
+				    <div class="fl ty-transfer-list transfer-list-right">
+				        <div class="ty-transfer-list-head">
+				            地域列表
+				        </div>
+				        <div class="ty-transfer-list-body">
+				            <ul class="ty-tree-select">
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容 ---- 7">
+				                                穿梭框列表内容 ---- 5
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容 ---- 8">
+				                                穿梭框列表内容 ---- 5
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框内容穿梭框内容穿梭框内容 ---- 9">
+				                               穿梭框列表内容 ---- 7
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				                <li>
+				                    <div class="ty-tree-div">
+				                        <label class="tyue-checkbox-wrapper">
+				                            <span class="tyue-checkbox">
+				                                <input type="checkbox" class="tyue-checkbox-input" id="tyue-checkbox-blue">
+				                                <span class="tyue-checkbox-circle">
+				                                </span>
+				                            </span>
+				                            <span class="tyue-checkbox-txt" title="穿梭框列表内容穿梭框列表内容 ---- 10">
+				                                穿梭框列表内容......
+				                            </span>
+				                        </label>
+				                    </div>
+				                </li>
+				            </ul>
+				        </div>
+				        <div class="ty-transfer-list-foot">
+				            <div class="ty-tree-div">
+				                <div class="tyc-check-blue fl">
+				                    <input type="checkbox" class="transfer-all-check" id="tyc-check-blue">
+				                    <span>
+				                    </span>
+				                </div>
+				                <div class="ty-tree-text">
+				                    全选
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="clearboth">
+				    </div>    
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="complexContainer">
+		<div class="configItem">
+			<div class="configTitle">复合指标信息</div>
+			<div class="configContent">
+				<form class="form-inline">
+				  	<div class="form-group">
+				    	<label>指标名称：</label>
+				    	<input type="text" class="form-control" placeholder="请输入指标名称">
+				  	</div>
+				  	<div class="form-group">
+				    	<label>展示类型：</label>
+				    	<select class="form-control">
+							<option>展示方式1</option>
+							<option>展示方式2</option>
+						</select>
+				  	</div>
+				  	<div class="form-group">
+				    	<label>取值方式：</label>
+				    	<select class="form-control">
+							<option>取值方式1</option>
+							<option>取值方式2</option>
+						</select>
+				  	</div>
+				</form>
+			</div>
+		</div>
+		<div class="configItem">
+			<div class="configTitle">配置计算公式</div>
+			<div class="configContent">
+				<div class="compo-intro">
+		            <div class="col-md-12">
+		                <div class="col-md-6">
+		                    <div class="ibox float-e-margins">
+		                        <div class="ibox-content">
+		                            <!--<p class="c-tips">指标名称1*13+这里是计算公式展示+这里是计算公式展示+我们要自动换行</p>-->
+		                            <!--<div>公式：<span class="c-val"></span></div>-->
+		                            <div>公式：<span class="c-val">2+霍霍-幻刺/3+木头*(9-霍霍/2.9)</span></div>
+		                            <input type="hidden" id="J_formulaVal" value=""/>
+		                            <input type="hidden" id="J_particleSize" value="1440" data-psize=""/>
+		                            <input type="hidden" id="J_formQuotaId"/>
+		                        </div>
+		                    </div>
+		                    <div class="ibox float-e-margins">
+		                        <div class="ibox-content">
+		                            <ul class="okr-calc" id="J_calc">
+		                                <li>
+		                                    <span class="calc-clean">C</span>
+		                                    <span data-value="(" class="calc-bracket calc-left">(</span>
+		                                    <span data-value=")" class="calc-bracket calc-right">)</span>
+		                                    <span class="calc-del">Del</span>
+		                                </li>
+		                                <li>
+		                                    <span data-num-val="7" class="calc-num">7</span>
+		                                    <span data-num-val="8" class="calc-num">8</span>
+		                                    <span data-num-val="9" class="calc-num">9</span>
+		                                    <span data-value="/" class="calc-operation disabled">/</span>
+		                                </li>
+		                                <li>
+		                                    <span data-num-val="4" class="calc-num">4</span>
+		                                    <span data-num-val="5" class="calc-num">5</span>
+		                                    <span data-num-val="6" class="calc-num">6</span>
+		                                    <span data-value="*" class="calc-operation disabled">*</span>
+		                                </li>
+		                                <li>
+		                                    <span data-num-val="1" class="calc-num">1</span>
+		                                    <span data-num-val="2" class="calc-num">2</span>
+		                                    <span data-num-val="3" class="calc-num">3</span>
+		                                    <span data-value="-" class="calc-operation disabled">-</span>
+		                                </li>
+		                                <li>
+		                                    <span class="disabled">&nbsp;</span>
+		                                    <span data-num-val="0" class="calc-num">0</span>
+		                                    <span data-value="." class="calc-point disabled">.</span>
+		                                    <span data-value="+" class="calc-operation disabled">+</span>
+		                                </li>
+		                            </ul>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-md-6">
+		                    <div class="ibox float-e-margins">
+		                        <div class="ibox-content">
+		                            <div class="search-box clearfix">
+		                                <input type="text" class="search-int fl" id="J_searchval"/>
+		                                <input type="button" class="search-btn fl" id="J_searchBtn" value="搜索"/>
+		                            </div>
+		                            <ul class="com-list">
+		                                <li class="com-one">
+		                                    <span>指标名称</span>
+		                                </li>
+		                                <div id="J_compositeData">
+
+		                                </div>
+		                            </ul>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        require("src/webapps/quota/configQuota.css");
+        return base.extend({
+			onInit: function(options){
+				var _this = this;
+				this.initComposite();
+				this.initTab();
+				$("#ued-transfer-1").transferItem();
+			},
+			initComposite: function(){
+				var _this = this,
+		            $formulaVal = [],
+		            $showVal = [];
+		        //搜索
+		        $("#J_searchBtn").on("click", function () {
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            _this.getList();
+		        });
+		        //计算器区域
+		        var formula = $("#J_formulaVal").val(),
+		            $calcNum = $("#J_calc .calc-num"),
+		            $calcOperate = $("#J_calc .calc-operation");
+
+		        function calcLastVal() {
+		            var lastVal = $formulaVal[$formulaVal.length - 1];
+		            console.log($formulaVal.length + "=====>" + lastVal);
+		            var numText = /^(?:\d+,)*\d+$/,
+		                operationText = /([\+\-\*\/])/,
+		                pointText = /(^[\.])/,
+		                bracketText = /(^[\(\)])/;
+		            if (lastVal === undefined) {
+		                $(".calc-operation").addClass("disabled");
+		                $(".calc-point").addClass("disabled");
+		                $("#J_particleSize").val("");
+		                return false;
+		            }
+		            if (lastVal.length > 1) {
+		                $(".calc-num").addClass("disabled");
+		                $(".calc-operation").removeClass("checked").removeClass("disabled");
+		            } else {
+		                if (numText.test(lastVal)) {
+		                    $(".J_nameone").addClass("disabled");
+		                    $(".calc-operation").removeClass("disabled").removeClass("checked");
+		                    $(".calc-point").removeClass("disabled").addClass("canPoint");
+		                }
+		                if (operationText.test(lastVal)) {
+		                    $(".calc-num").removeClass("disabled");
+		                    $(".J_nameone").removeClass("checked").removeClass("disabled");
+		                    $(".calc-bracket").removeClass("disabled");
+		                    $(".calc-point").removeClass("hasPoint").removeClass("canPoint");
+		                }
+		                if (pointText.test(lastVal)) {
+		                    $(".calc-point").addClass("disabled").addClass("hasPoint");
+		                    $(".calc-operation").addClass("disabled");
+		                }
+		                if (bracketText.test(lastVal)) {
+		                    $(".calc-num").removeClass("disabled");
+		                    $(".J_nameone").removeClass("checked").removeClass("disabled");
+		                }
+		            }
+		        }
+
+		        //数字键
+		        $($calcNum).on("click", function () {
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            var numVal = $(this).data("num-val");
+		            $formulaVal.push(numVal);
+		            console.log($formulaVal);
+		            $showVal.push(numVal);
+		            $(".c-val").html($showVal);
+		            calcLastVal();
+		        });
+		        //运算键
+		        $($calcOperate).on("click", function () {
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            var operateVal = $(this).data("value");
+		            if ($(this).hasClass("checked")) {
+		                $formulaVal.pop();
+		                $formulaVal.push(operateVal);
+		                $showVal.pop();
+		                $showVal.push(operateVal);
+		                console.log($formulaVal);
+		                $(".c-val").html($showVal);
+		            } else {
+		                $(".calc-operation").addClass("checked")
+		                $formulaVal.push(operateVal);
+		                console.log($formulaVal);
+		                $showVal.push(operateVal);
+		                $(".c-val").html($showVal);
+		            }
+		            calcLastVal();
+		        });
+		        //左括号
+		        $(".calc-left").on("click", function () {
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            var brackVal = $(this).data("value");
+		            $formulaVal.push(brackVal);
+		            console.log($formulaVal);
+		            $showVal.push(brackVal);
+		            $(".c-val").html($showVal);
+		            calcLastVal();
+		        });
+		        //右括号
+		        $(".calc-right").on("click", function () {
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            var brackVal = $(this).data("value");
+		            $formulaVal.push(brackVal);
+		            console.log($formulaVal);
+		            $showVal.push(brackVal);
+		            $(".c-val").html($showVal);
+		            calcLastVal();
+		        });
+		        //小数点
+		        $(".calc-point").on("click", function () {
+		            if ($(this).hasClass("disabled") || $(this).hasClass("hasPoint") || !$(this).hasClass("canPoint")) {
+		                return false;
+		            }
+		            var pointVal = $(this).data("value");
+		            $formulaVal.push(pointVal);
+		            console.log($formulaVal);
+		            $showVal.push(pointVal);
+		            $(".c-val").html($showVal);
+		            calcLastVal();
+		        });
+		        //清除
+		        $(".calc-clean").on("click", function () {
+		            $formulaVal = [];
+		            $showVal = [];
+		            $(".c-val").html($showVal);
+		            $(".calc-operation").addClass("disabled");
+		            $(".calc-point").addClass("disabled");
+		            calcLastVal();
+		        });
+		        //删除上一个
+		        $(".calc-del").on("click", function () {
+		            $formulaVal.pop();
+		            $showVal.pop();
+		            $(".c-val").html($showVal);
+		            calcLastVal();
+		        });
+		        //指标
+		        $("#J_compositeData").on("click", ".J_nameone", function () {
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            $(this).addClass("noFirst");
+		            var comNameVal = $(this).data("name"),
+		                comCode = $(this).data("code"),
+		                newComCode = "${" + comCode + "}",
+		                particleSize = parseInt($(this).data("size")),
+		                pSize = parseInt($("#J_particleSize").val());
+		            if (isNaN(pSize)) {
+		                $("#J_particleSize").val(particleSize);
+		            } else {
+		                if (particleSize !== pSize) {
+		                    utils.showtips("请选择相同账期");
+		                    return false;
+		                }
+		                $("#J_particleSize").val(particleSize);
+		            }
+		/*
+		            if (particleSize !== pSize && $(this).hasClass("noFirst") && !isNaN(pSize)) {
+		                utils.showtips("请选择相同账期");
+		                return false;
+		            }
+		*/
+		            if ($(this).hasClass("checked")) {
+		                $formulaVal.pop();
+		                $formulaVal.push(newComCode);
+		                $showVal.pop();
+		                $showVal.push(comNameVal);
+		                console.log($formulaVal);
+		                $(".c-val").html($showVal);
+		            } else {
+		                $(".J_nameone").addClass("checked");
+		                $formulaVal.push(newComCode);
+		                console.log($formulaVal);
+		                $showVal.push(comNameVal);
+		                $(".c-val").html($showVal);
+		            }
+		            calcLastVal();
+		        });
+		        //保存
+		        $(".J_save").on("click", function () {
+		            var upCodeVal = "";
+		            if (Array.isArray($formulaVal) && $formulaVal.length === 0) {
+		                console.log("234444");
+		                upCodeVal = $("#J_formulaVal").val();
+		            } else {
+		                upCodeVal = $formulaVal.join("");
+		            }
+		            if ($(this).hasClass("disabled")) {
+		                return false;
+		            }
+		            var accountName = $.trim($("#J_accName").val()),
+		                showType = $.trim($("#J_showType").val()),
+		                valType = $.trim($("#J_valType").val());
+		            if (accountName === "") {
+		                utils.showtips("请输入指标名称");
+		                return false;
+		            } else if (showType === "") {
+		                utils.showtips("请选择展示类型");
+		                return false;
+		            } else if (valType === "") {
+		                utils.showtips("请选择取值方式");
+		                return false;
+		            }
+		            var reqData = {
+		                quotaId: $("#J_formQuotaId").val(),
+		                quotaName: accountName,
+		                showType: showType,
+		                showOperation: valType,
+		                expression: $formulaVal,
+		                expressionString: upCodeVal,
+		                particleSize: $("#J_particleSize").val()
+		            };
+		            /*utils.loadingToast.show();
+		            utils.ajax(_this.o.saveApi, reqData, function (ret) {
+		                if (ret.code === 1) {
+		                    parent.searchList();
+		                    parent.closeLayer(ret.msg);
+		                } else {
+		                    utils.showtips(ret.msg, 2);
+		                    $(".J_save").removeClass("disabled");
+		                }
+		                utils.loadingToast.remove();
+		            });*/
+		        });
+			},
+		    getList: function () {
+		        var _this = this;
+		        var searchVal = $.trim($("#J_searchval").val());
+		        searchReqData = {
+		            quotaName: searchVal
+		        }
+		        // utils.ajax(_this.o.listApi, searchReqData, function (ret) {
+		        //     if (ret.code === 1) {
+		        //         var tpl = $("#J_listTpl").html();
+		        //         $("#J_compositeData").html(laytpl(tpl).render(ret.data));
+		        //     }
+		        // });
+		    },
+			initTab: function(){
+				var _this = this;
+				this.$(".tabTop li").click(function(){
+					_this.$(".tabTop li").removeClass("active");
+					$(this).addClass("active");
+					var page = $(this).attr("page");
+					if (page == "basic") {
+						_this.$(".basicContainer").show();
+						_this.$(".complexContainer").hide();
+					}else{
+						_this.$(".basicContainer").hide();
+						_this.$(".complexContainer").show();
+					};
+				})
+			}
+		})
+	})
+	
+</script>

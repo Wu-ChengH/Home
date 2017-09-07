@@ -1,0 +1,19 @@
+#addTarget {
+    height: 100%;
+    padding: 20px 60px;
+    overflow: auto;
+}
+#addTarget .addBtn {
+    width: 130px;
+}
+#addTarget .Wdate {
+	height: 34px;
+    width: 161px;
+    float: left;
+}
+#addTarget .dateLine {
+	float: left;
+	height: 32px;
+    line-height: 32px;
+    margin: 0 10px;
+}

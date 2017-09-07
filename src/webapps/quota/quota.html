@@ -1,0 +1,34 @@
+<div id="quota">
+	<div class="quotaItem">
+		<img class="quotaImg" src="src/webapps/quota/img/single.png">
+		<div class="quotaName">基础指标</div>
+		<button class="editBtn button button-large button-borderless"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+			<button class="delBtn button button-large button-borderless"><i class="fa fa-trash-o"></i></button>
+	</div>
+    <button class="addBtn button button-raised button-action button-circle button-jumbo" >添加</button>
+</div>
+<script rel="script">
+    define(function(require){
+    	require("src/webapps/quota/quota.css")
+        var base = require("Base");
+        return base.extend({
+			onInit: function(options){
+				this.openConfig();
+			},
+			openConfig: function(){
+				var _this = this;
+				this.$(".addBtn").click(function(){
+					_this.loadDialog({
+                        url : "src/webapps/quota/configQuota.html",
+                        id : "configQuotaDialog",
+                        title : "配置指标",
+                        theme : "blue",
+                        width : 1000,
+                        height : 520,
+                        btn : []
+                    });
+				})
+			}
+		})
+	})
+</script>

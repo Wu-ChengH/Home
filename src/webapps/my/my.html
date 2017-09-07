@@ -1,0 +1,106 @@
+<div id="my">
+    <div class="col-sm-6 editContainer">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">用户名：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="测试用户" placeholder="请输入您的用户名">
+                    <span class="inputText nameText">测试用户</span>
+                    <button class="btn1 editName button button-large button-borderless"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    <button class="btn2 saveName button button-large button-borderless"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">电话：</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" value="18900001111" placeholder="请输入您的电话号码">
+                    <span  class="inputText phoneText">18900001111</span>
+                    <button class="btn1 editPhone button button-large button-borderless"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    <button class="btn2 savePhone button button-large button-borderless"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">邮箱：</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" value="test@qilv.com" placeholder="请输入您的邮箱">
+                    <span  class="inputText mailText">test@qilv.com</span>
+                    <button class="btn1 editEmail button button-large button-borderless"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    <button class="btn2 saveEmail button button-large button-borderless"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">唯一码：</label>
+                <div class="col-sm-9">
+                    <span class="inputText">R6dqit7K1Sdjk4TLSkxt</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">子用户：</label>
+                <div class="col-sm-9">
+                    <span class="inputText">2个</span>
+                    <button class="btn3 addChild button button-large button-borderless"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-6 childTable">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>子用户名</th>
+                    <th>手机号码</th>
+                    <th>状态</th>
+                    <th>管理</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>user1</td>
+                    <td>18900002222</td>
+                    <td>生效</td>
+                    <td>
+                        <button class="button button-pill button-tiny">注销</button>
+                        <button class="button button-pill button-tiny">重置密码</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>user2</td>
+                    <td>18900003333</td>
+                    <td>生效</td>
+                    <td>
+                        <button class="button button-pill button-tiny">注销</button>
+                        <button class="button button-pill button-tiny">重置密码</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script rel="script">
+    define(function(require){
+    	require("src/webapps/my/my.css");
+        var base = require("Base");
+        return base.extend({
+			onInit : function(options){
+                this.initEdit();
+			},
+            initEdit: function(){
+                $(".btn1").click(function(){
+                    $(this).hide();
+                    $(this).siblings(".btn2").show();
+                    $(this).siblings(".inputText").hide();
+                    $(this).siblings("input").show();
+                });
+                $(".btn2").click(function(){
+                    $(this).hide();
+                    $(this).siblings(".btn1").show();
+                    $(this).siblings(".inputText").show();
+                    $(this).siblings("input").hide();
+                })
+            }
+		})
+	})
+</script>

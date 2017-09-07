@@ -1,0 +1,53 @@
+<div id="home">
+    <div class="chartContainer">
+    	<div class="box">
+
+		    <div class="coor"></div>
+
+		</div>
+		<div class="box box1">
+
+		    <div class="coor"></div>
+
+		</div>
+    </div>
+    <div class="btnGroup">
+    	<button class="editBtn button button-raised button-primary button-small">编辑首页</button>
+    	<button class="newBtn button button-raised button-primary button-small">添加新图</button>
+    </div>
+    <button class="addBtn button button-raised button-action button-circle button-jumbo" >编辑</button>
+</div>
+<script rel="script">
+    define(function(require){
+    	require("src/webapps/home/home.css");
+    	require("src/public/drag/drag");
+        var base = require("Base");
+        return base.extend({
+			onInit : function(options){
+				this.initChart();
+				this.initBtn();
+			},
+			initChart: function(){
+
+			},
+			initBtn:function(){
+				var _this = this;
+				this.$(".addBtn").click(function(){
+					_this.$('.btnGroup').toggle();
+				});
+				this.$(".newBtn").click(function(){
+					_this.$('.btnGroup').hide();
+					_this.loadDialog({
+                        url : "src/webapps/configChart/configChart.html",
+                        id : "configDialog",
+                        title : "配置图表",
+                        theme : "blue",
+                        width : 1200,
+                        height : 520,
+                        btn : []
+                    });
+				})
+			}
+		})
+	})
+</script>

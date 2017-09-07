@@ -1,0 +1,26 @@
+#quota .quotaItem {
+    float: left;
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 100px;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 3px;
+}
+#quota .quotaImg {
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#quota .quotaName {
+    font-size: 16px;
+    margin-top: 28px;
+    color: #aaa;
+    margin-left: 59px;
+}
+#quota .addBtn {
+	position: fixed;
+    right: 30px;
+    bottom: 30px;
+}

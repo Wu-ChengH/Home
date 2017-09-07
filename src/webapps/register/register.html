@@ -1,0 +1,260 @@
+<div id="registerPage">
+    <div class="loginContent">
+		<div class="oneRow">
+		    <label>请输入您的手机号码：</label>
+			<input id="phonePwd" class="searchBtn form-control" type="text" maxlength="11" placeholder="请输入您的手机号码"/>
+			<button class="gain">获取验证码</button>
+			<span class="errorTip usernameText phoneCheckOne">请输入手机号码</span>
+			<span class="errorTip usernameText phoneCheckTwo">请输入正确的手机号码</span>
+		</div>
+		<div class="oneRow">
+		    <label>请输入验证码：</label>
+			<input id="verificationCode" class="searchBtn form-control" type="text" placeholder="请输入验证码"/>
+			<span class="errorTip usernameText messageCheck">请输入验证码</span>
+		</div>
+		<div class="oneRow">
+		    <label>请输入真实姓名：</label>
+			<input id="realName" class="searchBtn form-control" type="text" placeholder="请输入验证码"/>
+			<span class="errorTip usernameText realNameCheck">请输入真实姓名</span>
+		</div>
+		<div class="oneRow">
+			<label>请输入密码：</label>
+			<input type="password" class="searchBtn newPwd form-control" maxlength="10" placeholder="不超过10个字符"><!-- <i class="new fa fa-check"></i> -->
+			<span class="errorTip newPwdSpan">请输入密码</span>
+		</div>	
+		<div class="oneRow">
+			<label>请确认密码：</label>
+			<input type="password" class="searchBtn confirmPwd form-control" maxlength="10" placeholder="不超过10个字符"><!-- <i class="newP fa fa-check"></i> -->
+			<span class="errorTip confirmPwdSpan">请确认第一次输入密码</span>
+			<span class="errorTip pwdAtypism">两次输入密码不一致</span>
+		</div>
+		<div class="submitBox">
+			<button class="sbtButton button button-primary button-rounded button-small">提交</button>
+		</div>
+	</div>
+	<form>
+        <div class="form-item form-item-account" id="form-item-account">
+            <label>用　户　名</label>
+            <txt class="txtstyle">您的账户名和登录名</txt><input type="text" id="form-account" name="regName" class="field" autocomplete="off" maxlength="20" placeholder=" " default="<i class=&quot;i-def&quot;></i>支持中文、字母、数字、“-”“_”的组合，4-20个字符">
+            <i class="i-status"></i>
+        </div>
+        <div class="input-tip">
+            <span></span>
+        </div>
+        <div class="form-item">
+            <label>设 置 密 码</label>
+            
+            <txt class="txtstyle">建议至少使用两种字符组合</txt><input type="password" name="pwd" id="form-pwd" class="field" maxlength="20" placeholder=" " default="<i class=i-def></i>建议使用字母、数字和符号两种及以上的组合，6-20个字符">
+            <i class="i-status"></i>
+        <div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div><div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
+        <div class="input-tip">
+            <span></span>
+        </div>
+        <div class="form-item">
+            <label>确 认 密 码</label>
+            
+            <txt class="txtstyle">请再次输入密码</txt><input type="password" name="pwdRepeat" id="form-equalTopwd" class="field" placeholder=" " maxlength="20" default="<i class=&quot;i-def&quot;></i>请再次输入密码">
+            <i class="i-status"></i>
+        <div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div><div class="capslock-tip tips">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
+        <div class="input-tip">
+            <span></span>
+        </div>
+                        <div class="item-email-wrap" style="display: none;">
+            <div class="form-item">
+                <label>邮 箱 验 证</label>
+                <txt style="position: absolute; z-index: 2; line-height: 52px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;, &quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">建议使用常用邮箱</txt><input type="text" name="email" id="form-email" class="field ignore" autocomplete="off" placeholder=" " default="<i class=&quot;i-def&quot;></i>完成验证后，你可以用该邮箱登录和找回密码">
+                <i class="i-status"></i>
+            <ul class="suggest-container email-suggest"><li class=""><div class="value">@qq.com</div></li><li class=""><div class="value">@163.com</div></li><li class=""><div class="value">@126.com</div></li><li class=""><div class="value">@Sina.com</div></li><li class=""><div class="value">@Sohu.com</div></li><li class="suggest-li-last "><div class="value">@Gmail.com</div></li></ul></div>
+            <div class="input-tip">
+                <span></span>
+            </div>
+            <div class="orPhone"><a href="javascript:;">手机验证</a></div>
+        </div>
+                        <div class="item-phone-wrap">
+                                <div class="form-item form-item-phone">
+                <label class="select-country" id="select-country" country_id="0086">中国 0086<a href="javascript:void(0)" tabindex="-1" class="arrow"></a></label>
+                <txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 7px; margin-top: 1px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;, &quot;Hiragino Sans GB&quot;; color: rgb(204, 204, 204); display: inline;">建议使用常用手机</txt><input type="text" id="form-phone" name="phone" class="field" placeholder=" " autocomplete="off" maxlength="11" default="<i class=&quot;i-def&quot;></i>完成验证后，你可以用该手机登录和找回密码">
+                <i class="i-status"></i>
+            </div>
+                                <div class="input-tip">
+                <span></span>
+            </div>
+                                <div class="orEmail"><a href="javascript:;" tabindex="-1">邮箱验证</a></div>
+                            </div>
+                        <div class="form-item form-item-authcode">
+            <label>验　证　码</label>
+            <txt class="txtstyle">请输入验证码</txt><input type="text" autocomplete="off" name="authCode" id="authCode" maxlength="6" class="field form-authcode" placeholder=" " default="<i class=&quot;i-def&quot;></i>看不清？点击图片更换验证码">
+            <img class="img-code" title="换一换" id="imgAuthCode" onclick="this.src= document.location.protocol +'//authcode.jd.com/verify/image?a=0&amp;acid=83a6f5c2-1c53-4b24-b24b-53461d25c2c9&amp;uid=83a6f5c2-1c53-4b24-b24b-53461d25c2c9&amp;srcid=reg&amp;is=73884c3830feee5275fccee88f41905b&amp;yys='+new Date().getTime()" ver_colorofnoisepoint="#888888" src="https://authcode.jd.com/verify/image?a=0&amp;acid=83a6f5c2-1c53-4b24-b24b-53461d25c2c9&amp;uid=83a6f5c2-1c53-4b24-b24b-53461d25c2c9&amp;srcid=reg&amp;is=73884c3830feee5275fccee88f41905b&amp;yys=1504768595570">
+        </div>
+        <div class="input-tip">
+            <span></span>
+        </div>
+                                        <div class="form-item form-item-phonecode">
+            <label>手机验证码</label>
+            <txt class="txtstyle">请输入手机验证码</txt><input type="text" name="mobileCode" maxlength="6" id="phoneCode" class="field phonecode" placeholder=" " autocomplete="off">
+            <button id="getPhoneCode" class="btn-phonecode" type="button">获取验证码</button>
+            <i class="i-status"></i>
+        </div>
+        <div class="input-tip">
+            <span></span>
+        </div>
+                                        
+
+                                        <div>
+            <button type="submit" class="btn-register">立即注册</button>
+        </div>
+        
+    </form>
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        require("src/webapps/register/register.css");
+        return base.extend({
+			onInit : function(options){
+				this.createSpan();
+				var _this= this;
+				$(".zDialog-overlay").css("opacity","1");
+				//手机号码验证
+				$("#phonePwd").keyup(function(){
+					if (this.value) {
+						if(!(/^1[34578]\d{9}$/.test(this.value))){
+							$(".phoneCheckOne").css("display","none");
+							$(".phoneCheckTwo").css("display","block");
+							$(".gain").attr("disabled","disabled");
+						}else{
+							$(".phoneCheckOne").css("display","none");
+							$(".phoneCheckTwo").css("display","none");
+							$(".gain").attr("disabled",false);
+						}
+					}else{
+						$(".phoneCheckOne").css("display","block");
+						$(".phoneCheckTwo").css("display","none");
+						$(".gain").attr("disabled","disabled");
+					}
+				});
+				//验证码验证
+				$("#verificationCode").keyup(function(){
+					if (this.value) {
+						$(".messageCheck").css("display","none");
+					}else{
+						$(".messageCheck").css("display","block");
+					}
+				});
+				//名字校验
+				$("#realName").keyup(function(){
+					if (this.value) {
+						$(".realNameCheck").css("display","none");
+					}else{
+						$(".realNameCheck").css("display","block");
+					}
+				});
+				$(".newPwd").keyup(function(){
+					var confirmPwd = _this.$(".confirmPwd").val();
+					if (this.value) {
+						$(".new").css("display","block");
+					}else{
+						$(".new").css("display","none");
+					}
+					if (this.value!=confirmPwd) {
+						$(".newP").css("display","none");
+						_this.$(".pwdAtypism").css("display","inline-block");
+						$(".newP").css("display","none");
+						$(".new").css("display","none");
+					}else{
+						$(".newP").css("display","block");
+						_this.$(".pwdAtypism").css("display","none");
+					}
+					if(!this.value && !confirmPwd){
+						$(".newP").css("display","none");
+						$(".new").css("display","none");
+					}
+					if(!confirmPwd){
+						_this.$(".pwdAtypism").css("display","none");
+					}
+				});
+				$(".confirmPwd").keyup(function(){
+					var newPwd = _this.$(".newPwd").val();
+					if (this.value!=newPwd) {
+						$(".newP").css("display","none");
+						_this.$(".pwdAtypism").css("display","inline-block");
+						$(".new").css("display","none");
+						$(".newp").css("display","none");
+					}else{
+						$(".newP").css("display","block");
+						$(".new").css("display","block");
+						_this.$(".pwdAtypism").css("display","none");
+					}
+					if(!this.value && !newPwd){
+						$(".newP").css("display","none");
+						$(".new").css("display","none");
+					}
+					if(!this.value){
+						_this.$(".pwdAtypism").css("display","none");
+					}
+				});
+				//发送验证码
+				$(".gain").click(function() {
+					var value=$("#phonePwd").val();
+					var _this = this;
+					S.request({
+						url:seft_serverUrl+"/authen/getSMSValidateCode?phone="+value+"&smsType=REGISTERCODE",
+						type:"get",
+						success:function(resp){
+							if(resp.code == "200"){
+								clearInterval(backTimer);
+								var countdown=60;   
+								function settime(obj) {
+								    if (countdown == 0) {   
+								        obj.removeAttr("disabled");      
+								        obj.text("获取验证码");
+								        countdown = 60;
+								        clearInterval(backTimer);
+								    } else {   
+								        obj.attr("disabled", true);   
+								        obj.text("重新发送(" + countdown + ")");   
+								        countdown--;   
+								    }
+								}
+								var backTimer = setInterval(function() { 
+								    settime($(_this)) }  
+								    ,1000)
+							}else{
+								$.zAlert(resp.msg);
+							}
+						}
+					})
+				})
+				//提交
+				$(".sbtButton").click(function(){
+					
+					mobile = $("#phonePwd").val();
+					validateCode = $("#verificationCode").val();
+					_this.loadDialog({
+                        url : "src/webapps/pwd/resetPwd.html",
+                        id : "resetPassword",
+                        title : "重置密码",
+                        theme : "blue",
+                        data : [],
+                        width : 450,
+                        height : 220,
+                        btn : [],
+                        onClose : function(){
+                        	$(".zDialog-overlay").css("opacity","0.5");
+                        }
+                    });
+				})
+			},
+			createSpan : function(){
+				var _this = this;
+ 				 _this.$(".newPwd").focus(function(){
+ 				 	_this.$(".newPwdSpan").css("display","none")
+ 				 });
+ 				 _this.$(".confirmPwd").focus(function(){
+ 				 	_this.$(".confirmPwdSpan").css("display","none")
+ 				 });
+			}
+		})
+	})
+	
+</script>

@@ -1,0 +1,179 @@
+<div id="pwd">
+	<div class="oneRow">
+		<label>请输入原密码：</label>
+		<input type="password" class="searchBtn pwd form-control" maxlength="10" placeholder="不超过10个字符">
+		<span class="pwdSpan">请输入原密码</span>
+	</div>
+	<div class="oneRow">
+		<label>请输入新密码：</label>
+		<input type="password" class="searchBtn newPwd form-control" maxlength="10" placeholder="不超过10个字符"><i class="newP fa fa-check"></i>
+		<span class="newPwdSpan">请输入新密码</span>
+		<span class="oldAndNew">新密码和旧密码不能相同</span>
+	</div>	
+	<div class="oneRow">
+		<label>请确认新密码：</label>
+		<input type="password" class="searchBtn confirmPwd form-control" maxlength="10" placeholder="不超过10个字符"><i class="newPa fa fa-check"></i>
+		<span class="confirmPwdSpan">请确认新密码</span>
+		<span class="pwdAtypism">两次输入密码不一致</span>
+	</div>
+	<div class="oneRow divButton">
+		<input type="button" class="addConeactOk button button-primary button-rounded button-small" value="确定">
+	</div>	
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        require("src/webapps/pwd/pwd.css");
+        return base.extend({
+			onInit : function(options){
+				var _this = this;
+				this.submit();
+				this.createSpan();
+				$(".pwd").keyup(function(){
+					var newPwd = _this.$(".newPwd").val();
+					var confirmPwd = $(".confirmPwd").val();
+					if(newPwd == this.value){
+						_this.$(".oldAndNew").css("display","inline-block");
+						$(".newP").css("display","none");
+						$(".newPa").css("display","none");
+					}else{
+						if(this.value == newPwd){
+							$(".newP").css("display","none");
+							$(".newPa").css("display","none");
+						}else{
+							_this.$(".oldAndNew").css("display","none");
+						}
+					}
+					if(!newPwd && !this.value && !confirmPwd){
+						_this.$(".oldAndNew").css("display","none");
+						_this.$(".pwdAtypism").css("display","none");
+					}
+				})
+				$(".newPwd").keyup(function(){
+					var pwd = _this.$(".pwd").val();
+					var confirmPwd = $(".confirmPwd").val();
+					//新原密码相同提示
+					if (this.value==pwd) {
+						$(".newP").css("display","none");
+						_this.$(".oldAndNew").css("display","inline-block");
+					}else{
+						$(".newP").css("display","block");
+						_this.$(".oldAndNew").css("display","none");
+					}
+					//两次输入密码不同提示
+					if(confirmPwd != this.value){
+						_this.$(".pwdAtypism").css("display","inline-block");
+						$(".newPa").css("display","none");
+					}else{
+						if(this.value == pwd){
+							$(".newP").css("display","none");
+							$(".newPa").css("display","none");
+						}else{
+							_this.$(".pwdAtypism").css("display","none");
+							$(".newP").css("display","block");
+							$(".newPa").css("display","block");							
+						}
+					}
+					if(!confirmPwd){
+						_this.$(".pwdAtypism").css("display","none");
+					}
+					//空值不显示勾
+					if(!this.value){
+						$(".newP").css("display","none");
+					}
+					//新原密码都为空时不提示密码相同
+					if(!confirmPwd && !this.value){
+						_this.$(".oldAndNew").css("display","none");
+						_this.$(".pwdAtypism").css("display","none");
+						$(".newP").css("display","none");
+						$(".newPa").css("display","none");
+					}
+				});
+				$(".confirmPwd").keyup(function(){
+					var newPwd = _this.$(".newPwd").val();
+					var pwd = _this.$(".pwd").val();
+					//两次密码不同是提示
+					if (this.value!=newPwd) {
+						$(".newPa").css("display","none");
+						_this.$(".pwdAtypism").css("display","inline-block");
+					}else{
+						if(newPwd == pwd){
+							$(".newP").css("display","none");
+							$(".newPa").css("display","none");
+						}else{
+							$(".newP").css("display","block");
+							$(".newPa").css("display","block");
+							_this.$(".pwdAtypism").css("display","none");
+						}
+					}
+					//空值是不显示勾
+					if(!this.value){
+						$(".newPa").css("display","none");
+					}
+					//两次密码都为空时不提示
+					if(!newPwd && !this.value){
+						_this.$(".oldAndNew").css("display","none");
+						_this.$(".pwdAtypism").css("display","none");
+						$(".newP").css("display","none");
+						$(".newPa").css("display","none");
+					}
+				});
+			},
+			submit : function(){
+ 				var _this = this;
+ 				_this.$(".addConeactOk").click(function(){
+ 					var pwd = _this.$(".pwd").val();
+ 					var newPwd = _this.$(".newPwd").val();
+ 					var confirmPwd = _this.$(".confirmPwd").val();
+ 					if(!pwd){
+ 						_this.$(".pwdSpan").css("display","inline-block");
+ 						return;
+ 					}
+					if(!newPwd){
+ 						_this.$(".newPwdSpan").css("display","inline-block");
+ 						return;
+ 					} 
+ 					if(!confirmPwd){
+ 						_this.$(".confirmPwdSpan").css("display","inline-block");
+ 						return;
+ 					}
+ 					if( pwd && newPwd && confirmPwd && newPwd==confirmPwd && pwd!=newPwd){
+ 						S.request({
+								url:seft_serverUrl+"/api/modifying/password",
+								type : 'post',
+								data : {
+									new_password: newPwd,
+                                    old_password: pwd,
+								},
+								success:function(resp){
+									if(resp.errorCode == 1){
+										$.zAlert("修改成功");
+										$("#password").remove();
+									}else{
+										$.zAlert(resp.errorMessage);
+									}
+								},
+								error:function(msg){
+
+								}								
+							})	
+ 					} 					 
+ 				})
+			},
+			createSpan : function(){
+				var _this = this;
+				_this.$(".pwd").focus(function(){
+					_this.$(".pwdSpan").css("display","none")
+				});
+ 				 _this.$(".newPwd").focus(function(){
+ 				 	_this.$(".newPwdSpan").css("display","none")
+ 				 });
+ 				 _this.$(".confirmPwd").focus(function(){
+ 				 	_this.$(".confirmPwdSpan").css("display","none")
+ 				 });
+			},
+			
+		})
+	})
+	
+</script>

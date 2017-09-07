@@ -1,0 +1,93 @@
+/* #target .targetItem {
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+} */
+#target .cardItem {
+    width: 400px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+#target .cardItem>div {
+	padding: 0 !important;
+}
+#target .cardTop {
+	height: 70px;
+}
+#target .cardTitle {
+	float: left;
+	background-color: #49e8ee;
+	width: 60%;
+}
+#target .titleText {
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+    text-indent: 10px;
+}
+#target .titleDate {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;}
+#target .rate {
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+}
+#target .rate1 {
+    float: right;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-indent: 20px;
+    background: url(./img/play.png) no-repeat;
+    margin-right: 7px;
+}
+#target .rate2 {
+	float: right;
+	width: 50px;
+	text-indent: 20px;
+	height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+	background: url(./img/up.png) no-repeat;
+}
+#target .valueItem {
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 10px;
+	width: 100%;
+}
+#target .itemName {
+	float: left;
+	text-indent: 10px;
+	font-weight: 600;
+}
+#target .itemValue {
+	float: right;
+	margin-right: 10px;
+}
+#target .Bg {
+	position: absolute;
+	height: 100%;
+	background-color: rgba(73, 232, 238, 0.23);
+}
+
+#target .addBtn {
+	position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+#target .btnGroup {
+    position: fixed;
+    right: 100px;
+    bottom: 43px;
+    display: none;
+}

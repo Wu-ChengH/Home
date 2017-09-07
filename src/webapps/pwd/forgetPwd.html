@@ -1,0 +1,145 @@
+<div id="forgetPwd">
+    <div class="loginContent">
+		<div class="oneRow">
+		    <label>请输入您的手机号码：</label>
+			<input id="phonePwd" class="searchBtn form-control" type="text" maxlength="11" placeholder="请输入您的手机号码"/>
+			<button class="gain">获取验证码</button>
+			<span class="usernameText phoneCheckOne">请输入手机号码</span>
+			<span class="usernameText phoneCheckTwo">请输入正确的手机号码</span>
+		</div>
+		<div class="oneRow">
+		    <label>请输入验证码：</label>
+			<input id="verificationCode" class="searchBtn form-control" type="text" placeholder="请输入验证码"/>
+			<span class="usernameText messageCheck">请输入验证码</span>
+		</div>
+		<div class="loginSubmitBox">
+			<button class="sbtButton button button-primary button-rounded button-small">提交</button>
+		</div>
+	</div>
+	
+</div>
+<script rel="script">
+    define(function(require){
+        var base = require("Base");
+        require("src/webapps/pwd/forgetPwd.css");
+        return base.extend({
+			onInit : function(options){
+				var _this= this;
+				var mobile;
+				var validateCode;
+				var id;
+				$(".zDialog-overlay").css("opacity","1");
+				//手机号码验证
+				$("#phonePwd").keyup(function(){
+					if (this.value) {
+						if(!(/^1[34578]\d{9}$/.test(this.value))){
+							$(".phoneCheckOne").css("display","none");
+							$(".phoneCheckTwo").css("display","block");
+							$(".gain").attr("disabled","disabled");
+						}else{
+							$(".phoneCheckOne").css("display","none");
+							$(".phoneCheckTwo").css("display","none");
+							$(".gain").attr("disabled",false);
+						}
+					}else{
+						$(".phoneCheckOne").css("display","block");
+						$(".phoneCheckTwo").css("display","none");
+						$(".gain").attr("disabled","disabled");
+					}
+				});
+				//验证码验证
+				$("#verificationCode").keyup(function(){
+					if (this.value) {
+						$(".messageCheck").css("display","none");
+					}else{
+						$(".messageCheck").css("display","block");
+					}
+				})
+				//发送验证码
+				$(".gain").click(function() {
+					var value=$("#phonePwd").val();
+					var _this = this;
+					S.request({
+						url:seft_serverUrl+"/api/resetting/validateCode",
+						type:"post",
+						data : { mobile: value },
+						success:function(resp){
+							if(resp.errorCode == 1){
+								id=resp.data.id;
+                                $().toastmessage('showSuccessToast', "验证码发送成功");
+								clearInterval(backTimer);
+								var countdown=60;   
+								function settime(obj) {
+								    if (countdown == 0) {   
+								        obj.removeAttr("disabled");      
+								        obj.text("获取验证码");
+								        countdown = 60;
+								        clearInterval(backTimer);
+								    } else {   
+								        obj.attr("disabled", true);   
+								        obj.text("重新发送(" + countdown + ")");   
+								        countdown--;   
+								    }
+								}
+								var backTimer = setInterval(function() { 
+								    settime($(_this)) }  
+								    ,1000)
+							}else{
+								$.zAlert(resp.errorMessage);
+							}
+						}
+					})
+				})
+				//提交
+				$(".sbtButton").click(function(){
+					
+					mobile = $("#phonePwd").val();
+					validateCode = $("#verificationCode").val();
+					_this.loadDialog({
+                        url : "src/webapps/pwd/resetPwd.html",
+                        id : "resetPassword",
+                        title : "重置密码",
+                        theme : "blue",
+                        data : [],
+                        width : 450,
+                        height : 220,
+                        btn : [],
+                        onClose : function(){
+                        	$(".zDialog-overlay").css("opacity","0.5");
+                        }
+                    });
+					/*S.request({
+						url:seft_serverUrl+"/api/resetting/validate",
+						type:"post",
+						data:{
+							mobile: mobile,
+							validateCode: validateCode,
+						},
+						success:function(resp){
+							if(resp.errorCode == 1){
+								 $("#forgetPassword").remove();
+								_this.loadDialog({
+			                        url : "src/webapps/pwd/resetPwd.html",
+			                        id : "resetPassword",
+			                        title : "重置密码",
+			                        theme : "blue",
+			                        data : {id,mobile,validateCode},
+			                        width : 450,
+			                        height : 220,
+			                        btn : [],
+			                        onClose : function(){
+			                        	$(".zDialog-overlay").css("opacity","0.5");
+			                        }
+			                    });
+							}else{
+								$.zAlert(resp.errorMessage);
+							}
+						}
+					})*/
+				})
+			},
+			
+		})
+	})
+	
+</script>
