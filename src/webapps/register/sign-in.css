@@ -1,0 +1,238 @@
+.container-box{
+	width: 100%;
+	border-top: 1px solid #ddd;
+	padding: 30px 0;
+	background-color: #f4f4f4;
+	font-family: "\5FAE\8F6F\96C5\9ED1";
+}
+.center-box{
+	width: 990px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.go-log{
+	float: right;
+	margin-top: 22px;
+	margin-right: 5px;
+	font-size: 14px;
+}
+.go-log a{
+	color: #0cb95f;
+	text-decoration: underline;
+}
+.form{
+	border: 1px solid #ddd;
+	background-color: #fff;
+	padding: 30px 0;
+}
+.form .first-li{
+    border-top: 1px dotted #ccc;
+	padding: 0;
+	margin: 10px 0;
+    height: 40px;
+}
+.form li{
+	padding: 10px 0;
+	height: 60px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #999;
+}
+.form-val{
+	margin-right: 10px;
+	width: 170px;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	text-align: right;
+	float: left;
+}
+.form-val label{
+	vertical-align: middle;
+	font-size: 16px;
+	color: #e50000;
+	font-family: serif;
+}
+.form-span{
+	display: inline-block;
+	text-align: right;
+	width: 165px;
+	color: #666;
+	float: left;
+	width: 170px;
+	height: 40px;
+	line-height: 40px;
+}
+.name-span{
+	position: relative;
+	float: left;
+}
+.name-span i{
+	position: absolute;
+	font-size: 20px;
+    color: #ccc;
+	left: 10px;
+	display: block;
+}
+.name-span input{
+	width: 265px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	border: 1px solid #e5e5e5;
+	padding: 0 20px 0 35px;
+	margin-bottom: 0
+}
+.ipt-a{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	color: #999;
+	background: #f4f4f4;
+	border: 1px solid #e5e5e5;
+	padding: 0 20px;
+}
+.form .s-ipt{
+	width: 60px;
+	padding: 0 20px 0 10px;
+}
+.form .m-ipt{
+	width: 175px;
+	padding: 0 20px 0 10px;
+}
+.phon-ipt{
+	margin: 0 5px;
+	color: #666;
+}
+.form .form-ck{
+	padding: 0 0 0 180px;
+	color: #666;
+}
+.ck{
+	width: 15px;
+	height: 15px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	float: left;
+	margin-top: 12px;
+	margin-right: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+.ck-back{
+	background: url(../imgs/public/icons.png) -62px -28px;
+}
+.form-ck a{
+	color: #1b9af7;
+}
+.ck-box{
+	display: inline-block;
+}
+.form-ck a:hover{
+	text-decoration: underline;
+}
+.form .last-li{
+	padding: 0 0 0 180px;
+}
+.last-li button{
+	display: block;
+	text-align: center;
+	width: 320px;
+	height: 48px;
+	line-height: 48px;
+	font-size: 18px;
+	color: #fff;
+	background: #1b9af7;
+	border: 0;
+}
+
+/*提示信息*/
+.oninfo-hint{
+	position: relative;
+	float: left;
+	margin-left: 5px;
+	padding: 0 10px 0 25px;
+	font-size: 12px;
+	font-family: Arial,"宋体";
+	display: none;
+}
+.oninfo-hint i{
+	position: absolute;
+	top: 13px;
+	left: 5px;
+	display: block;
+	width: 15px;
+	height: 15px;
+	background-image: url(../imgs/public/icons.png);
+}
+.hintback-1{
+	background-position: -280px -120px;
+}
+.err{
+	color: #e16070;
+}
+.focus{
+	margin-top:7px;
+	margin-left:12px;
+	padding-left:10px;
+	height:28px;
+	border:1px solid #e5e5e5;
+	background:#f4f4f4;
+	line-height:28px;
+}
+.focus i{
+	top:8px;
+	left:-7px;
+	width:7px;
+	height:12px;
+	background-position:-429px -116px;
+}
+.ok i{
+	background-position:-297px -120px
+}
+
+/*选填框补充样式*/
+.elect{
+	float: left;
+}
+.name-span select{
+	font-size: 12px;
+	vertical-align: middle;
+	height: 38px;
+	min-width: 90px;
+}
+#province{
+	float: left;
+}
+#city{
+	display: none;
+	float: left;
+	margin: 0 10px;
+}
+#district{
+	display: none;
+	float: left;
+}
+.addr{
+	float: left;
+}
+.ck-back{
+	background: url(../imgs/public/icons.png) -62px -28px;
+}
+
+.skip{
+	margin: 100px auto;
+	width: 1190px;
+	height: 50px;
+	line-height: 50px;
+	display: none;
+}
+.skip p{
+	text-align: center;
+	color: #0cb95f;
+	font-size: 20px;
+}
+.skip p span{
+	color: red;
+	margin: 0 5px;
+}

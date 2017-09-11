@@ -8,7 +8,6 @@
 html,body {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 }
 /* 清除内外边距 */
 body, h1, h2, h3, h4, h5, h6, p, blockquote, /* structural elements 结构元素 */
