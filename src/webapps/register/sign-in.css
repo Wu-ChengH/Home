@@ -158,17 +158,17 @@
 }
 .oninfo-hint i{
 	position: absolute;
-	top: 13px;
+	top: -1px;
 	left: 5px;
 	display: block;
 	width: 15px;
 	height: 15px;
-	background-image: url(../imgs/public/icons.png);
-}
-.hintback-1{
-	background-position: -280px -120px;
 }
 .err{
+	color: #e16070;
+}
+.err i{
+	display: block;
 	color: #e16070;
 }
 .focus{
@@ -185,12 +185,8 @@
 	left:-7px;
 	width:7px;
 	height:12px;
-	background-position:-429px -116px;
+	display: none;
 }
-.ok i{
-	background-position:-297px -120px
-}
-
 /*选填框补充样式*/
 .elect{
 	float: left;
