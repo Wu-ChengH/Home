@@ -1,4 +1,5 @@
 <div style="width:100%;height:100%;" id="login_content">
+	<div class="noLogin">不登录</div>
 	<div class="loginBox">
 		<div class="loginHeader">
 			<span class="register">用户注册</span>
@@ -324,6 +325,11 @@
             	this.$(".register").off().click(function(){
             		_this.loadpage({
 						url:"src/webapps/register/sign-in.html"
+					});
+            	});
+            	this.$(".noLogin").off().click(function(){
+            		_this.loadpage({
+						url:"src/webapps/wuchengh/box.html"
 					});
             	})
             }

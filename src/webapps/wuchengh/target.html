@@ -1,0 +1,22 @@
+<div class="">
+	<div>
+		target
+	</div>
+</div>
+
+
+<script rel="script">
+	define(function(require){
+		require("login.css");
+		var target = require("target.html");
+		var base = require("Base");
+		return base.extend({
+			onInit : function (option) {
+				window.sessionStorage.access_token = "";
+				var _this = this;
+			},
+            register : function(){
+            }
+		})
+	})
+</script>
