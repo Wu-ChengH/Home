@@ -19,10 +19,7 @@
 	  <div class="form-group">
 	    	<label class="col-sm-3 control-label">指标</label>
 	    	<div class="col-sm-9">
-		      	<select class="form-control">
-					<option>指标1</option>
-					<option>指标2</option>
-				</select>
+		      	<input type="text" class="">
 	    	</div>
 	  </div>
 	</form>
@@ -31,20 +28,6 @@
 	      	<button class="addBtn button button-primary button-box button-small"><i class="fa fa-plus"></i>添加指标</button>
 	    </div>
 	 </div>
-	<!-- <div class="oneRow">
-		<label>目标名称：</label>
-		<input type="text" class="targetName" maxlength="10" placeholder="请输入目标名称">
-	</div>
-	<div class="itemContent">
-		<div class="oneRow">
-			<label>指标：</label>
-			<select class="form-control">
-				<option>指标1</option>
-				<option>指标2</option>
-			</select>
-		</div>
-	</div>
-	<button class="addBtn button button-primary button-box button-small"><i class="fa fa-plus"></i>添加指标</button> -->
 </div>
 <script rel="script">
     define(function(require){
@@ -52,9 +35,8 @@
         require("src/webapps/target/addTarget.css");
         return base.extend({
 			onInit : function(options){
-				debugger
-				console.log(options)
 				this.initBtn();
+				this.initData(options)
 			},
 			initBtn: function(){
 				var _this = this;
@@ -71,6 +53,11 @@
 						'<div>'
 					)
 				})
+			},
+			initData: function(options){
+				$(".targetName").val(options.pageData.name);
+				$("#start").val(options.pageData.date.split("~")[0]);
+				$("#end").val(options.pageData.date.split("~")[0]);
 			}
 			
 		})

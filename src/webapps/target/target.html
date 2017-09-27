@@ -25,6 +25,32 @@
 			<div class="Bg" style="width:30%"></div>
 		</div>	
 	</div>
+	<div class="cardItem">
+		<div class="cardTop">
+		 	<div class="cardTitle">
+			 	<div class="titleText">收入绩效目标</div>
+			 	<div class="titleDate">2017-05-01~2017-05-31</div>
+		 	</div>
+		 	<div class="rate">
+		 		<span class="rate2">5.02%</span><span class="rate1">62%</span>
+		 	</div>
+		</div>
+		<div class="valueItem">
+			<div class="itemName">充值金额<span class="itemRate">（40%）</span></div>
+			<div class="itemValue">1000000</div>
+			<div class="Bg" style="width:40%"></div>
+		</div>
+		<div class="valueItem">
+			<div class="itemName">成功订单数<span class="itemRate">（60%）</span></div>
+			<div class="itemValue">30000</div>
+			<div class="Bg" style="width:60%"></div>
+		</div>
+		<div class="valueItem">
+			<div class="itemName">流水金额<span class="itemRate">（30%）</span></div>
+			<div class="itemValue">3000000</div>
+			<div class="Bg" style="width:30%"></div>
+		</div>	
+	</div>
 	<div class="btnGroup">
     	<button class="editBtn button button-raised button-primary button-small">编辑目标</button>
     	<button class="newBtn button button-raised button-primary button-small">添加目标</button>
@@ -38,6 +64,7 @@
         return base.extend({
 			onInit : function(options){
 				this.initBtn();
+				this.initData();
 			},
 			initBtn: function(){
 				var _this = this;
@@ -53,8 +80,60 @@
                         theme : "blue",
                         width : 600,
                         height : 520,
-                        btn : []
+                        btn : [],
+                        data:{}
                     });
+				});
+
+				this.$(".editBtn").click(function(){
+					if ($(".compile").length == 1) {
+						var normData = $(".compile").find(".valueItem"),
+							normDatas = [];
+						for(var i=0; i<normData.length; i++) {
+							normDatas.push({
+								itemName:$($(".compile").find(".valueItem")[i]).children(".itemName").text(),
+								itemValue:$($(".compile").find(".valueItem")[i]).children(".itemValue").text()
+							})
+						}
+
+						var data = {
+							name:$(".compile").find(".titleText").text(),
+							date:$(".compile").find(".titleDate").text(),
+							norm:normDatas
+						};
+						_this.$('.btnGroup').hide();
+						_this.loadDialog({
+	                        url : "src/webapps/target/editTarget.html",
+	                        id : "targetDialogEdit",
+	                        title : "编辑目标",
+	                        theme : "blue",
+	                        width : 600,
+	                        height : 520,
+	                        btn : [],
+	                        data:data
+	                    });
+					} else{
+						alert("请选择编辑对象")
+					}
+				});
+
+				//切换选中对象
+				this.$(".cardItem").click(function(){
+					if ($(this).attr("class").indexOf("compile") < 0) {
+						$(".compile").removeClass("compile");
+						$(this).addClass("compile");
+					} else{
+						$(this).removeClass("compile");
+					}
+				});
+			},
+			initData: function(){
+				S.request({
+					url:"http://loxfteam.320.io/metric/dataQuery/getTargetData",
+					type:"GET",
+					success:function(data){
+						
+					}
 				})
 			}
 		})
